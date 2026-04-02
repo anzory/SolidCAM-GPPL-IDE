@@ -1,0 +1,133 @@
+{
+  "name": "solidcam-gppl-ide",
+  "displayName": "SolidCAM GPPL IDE",
+  "description": "Language support for SolidCAM GPPL postprocessor files (.gpp)",
+  "version": "0.2.0",
+  "publisher": "anzory",
+  "author": {
+    "name": "Andrey Zorin"
+  },
+  "icon": "images/icon.png",
+  "license": "SEE LICENSE IN LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/solidcam-gppl/solidcam-gppl-ide"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Linters",
+    "Snippets"
+  ],
+  "keywords": [
+    "gppl",
+    "solidcam",
+    "postprocessor",
+    "cnc",
+    "gpp"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [],
+  "contributes": {
+    "languages": [
+      {
+        "id": "gppl",
+        "aliases": [
+          "GPPL",
+          "SolidCAM GPPL",
+          "General Post Processor Language"
+        ],
+        "extensions": [
+          ".gpp"
+        ],
+        "icon": {
+          "light": "./images/icon.png",
+          "dark": "./images/icon.png"
+        },
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "gppl",
+        "scopeName": "source.gppl",
+        "path": "./syntaxes/gppl.tmLanguage.json"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "SolidCAM GPPL",
+      "properties": {
+        "solidcam-gppl.trace.server": {
+          "type": "string",
+          "enum": [
+            "off",
+            "messages",
+            "verbose"
+          ],
+          "default": "off",
+          "description": "Traces the communication between VS Code and the GPPL language server."
+        }
+      }
+    },
+    "configurationDefaults": {
+      "editor.semanticHighlighting.enabled": true,
+      "[gppl]": {
+        "editor.semanticHighlighting.enabled": true
+      }
+    },
+    "semanticTokenScopes": [
+      {
+        "language": "gppl",
+        "scopes": {
+          "variable": [
+            "variable.other.gppl"
+          ],
+          "variable.declaration": [
+            "variable.other.declaration.gppl"
+          ],
+          "variable.readonly": [
+            "variable.other.constant.gppl"
+          ],
+          "function": [
+            "entity.name.function.gppl"
+          ],
+          "function.declaration": [
+            "entity.name.function.definition.gppl"
+          ],
+          "parameter": [
+            "variable.parameter.gppl"
+          ],
+          "parameter.declaration": [
+            "variable.parameter.declaration.gppl"
+          ],
+          "namespace": [
+            "entity.name.namespace.gppl"
+          ],
+          "class": [
+            "entity.name.type.class.gppl"
+          ]
+        }
+      }
+    ],
+    "commands": [
+      {
+        "command": "solidcam-gppl.openLogs",
+        "title": "SolidCAM GPPL: Открыть файл логов",
+        "category": "SolidCAM GPPL"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "solidcam-gppl.openLogs"
+        }
+      ]
+    }
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  }
+}

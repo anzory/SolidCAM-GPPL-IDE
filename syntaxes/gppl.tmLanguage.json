@@ -1,0 +1,178 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "GPPL",
+  "scopeName": "source.gppl",
+  "fileTypes": [
+    "gpp"
+  ],
+  "patterns": [
+    {
+      "include": "#comment"
+    },
+    {
+      "include": "#string"
+    },
+    {
+      "include": "#procedure-name"
+    },
+    {
+      "include": "#keywords-control"
+    },
+    {
+      "include": "#keywords-type"
+    },
+    {
+      "include": "#keywords-scope"
+    },
+    {
+      "include": "#keywords-builtin"
+    },
+    {
+      "include": "#functions-numeric"
+    },
+    {
+      "include": "#functions-string"
+    },
+    {
+      "include": "#constants-boolean"
+    },
+    {
+      "include": "#constants-numeric"
+    },
+    {
+      "include": "#operators"
+    },
+    {
+      "include": "#code-generation"
+    }
+  ],
+  "repository": {
+    "comment": {
+      "name": "comment.line.semicolon.gppl",
+      "match": ";.*$"
+    },
+    "string": {
+      "patterns": [
+        {
+          "name": "string.quoted.single.gppl",
+          "begin": "'",
+          "end": "'",
+          "patterns": [
+            {
+              "name": "constant.character.escape.gppl",
+              "match": "\\\\[\"'\\\\rntxh]"
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.double.gppl",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.gppl",
+              "match": "\\\\[\"'\\\\rntxh]"
+            }
+          ]
+        }
+      ]
+    },
+    "procedure-name": {
+      "name": "entity.name.function.gppl",
+      "match": "@[a-zA-Z][a-zA-Z0-9_]*|endp"
+    },
+    "keywords-control": {
+      "name": "keyword.control.gppl",
+      "match": "(?i)\\b(if|then|elseif|else|endif|while|endw|return|abort|exit|break|call|inc)\\b"
+    },
+    "keywords-type": {
+      "name": "entity.name.type.class.gppl",
+      "match": "(?i)\\b(integer|numeric|logical|string)\\b"
+    },
+    "keywords-scope": {
+      "name": "entity.name.namespace.gppl",
+      "match": "(?i)\\b(global|local)\\b"
+    },
+    "keywords-builtin": {
+      "name": "keyword.other.gppl",
+      "match": "(?i)\\b(print|input|trace|nb|nl|col|colrel|active|change|even|odd)\\b"
+    },
+    "functions-numeric": {
+      "name": "support.function.numeric.gppl",
+      "match": "(?i)\\b(abs|acos|adims|alen|ang|asin|asize|atan|atan2|cos|dist|exp|frac|instr|int|log|log10|mod|norm360|pow|round|round2val|sign|sin|sqrt|square|strlen|tan|todeg|tonum|torad)\\b"
+    },
+    "functions-string": {
+      "name": "support.function.string.gppl",
+      "match": "(?i)\\b(date|dup|left|lower|replace|rev|right|space|substr|time|tostr|trim|upper)\\b"
+    },
+    "constants-boolean": {
+      "name": "constant.language.boolean.gppl",
+      "match": "(?i)\\b(true|false)\\b"
+    },
+    "constants-numeric": {
+      "patterns": [
+        {
+          "name": "constant.numeric.scientific.gppl",
+          "match": "\\b\\d*\\.\\d+[eE][+-]?\\d+\\b|\\b\\d+\\.[eE][+-]?\\d+\\b"
+        },
+        {
+          "name": "constant.numeric.float.gppl",
+          "match": "\\b\\d*\\.\\d+\\b|\\b\\d+\\.\\b"
+        },
+        {
+          "name": "constant.numeric.integer.gppl",
+          "match": "\\b\\d+\\b"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.comparison.gppl",
+          "match": "(?i)\\b(eq|ne|le|ge|lt|gt)\\b|==|!=|<>|<=|>=|<|>"
+        },
+        {
+          "name": "keyword.operator.logical.gppl",
+          "match": "(?i)\\b(and|or|not)\\b|!"
+        },
+        {
+          "name": "keyword.operator.assignment.gppl",
+          "match": "(?<![=!<>])=(?!=)"
+        },
+        {
+          "name": "keyword.operator.arithmetic.gppl",
+          "match": "[+\\-*/^]"
+        }
+      ]
+    },
+    "code-generation": {
+      "name": "meta.code-generation.gppl",
+      "begin": "\\{",
+      "end": "\\}",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.section.block.begin.gppl"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.section.block.end.gppl"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#comment"
+        },
+        {
+          "include": "#string"
+        },
+        {
+          "include": "#constants-numeric"
+        },
+        {
+          "include": "#keywords-builtin"
+        }
+      ]
+    }
+  }
+}
