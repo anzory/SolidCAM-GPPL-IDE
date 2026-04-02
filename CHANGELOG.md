@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.3.0] — 2026-04-03
+
+### Added
+- Document Symbols (Outline panel, Breadcrumbs, Ctrl+Shift+O)
+  - Hierarchical: procedures → parameters + variables (global & local)
+- Signature Help on procedure calls (trigger: `(` and `,`)
+- Completion after `call` — only procedures with snippet insertion
+- Document Highlight (definition + references highlighting)
+- Folding Ranges (proc/endp, if/endif, while/endw, comment blocks)
+- FullRange for procedures (accurate folding and Outline)
+
+### Changed
+- Completion: procedures show signature in detail
+- FindProcedureAtPosition uses FullRange instead of heuristic
+- Prod mode resets trace to `off` if left from dev session
+
 ## [0.2.0] — 2026-04-02
 
 ### Added

@@ -8,8 +8,11 @@ Language support for SolidCAM GPPL postprocessor files (`.gpp`) in Visual Studio
 - **Go to Definition** (F12 / Ctrl+Click)
 - **Find All References** (Shift+F12)
 - **Rename Symbol** (F2) — scope-aware, renames definition + all references
+- **Document Symbols** — Outline panel, Breadcrumbs, Ctrl+Shift+O
+- **Signature Help** — parameter hints on procedure calls
 - **Hover** — symbol kind, type, scope, reference count
-- **Auto-completion** — keywords, built-in functions, user-defined symbols (scope-aware)
+- **Auto-completion** — keywords, built-in functions, scope-aware symbols, procedure snippets after `call`
+- **Folding Ranges** — proc/endp, if/endif, while/endw, comment blocks
 - **Diagnostics** — parse errors + semantic warnings (redeclaration)
 
 ## Installation
