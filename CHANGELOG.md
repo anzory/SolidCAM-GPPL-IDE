@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.4.0] — 2026-04-03
+
+### Added
+- **System Catalog** — 950+ system variables and 94 system procedures from SolidCAM reference
+  - Completion with type and description
+  - Hover with summary from catalog
+  - Semantic tokens: `defaultLibrary` + `readonly` modifiers for system symbols
+  - Lazy registration: system symbols resolved on first reference in user code
+- **Document Formatting** (Shift+Alt+F) — CST-based formatter
+  - Indentation: 2 spaces per level (proc body, if/while blocks)
+  - Operator spacing: `=`, `==`, `+`, `-`, `*`, `/`, comparisons
+  - Power `^` without spaces: `x^2`
+  - Unary sign without trailing space: `-x`
+  - Preserves empty lines, comments, string literals
+  - Only formats files with no parse errors
+
+### Changed
+- System variable descriptions cleaned: 207 duplicate entries merged into single descriptions
+- Embedded JSON resources (variables + procedures) loaded at server startup
+
 ## [0.3.0] — 2026-04-03
 
 ### Added
