@@ -1,5 +1,23 @@
 # Changelog
 
+## [0.5.0] — 2026-04-06
+
+### Added
+- **Full Semantic Highlighting** — all syntax highlighting now provided by LSP instead of TextMate
+  - Keywords, operators, numbers, strings, comments, built-in functions
+  - TextMate grammar reduced to minimal (comments + strings for pre-LSP fallback)
+  - No more conflicts between TextMate and LSP highlighting
+- **Humanized Diagnostics** — clear, context-aware error messages instead of raw ANTLR output
+  - Rule invocation stack for precise context (e.g., "Missing 'endif' - 'if' block is not closed before 'endp'")
+  - Missing closing parenthesis detected from grammar context
+  - Unterminated string literal detection
+  - Type keyword set recognition (e.g., "Expected a type keyword (integer, numeric, logical, string)")
+- **Cascading Error Suppression** — lexer errors no longer produce misleading parser error cascades
+
+### Changed
+- System variable redeclaration severity changed from Warning to Error (matches SolidCAM runtime behavior)
+- Parser service now returns token stream for full semantic token coverage
+
 ## [0.4.0] — 2026-04-03
 
 ### Added
