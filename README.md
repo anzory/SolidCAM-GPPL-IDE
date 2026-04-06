@@ -2,63 +2,114 @@
 
 Language support for SolidCAM GPPL postprocessor files (`.gpp`) in Visual Studio Code.
 
+> **Early Preview** — the extension is in active development. Some features may be incomplete. Your [feedback and bug reports](https://github.com/anzory/SolidCAM-GPPL-IDE/issues) are very welcome!
+
+![Hero](images/hero.png)
+
+---
+
 ## Features
 
-- **Semantic highlighting** — variables, procedures, parameters, types, scope keywords
-- **Go to Definition** (F12 / Ctrl+Click)
-- **Find All References** (Shift+F12)
-- **Rename Symbol** (F2) — scope-aware, renames definition + all references
-- **Document Symbols** — Outline panel, Breadcrumbs, Ctrl+Shift+O
-- **Signature Help** — parameter hints on procedure calls
-- **Hover** — symbol kind, type, scope, reference count
-- **Auto-completion** — keywords, built-in functions, scope-aware symbols, procedure snippets after `call`
-- **Folding Ranges** — proc/endp, if/endif, while/endw, comment blocks
-- **Document Formatting** (Shift+Alt+F) — automatic indentation and operator spacing
-- **Diagnostics** — parse errors + semantic warnings (redeclaration)
-- **System Catalog** — 950+ system variables and 94 system procedures with descriptions
+### Semantic Highlighting & Hover
+
+All syntax highlighting is provided by the language server — variables, procedures, parameters, types, keywords, operators, built-in functions and system variables are color-coded by meaning, not just pattern matching.
+
+Hover over any symbol to see its kind, type, scope, and reference count. System variables show a description from the SolidCAM reference.
+
+### Auto-Completion
+
+Context-aware suggestions for keywords, built-in functions, your own variables and procedures, plus **950+ SolidCAM system variables** and **94 system procedures** with descriptions.
+
+![Completion](images/completion.gif)
+
+### Go to Definition & Find All References
+
+**F12** / **Ctrl+Click** — jump to where a variable or procedure is defined.
+**Shift+F12** — see all usages across the file.
+
+![Go to Definition](images/goto-definition.gif)
+
+### Rename Symbol
+
+**F2** — rename a variable or procedure across the entire file. Scope-aware: local renames stay local.
+
+![Rename](images/rename.gif)
+
+### Diagnostics
+
+Parse errors with clear, context-aware messages. Semantic checks: undeclared variables, redeclarations, system variable conflicts.
+
+![Diagnostics](images/diagnostics.png)
+
+### Document Formatting
+
+**Shift+Alt+F** — automatic indentation and operator spacing based on the parse tree.
+
+![Formatting](images/formatting.gif)
+
+### Signature Help
+
+Parameter hints when calling procedures — see expected argument types.
+
+![Signature Help](images/signature-help.png)
+
+### And More
+
+- **Document Outline** — see the structure of your postprocessor (Ctrl+Shift+O)
+- **Breadcrumbs** — navigate by procedure name
+- **Folding** — collapse `proc/endp`, `if/endif`, `while/endw`, comment blocks
+- **System Catalog** — built-in reference for SolidCAM 2022 system variables and procedures
+
+---
 
 ## Formatting Rules
 
-The formatter uses the GPPL parse tree (CST) for precise formatting. Trigger with **Shift+Alt+F** or via the command palette.
+The formatter uses the GPPL parse tree (CST) for precise formatting. Only runs on files with no parse errors.
 
-**Indentation** (2 spaces per level):
-- Procedure body (`@proc` ... `endp`) — indent level 1
-- `if` / `elseif` / `else` / `endif` — keywords at current level, body +1
-- `while` / `endw` — keyword at current level, body +1
-- Nested blocks increase indent cumulatively
+| Rule | Example |
+|------|---------|
+| Indentation | 2 spaces per nesting level |
+| Assignment | `x = 1` |
+| Comparison | `x == 1`, `x != 2`, `x <= 10` |
+| Arithmetic | `x + 1`, `y * 2` |
+| Word operators | `x eq 1`, `a and b` |
+| Power `^` | `x^2` (no spaces) |
+| Unary sign | `z = -x + 2` (no space after sign) |
+| Colon `:` | `result:'+3.3'` (no spaces) |
+| Comma `,` | `f(a, b)` (space after) |
 
-**Operator spacing** (one space on each side):
-- Assignment: `x = 1`
-- Comparison: `==`, `!=`, `<>`, `<=`, `>=`, `<`, `>`
-- Arithmetic: `+`, `-`, `*`, `/`
-- Word operators: `and`, `or`, `not`, `eq`, `ne`, `lt`, `gt`, `le`, `ge`
+Empty lines, comments, and string literals are preserved as-is.
 
-**Exceptions:**
-- Power `^` — no spaces: `x^2`
-- Unary `-` / `+` — no space after sign: `z = -x + 2`
-- Colon `:` — no spaces (format specifier): `result:'+3.3'`
-- Comma `,` — space after, no space before: `f(a, b)`
-
-**Preserved as-is:**
-- Empty lines
-- Comments
-- String literals
-
-> The formatter only runs on files with no parse errors.
+---
 
 ## Installation
 
-### From VS Marketplace
+### From VSIX (Offline)
 
-Search for **SolidCAM GPPL IDE** in the Extensions panel.
+1. Download `solidcam-gppl-ide-x.y.z.vsix` from [GitHub Releases](https://github.com/anzory/SolidCAM-GPPL-IDE/releases)
+2. In VSCode: Extensions panel → `...` → **Install from VSIX...**
 
-### Offline (VSIX)
-
-Download the `.vsix` file from [GitHub Releases](https://github.com/anzory/solidcam-gppl-ide/releases) and install:
-
+Or via command line:
 ```
-code --install-extension anzory.solidcam-gppl-ide-X.Y.Z.vsix
+code --install-extension solidcam-gppl-ide-x.y.z.vsix
 ```
+
+### Requirements
+
+- Windows (SolidCAM is Windows-only)
+- VSCode 1.75+
+
+---
+
+## Feedback
+
+This extension is built for postprocessor developers. If you work with GPPL, your input is invaluable:
+
+- **Bug reports** — [open an issue](https://github.com/anzory/SolidCAM-GPPL-IDE/issues)
+- **Feature requests** — what would save you the most time?
+- **General impressions** — is this heading in the right direction?
+
+---
 
 ## License
 
