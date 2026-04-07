@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.5.2] — 2026-04-07
+
+### Fixed
+- Corrected `repository.url` in package.json to point to the actual GitHub repo
+
 ## [0.5.1] — 2026-04-07
 
 ### Fixed
