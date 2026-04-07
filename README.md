@@ -1,4 +1,9 @@
-# SolidCAM GPPL IDE
+# SolidCAM Postprocessor IDE
+
+[![Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/anzory.vscode-gppl-ide?label=marketplace)](https://marketplace.visualstudio.com/items?itemName=anzory.vscode-gppl-ide)
+[![Installs](https://img.shields.io/visual-studio-marketplace/i/anzory.vscode-gppl-ide)](https://marketplace.visualstudio.com/items?itemName=anzory.vscode-gppl-ide)
+[![Downloads](https://img.shields.io/visual-studio-marketplace/d/anzory.vscode-gppl-ide)](https://marketplace.visualstudio.com/items?itemName=anzory.vscode-gppl-ide)
+[![Rating](https://img.shields.io/visual-studio-marketplace/r/anzory.vscode-gppl-ide)](https://marketplace.visualstudio.com/items?itemName=anzory.vscode-gppl-ide&ssr=false#review-details)
 
 Language support for SolidCAM GPPL postprocessor files (`.gpp`) in Visual Studio Code.
 
@@ -37,9 +42,19 @@ Context-aware suggestions for keywords, built-in functions, your own variables a
 
 ### Diagnostics
 
-Parse errors with clear, context-aware messages. Semantic checks: undeclared variables, redeclarations, system variable conflicts.
+Parse errors with clear, context-aware messages. Semantic checks: undeclared variables, redeclarations, system variable conflicts. Every diagnostic carries a stable code (`GPPL1xxx` syntax, `GPPL2xxx` semantic).
 
 ![Diagnostics](https://github.com/anzory/SolidCAM-GPPL-IDE/raw/master/images/diagnostics.png)
+
+### Quick Fixes
+
+**Ctrl+.** on a diagnostic to apply a one-click fix:
+
+- Insert missing `endp` / `endif` / `endw`
+- Close an unterminated string literal
+- Insert a missing `}` for a code generation block
+- Rename a variable that conflicts with a system name
+- Remove a duplicate variable declaration
 
 ### Document Formatting
 
@@ -84,15 +99,25 @@ Empty lines, comments, and string literals are preserved as-is.
 
 ## Installation
 
+### From VS Marketplace (Recommended)
+
+Search for **SolidCAM Postprocessor IDE** in the Extensions panel (Ctrl+Shift+X), or install directly:
+
+```
+code --install-extension anzory.vscode-gppl-ide
+```
+
+Or visit the [marketplace page](https://marketplace.visualstudio.com/items?itemName=anzory.vscode-gppl-ide).
+
 ### From VSIX (Offline)
 
-1. Download `solidcam-gppl-ide-x.y.z.vsix` from [GitHub Releases](https://github.com/anzory/SolidCAM-GPPL-IDE/releases)
+1. Download `vscode-gppl-ide-x.y.z.vsix` from [GitHub Releases](https://github.com/anzory/SolidCAM-GPPL-IDE/releases)
 2. In VSCode: Extensions panel → `...` → **Install from VSIX...**
 
 Or via command line:
 
 ```
-code --install-extension solidcam-gppl-ide-x.y.z.vsix
+code --install-extension vscode-gppl-ide-x.y.z.vsix
 ```
 
 ### Requirements

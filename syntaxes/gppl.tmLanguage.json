@@ -6,12 +6,8 @@
     "gpp"
   ],
   "patterns": [
-    {
-      "include": "#comment"
-    },
-    {
-      "include": "#string"
-    }
+    { "include": "#comment" },
+    { "include": "#string" }
   ],
   "repository": {
     "comment": {
@@ -23,23 +19,17 @@
         {
           "name": "string.quoted.single.gppl",
           "begin": "'",
-          "end": "'",
+          "end": "'|$",
           "patterns": [
-            {
-              "name": "constant.character.escape.gppl",
-              "match": "\\\\[\"'\\\\rntxh]"
-            }
+            { "name": "constant.character.escape.gppl", "match": "\\\\[\"'\\\\rntxh]" }
           ]
         },
         {
           "name": "string.quoted.double.gppl",
           "begin": "\"",
-          "end": "\"",
+          "end": "\"|$",
           "patterns": [
-            {
-              "name": "constant.character.escape.gppl",
-              "match": "\\\\[\"'\\\\rntxh]"
-            }
+            { "name": "constant.character.escape.gppl", "match": "\\\\[\"'\\\\rntxh]" }
           ]
         }
       ]
