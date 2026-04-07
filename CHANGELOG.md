@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.5.3] — 2026-04-07
+
+### Changed
+- Renamed extension `name` from `solidcam-gppl-ide` to `vscode-gppl-ide` (marketplace name was already taken)
+
 ## [0.5.2] — 2026-04-07
 
 ### Fixed
