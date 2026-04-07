@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.5.1] — 2026-04-07
+
+### Fixed
+- README image links now use absolute GitHub URLs (marketplace doesn't support relative paths)
+
 ## [0.5.0] — 2026-04-06
 
 ### Added

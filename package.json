@@ -2,7 +2,7 @@
   "name": "solidcam-gppl-ide",
   "displayName": "SolidCAM GPPL IDE",
   "description": "Language support for SolidCAM GPPL postprocessor files (.gpp)",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "publisher": "anzory",
   "author": {
     "name": "Andrey Zorin"
