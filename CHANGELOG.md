@@ -1,5 +1,32 @@
 # Changelog
 
+## [0.6.1] — 2026-04-08
+
+### Changed
+- **Parser: SLL-only mode (no LL fallback).** Performance investigation
+  (2026-04-08) showed that the previous SLL → LL fallback strategy degraded
+  4× on large files with syntax errors (median parse 285 ms → 65 ms on a
+  4768-line file with 20 errors). LL re-parse with full-context lookahead
+  was the sole bottleneck; SLL with `DefaultErrorStrategy` is sufficient for
+  GPPL — all 35 diagnostic and code-action tests pass identically. See
+  decision 028.
+
+### Fixed
+- **Production server log file is now actually created.** Previously the Serilog
+  minimum level was set to `Error`, silently dropping all `[perf]` and
+  diagnostic `Information` entries — the log file never appeared on disk.
+- **Development server logs are now visible in the VS Code Output channel.**
+  Switched the dev logger to a stderr-based console provider so the
+  `LanguageClient` automatically routes them into the channel.
+- **"Open Server Logs" command** now finds the correct log file — the client
+  filename pattern (`yyyyMMdd`) is aligned with Serilog's rolling default.
+
+### Added
+- **Performance instrumentation** on the LSP hot path: `[perf] UpdateDocument`
+  (parse + symbol table), `[perf] PublishDiagnostics`, and
+  `[perf] SemanticTokens` log entries with timings, line counts, and token
+  counts. Always-on observability for diagnosing future regressions.
+
 ## [0.6.0] — 2026-04-08
 
 ### Added
