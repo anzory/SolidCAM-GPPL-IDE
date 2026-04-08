@@ -1,5 +1,37 @@
 # Changelog
 
+## [0.6.2] — 2026-04-08
+
+### Fixed
+- **Grammar: false-positive `GPPL1099 "Unexpected token"` in code generation
+  blocks.** Two real-world SolidCAM postprocessor patterns were rejected by
+  the parser:
+  - **Multiple formatted outputs in one `{ ... }` block separated by
+    juxtaposition** — e.g. `{ nl, ';'tool_number:'<T>z2.0(p)!=' ': 'tool_name_comment'' }`.
+    Root cause: `unconditionalCodeGenerationMember: unformattedOutput | formattedOutput`
+    was not left-factored, and SLL prediction mode (introduced in v0.6.1) cannot
+    resolve such ambiguities. Rewritten as
+    `unconditionalCodeGenerationMember: unformattedOutput formatOfOutput?`.
+  - **Explicit `+` concatenation inside `{ ... }` blocks** — e.g.
+    `{ nl, ';HEADER ' + upper(version) + ' ' + date }`. The grammar previously
+    only allowed juxtaposition (`'a' 'b' c`); the `Plus` operator was missing.
+    `codeGenerationStringExpression` now accepts `(Plus? stringExpressionMember)*`
+    so both juxtaposition and explicit `+` work.
+- **Test harness: parser tests now use `PredictionMode.SLL`** to match
+  production. Previously they ran in implicit LL mode and silently masked
+  SLL-specific grammar bugs (the v0.6.1 release was published assuming
+  35/35 tests guaranteed SLL correctness — that assumption was wrong).
+
+### Added
+- **5 regression tests** in `GpplParserTests` covering both grammar bugs,
+  including the exact strings from `test/fixtures/large_file.gpp:515 / 528 / 1108`,
+  plus an anti-regression test ensuring the old juxtaposition style still parses.
+
+### Changed
+- **Decision 029** documents the left-factoring rule and the codegen `+`
+  fix; **decision 028** corrected with a note that the original "tests pass
+  identically" claim was based on a faulty test harness.
+
 ## [0.6.1] — 2026-04-08
 
 ### Changed
