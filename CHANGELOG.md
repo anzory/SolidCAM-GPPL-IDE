@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.6.3] — 2026-04-09
+
+### Added
+- **Encoding diagnostic `GPPL3001`.** Warns when the file contains characters
+  that cannot be saved in the target ANSI encoding. The diagnostic points at
+  the first offending character and reports the total count.
+- **Setting `gppl.encoding`** (`windows1252` | `windows1251`, default
+  `windows1252`). Selects the target ANSI encoding used by `GPPL3001`.
+  Changes take effect immediately — all open documents are re-diagnosed.
+- **Default editor encoding for `.gpp`** set to Windows-1252 via
+  `configurationDefaults` (`[gppl]` → `files.encoding: windows1252`,
+  `files.autoGuessEncoding: false`). Users working with Cyrillic
+  postprocessors should override both settings:
+  ```json
+  "[gppl]": { "files.encoding": "windows1251" },
+  "gppl.encoding": "windows1251"
+  ```
+  The diagnostic intentionally does not offer a Quick Fix — use VS Code's
+  built-in `Save with Encoding` / `Reopen with Encoding` to switch.
+
 ## [0.6.2] — 2026-04-08
 
 ### Fixed

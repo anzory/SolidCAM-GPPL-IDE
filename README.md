@@ -42,7 +42,7 @@ Context-aware suggestions for keywords, built-in functions, your own variables a
 
 ### Diagnostics
 
-Parse errors with clear, context-aware messages. Semantic checks: undeclared variables, redeclarations, system variable conflicts. Every diagnostic carries a stable code (`GPPL1xxx` syntax, `GPPL2xxx` semantic).
+Parse errors with clear, context-aware messages. Semantic checks: undeclared variables, redeclarations, system variable conflicts. File encoding check (`GPPL3001`) warns about characters not representable in the target ANSI encoding. Every diagnostic carries a stable code (`GPPL1xxx` syntax, `GPPL2xxx` semantic, `GPPL3xxx` encoding).
 
 ![Diagnostics](https://github.com/anzory/SolidCAM-GPPL-IDE/raw/master/images/diagnostics.png)
 
@@ -94,6 +94,34 @@ The formatter uses the GPPL parse tree (CST) for precise formatting. Only runs o
 | Comma `,`      | `f(a, b)` (space after)            |
 
 Empty lines, comments, and string literals are preserved as-is.
+
+---
+
+## File Encoding
+
+SolidCAM reads `.gpp` files in the system's ANSI codepage. The extension defaults `.gpp` to Windows-1252 and warns (`GPPL3001`) about characters that cannot be saved in the selected encoding.
+
+### For Cyrillic postprocessors (Windows-1251)
+
+Add to your User or Workspace `settings.json`:
+
+```json
+"[gppl]": {
+  "files.encoding": "windows1251"
+},
+"gppl.encoding": "windows1251"
+```
+
+`files.encoding` tells VS Code how to read/write the file; `gppl.encoding` tells the language server which characters to accept. Both should match.
+
+### Switching encoding of an open file
+
+Use VS Code's built-in commands:
+
+- **`Change File Encoding → Reopen with Encoding`** — re-read the file bytes with a different codepage (useful when a file opens with mojibake).
+- **`Change File Encoding → Save with Encoding`** — re-save the file in a different codepage.
+
+The extension intentionally does not offer per-character Quick Fixes — re-encoding the whole file is almost always the right action.
 
 ---
 

@@ -2,7 +2,7 @@
   "name": "vscode-gppl-ide",
   "displayName": "SolidCAM Postprocessor IDE",
   "description": "Language support for SolidCAM GPPL postprocessor files (.gpp)",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "publisher": "anzory",
   "author": {
     "name": "Andrey Zorin"
@@ -69,13 +69,28 @@
           ],
           "default": "off",
           "description": "Traces the communication between VS Code and the GPPL language server."
+        },
+        "gppl.encoding": {
+          "type": "string",
+          "enum": [
+            "windows1252",
+            "windows1251"
+          ],
+          "enumDescriptions": [
+            "Windows-1252 (Western European, default ANSI on most systems)",
+            "Windows-1251 (Cyrillic)"
+          ],
+          "default": "windows1252",
+          "description": "Target encoding for .gpp files. SolidCAM runtime reads files in the system ANSI codepage. Diagnostic GPPL3001 warns about characters that cannot be represented in the selected encoding. This value should match files.encoding for [gppl]."
         }
       }
     },
     "configurationDefaults": {
       "editor.semanticHighlighting.enabled": true,
       "[gppl]": {
-        "editor.semanticHighlighting.enabled": true
+        "editor.semanticHighlighting.enabled": true,
+        "files.encoding": "windows1252",
+        "files.autoGuessEncoding": false
       },
       "editor.semanticTokenColorCustomizations": {
         "rules": {
@@ -128,7 +143,7 @@
     "commands": [
       {
         "command": "solidcam-gppl.openLogs",
-        "title": "SolidCAM GPPL: Открыть файл логов",
+        "title": "SolidCAM GPPL: Open log file",
         "category": "SolidCAM GPPL"
       }
     ],
