@@ -1,5 +1,59 @@
 # Changelog
 
+## [0.6.4] — 2026-04-09
+
+### Added
+- **Doc-comments from trailing comments.** Any trailing comment on a
+  declaration line is now exposed as hover documentation and shown in
+  completion items. Works for global/local variables, procedures, and
+  applies to all variables in a multi-declaration:
+  ```gppl
+  global integer chuck_bypass  ; bypass chuck lock (lathe ops)
+  global numeric x, y, z       ; coordinates  (applies to x, y, z)
+
+  @set_units                   ; switches between mm and inches
+  endp
+  ```
+  System symbols keep their documentation from the built-in catalog and
+  are not overridden by user comments.
+- **`;#region` / `;#endregion` folding markers** (C#-style). These are
+  plain GPPL comments and can wrap any range — several procedures,
+  a part of a procedure body, or a block of global code. Purely visual,
+  no semantic meaning. Permissive parsing: `; #region` (with spaces) also
+  works. Implemented both client-side (`language-configuration.json`) and
+  server-side (`textDocument/foldingRange`) — the latter is required
+  because VS Code does not merge folding sources and the server response
+  replaces client-side markers once the LSP session is ready.
+- **Snippet expansion for `global` / `local`.** Picking these keywords
+  from autocomplete now inserts a snippet with a type-choice placeholder
+  (`integer | numeric | logical | string`) followed by a name placeholder,
+  ensuring the declaration is always syntactically complete.
+
+### Changed
+- **Syntax highlighting: word-form logical operators** (`and`, `or`, `not`)
+  are now colored as keywords, matching how they read visually. The
+  symbolic `!` stays as an operator.
+- **Formatter preserves trailing-comment alignment.** Previously the
+  formatter collapsed all whitespace before a trailing comment to a single
+  space, breaking hand-aligned comment columns. Now the original column of
+  each trailing comment is preserved; if the reformatted code overflows
+  that column, the formatter falls back to one space to avoid overlap.
+  Block alignment (aligning comments to a shared column across adjacent
+  lines) is intentionally not implemented.
+
+### Fixed
+- **Extension no longer writes `.vscode/settings.json` into user folders.**
+  Earlier versions forced `solidcam-gppl.trace.server` via
+  `ConfigurationTarget.Workspace` on every activation, which physically
+  created or modified `.vscode/settings.json` in whatever folder the user
+  had opened. On folders under git this produced a permanently dirty
+  working tree. Trace is now driven via `client.setTrace()` after
+  `client.start()` — an in-memory `$/setTrace` LSP message with no disk
+  side-effects. In production, the trace setting is read directly from
+  user settings (default `off`) and is never overwritten. Existing
+  `.vscode/settings.json` files created by older versions are left alone;
+  users can delete them safely.
+
 ## [0.6.3] — 2026-04-09
 
 ### Added

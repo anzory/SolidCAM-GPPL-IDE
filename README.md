@@ -72,7 +72,7 @@ Parameter hints when calling procedures — see expected argument types.
 
 - **Document Outline** — see the structure of your postprocessor (Ctrl+Shift+O)
 - **Breadcrumbs** — navigate by procedure name
-- **Folding** — collapse `proc/endp`, `if/endif`, `while/endw`, comment blocks
+- **Folding** — collapse `proc/endp`, `if/endif`, `while/endw`, comment blocks, and custom `;#region NAME` / `;#endregion` markers (C#-style; works across or inside procedures, no semantic meaning)
 - **System Catalog** — built-in reference for SolidCAM 2022 system variables and procedures
 
 ---
