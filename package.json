@@ -1,8 +1,8 @@
 {
   "name": "vscode-gppl-ide",
-  "displayName": "SolidCAM Postprocessor IDE",
-  "description": "Language support for SolidCAM GPPL postprocessor files (.gpp)",
-  "version": "0.6.4",
+  "displayName": "%displayName%",
+  "description": "%description%",
+  "version": "0.6.5",
   "publisher": "anzory",
   "author": {
     "name": "Andrey Zorin"
@@ -13,6 +13,7 @@
     "type": "git",
     "url": "https://github.com/anzory/SolidCAM-GPPL-IDE"
   },
+  "l10n": "./l10n",
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -58,7 +59,7 @@
     ],
     "configuration": {
       "type": "object",
-      "title": "SolidCAM GPPL",
+      "title": "%configuration.title%",
       "properties": {
         "solidcam-gppl.trace.server": {
           "type": "string",
@@ -68,7 +69,7 @@
             "verbose"
           ],
           "default": "off",
-          "description": "Traces the communication between VS Code and the GPPL language server."
+          "description": "%configuration.trace.description%"
         },
         "gppl.encoding": {
           "type": "string",
@@ -77,11 +78,11 @@
             "windows1251"
           ],
           "enumDescriptions": [
-            "Windows-1252 (Western European, default ANSI on most systems)",
-            "Windows-1251 (Cyrillic)"
+            "%configuration.encoding.windows1252%",
+            "%configuration.encoding.windows1251%"
           ],
           "default": "windows1252",
-          "description": "Target encoding for .gpp files. SolidCAM runtime reads files in the system ANSI codepage. Diagnostic GPPL3001 warns about characters that cannot be represented in the selected encoding. This value should match files.encoding for [gppl]."
+          "description": "%configuration.encoding.description%"
         }
       }
     },
@@ -143,7 +144,7 @@
     "commands": [
       {
         "command": "solidcam-gppl.openLogs",
-        "title": "SolidCAM GPPL: Open log file",
+        "title": "%command.openLogs.title%",
         "category": "SolidCAM GPPL"
       }
     ],

@@ -1,0 +1,10 @@
+{
+  "displayName": "SolidCAM Postprocessor IDE",
+  "description": "Поддержка языка GPPL (General Post Processor Language) — подсветка синтаксиса, диагностика, IntelliSense и другое.",
+  "configuration.title": "GPPL",
+  "configuration.trace.description": "Трассировка обмена между VS Code и языковым сервером GPPL.",
+  "configuration.encoding.description": "Целевая ANSI-кодировка для файлов GPPL. Символы, непредставимые в этой кодировке, будут отмечены предупреждением.",
+  "configuration.encoding.windows1252": "Западноевропейская (по умолчанию для большинства установок SolidCAM)",
+  "configuration.encoding.windows1251": "Кириллица (для установок в России и СНГ)",
+  "command.openLogs.title": "Открыть логи сервера"
+}

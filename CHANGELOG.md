@@ -1,5 +1,27 @@
 # Changelog
 
+## [0.6.5] — 2026-04-14
+
+### Added
+- **Full internationalization (i18n).** The extension now supports English
+  (default), Russian, and German. The display language is detected
+  automatically from VS Code's `locale` setting.
+  - **System catalog translations:** all 948 system variable descriptions
+    and 94 system procedure descriptions are now available in Russian and
+    German — visible in hover tooltips and completion item details.
+  - **Server-side UI strings:** parser error messages, semantic diagnostics,
+    encoding warnings, hover labels, and completion details are localized.
+  - **Client-side strings:** extension settings, command titles, and error
+    messages are localized via `package.nls.{locale}.json` and
+    `vscode.l10n.t()`.
+- **Locale forwarding.** The VS Code display language is passed to the
+  language server via `initializationOptions.gppl.locale`, enabling
+  locale-aware responses from the first request.
+
+### Changed
+- Removed `.2022` suffix from system catalog JSON files (the data is not
+  version-year-specific).
+
 ## [0.6.4] — 2026-04-09
 
 ### Added

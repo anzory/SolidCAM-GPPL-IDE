@@ -1,0 +1,4 @@
+{
+  "SolidCAM GPPL: language server not found at {0}. Please build the server.": "SolidCAM GPPL: Sprachserver nicht gefunden unter {0}. Bitte erstellen Sie den Server.",
+  "Log file not found: {0}": "Log-Datei nicht gefunden: {0}"
+}
