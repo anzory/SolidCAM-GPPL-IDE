@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.7.0] — 2026-04-15
+
+### Added
+- **Clickable `inc` directives.** `Ctrl+Click` (or `Cmd+Click`) on the string
+  literal in `inc "filename.gpp"` now opens the referenced file. Paths are
+  resolved relative to the directory of the current `.gpp` file; absolute
+  paths are honoured as-is. Both quote styles (`"..."` and `'...'`) and
+  forward-slash subdirectories (`inc "lib/util.gpp"`) are supported. Missing
+  files silently produce no link — this milestone is navigation only; parsing
+  of included files, cross-file symbol resolution, and `@init_inc` diagnostics
+  remain planned for the multi-file workspace milestone.
+- **Smart procedure-call completion.** After typing `call `, completion items
+  for your own procedures expand into a full snippet with tab-stops over the
+  declared parameter names — e.g. selecting `@worker` for
+  `@worker(integer x, numeric y)` inserts `@worker(${1:x}, ${2:y})`.
+  Procedures without parameters insert just the name. Outside the `call`
+  context procedures are still listed as plain identifiers so the snippet
+  expansion never fires in positions where it would be syntactically invalid.
+
 ## [0.6.8] — 2026-04-15
 
 ### Added

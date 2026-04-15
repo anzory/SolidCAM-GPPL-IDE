@@ -83,11 +83,16 @@ Parameter hints when calling procedures — see expected argument types.
 
 ![Signature Help](https://github.com/anzory/SolidCAM-GPPL-IDE/raw/master/images/signature-help.png)
 
+### Clickable `inc`
+
+**Ctrl+Click** on the filename in `inc "other.gpp"` opens the referenced file. Paths are resolved relative to the directory of the current `.gpp` file (absolute paths are honoured as-is). Both quote styles and forward-slash subdirectories work.
+
 ### And More
 
 - **Document Outline** — see the structure of your postprocessor (Ctrl+Shift+O)
 - **Breadcrumbs** — navigate by procedure name
 - **Folding** — collapse `proc/endp`, `if/endif`, `while/endw`, comment blocks, and custom `;#region NAME` / `;#endregion` markers (C#-style; works across or inside procedures, no semantic meaning)
+- **Smart call completion** — after `call `, completion of your procedures expands into a snippet with tab-stops over the declared parameter names
 - **System Catalog** — built-in reference for SolidCAM 2022 system variables and procedures
 
 ---
