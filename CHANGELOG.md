@@ -1,5 +1,28 @@
 # Changelog
 
+## [0.7.1] — 2026-04-16
+
+### Fixed
+- **Procedure completion after `@` filter prefix.** Typing `call @a` used to
+  hide procedures whose name started with `a` right after `@`
+  (`@abort_posting`, `@arc`, `@axes_sync`, …) while keeping those whose name
+  had `a` after an underscore (`@wc_abs_rel`, `@get_arc_center`, …). Root
+  cause: VSCode's fuzzy scorer treats `_`, `-`, `.`, space and a few others
+  as word separators but **not `@`** — so the `a` right after `@` was
+  classified as an inner character rather than a word start, and VSCode's
+  default `matchOnWordStartOnly` mode dropped the item. The fix is two
+  synchronized edits:
+  - `language-configuration.json#wordPattern` no longer includes `@` as an
+    optional prefix. This aligns with VSCode's default `wordSeparators`,
+    which already counted `@` as a separator — the previous `@?…` pattern
+    was actually fighting the rest of the editor.
+  - Completion items for procedures (both user-defined and system-catalog)
+    now set `filterText` equal to the name without the `@` prefix. Display
+    (`label`) and insertion (`insertText`) remain `@name(...)` — only the
+    fuzzy-match input changes.
+  Typing `call @a` now shows all procedures whose name starts with `a`,
+  ranked by match quality, as expected.
+
 ## [0.7.0] — 2026-04-15
 
 ### Added
