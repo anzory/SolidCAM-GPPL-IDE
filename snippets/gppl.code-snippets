@@ -1,0 +1,59 @@
+{
+  "Procedure": {
+    "prefix": ["procedure", "proc"],
+    "body": [
+      "@${1:name}",
+      "  $0",
+      "endp"
+    ],
+    "description": "Procedure declaration"
+  },
+  "Region": {
+    "prefix": ["region", "#region"],
+    "body": [
+      ";#region ${1:name}",
+      "$0",
+      ";#endregion"
+    ],
+    "description": "Foldable region block"
+  },
+  "If-Endif": {
+    "prefix": ["if", "ife"],
+    "body": [
+      "if ${1:condition} then",
+      "  $0",
+      "endif"
+    ],
+    "description": "if ... endif"
+  },
+  "If-Else-Endif": {
+    "prefix": ["ifelse", "ifel"],
+    "body": [
+      "if ${1:condition} then",
+      "  ${2}",
+      "else",
+      "  $0",
+      "endif"
+    ],
+    "description": "if ... else ... endif"
+  },
+  "While-Endw": {
+    "prefix": ["while", "wh"],
+    "body": [
+      "while ${1:condition}",
+      "  $0",
+      "endw"
+    ],
+    "description": "while ... endw"
+  },
+  "Call": {
+    "prefix": ["call"],
+    "body": ["call @${1:procedure_name}"],
+    "description": "Call a procedure"
+  },
+  "Codegen block": {
+    "prefix": ["cg", "codegen"],
+    "body": ["{ nl, ${1:'text'} }$0"],
+    "description": "Code-generation block { nl, ... }"
+  }
+}

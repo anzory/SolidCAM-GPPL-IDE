@@ -1,5 +1,27 @@
 # Changelog
 
+## [0.6.8] — 2026-04-15
+
+### Added
+- **Base snippets** for common GPPL constructs. Type the prefix and press
+  `Tab` to expand with tab-stops at the interesting positions.
+
+  | Prefix                        | Expands to                    |
+  | ----------------------------- | ----------------------------- |
+  | `procedure` / `proc`          | `@name ... endp`              |
+  | `region` / `#region`          | `;#region ... ;#endregion`    |
+  | `if` / `ife`                  | `if cond then ... endif`      |
+  | `ifelse` / `ifel`             | `if ... then ... else ... endif` |
+  | `while` / `wh`                | `while cond ... endw`         |
+  | `call`                        | `call @procedure_name`        |
+  | `cg` / `codegen`              | `{ nl, 'text' }`              |
+
+  Snippets for `global` / `local` with a type-choice placeholder were
+  already available since v0.6.4.
+
+  Context-aware "smart" snippets (e.g. auto-filling procedure arguments
+  from the symbol table on call-site completion) are planned for v0.7.0.
+
 ## [0.6.7] — 2026-04-15
 
 ### Fixed

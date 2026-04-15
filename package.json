@@ -2,7 +2,7 @@
   "name": "vscode-gppl-ide",
   "displayName": "%displayName%",
   "description": "%description%",
-  "version": "0.6.7",
+  "version": "0.6.8",
   "publisher": "anzory",
   "author": {
     "name": "Andrey Zorin"
@@ -55,6 +55,12 @@
         "language": "gppl",
         "scopeName": "source.gppl",
         "path": "./syntaxes/gppl.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "gppl",
+        "path": "./snippets/gppl.code-snippets"
       }
     ],
     "configuration": {
