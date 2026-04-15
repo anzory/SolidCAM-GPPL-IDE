@@ -79,19 +79,20 @@ Parameter hints when calling procedures — see expected argument types.
 
 ## Formatting Rules
 
-The formatter uses the GPPL parse tree (CST) for precise formatting. Only runs on files with no parse errors.
+The formatter uses the GPPL parse tree (CST) for precise formatting. Parse errors no longer block it — valid lines are reformatted even when the file contains syntax errors. Lines where the parser lost or reordered tokens are preserved verbatim.
 
-| Rule           | Example                            |
-| -------------- | ---------------------------------- |
-| Indentation    | 2 spaces per nesting level         |
-| Assignment     | `x = 1`                            |
-| Comparison     | `x == 1`, `x != 2`, `x <= 10`      |
-| Arithmetic     | `x + 1`, `y * 2`                   |
-| Word operators | `x eq 1`, `a and b`                |
-| Power `^`      | `x^2` (no spaces)                  |
-| Unary sign     | `z = -x + 2` (no space after sign) |
-| Colon `:`      | `result:'+3.3'` (no spaces)        |
-| Comma `,`      | `f(a, b)` (space after)            |
+| Rule            | Example                              |
+| --------------- | ------------------------------------ |
+| Indentation     | 2 spaces per nesting level           |
+| Assignment      | `x = 1`                              |
+| Comparison      | `x == 1`, `x != 2`, `x <= 10`        |
+| Arithmetic      | `x + 1`, `y * 2`                     |
+| Word operators  | `x eq 1`, `a and b`                  |
+| Power `^`       | `x^2` (no spaces)                    |
+| Unary sign      | `z = -x + 2` (no space after sign)   |
+| Colon `:`       | `result:'+3.3'` (no spaces)          |
+| Comma `,`       | `f(a, b)` (space after)              |
+| Code-gen braces | `{ nl, 'G1' }` (spaces inside `{ }`) |
 
 Empty lines, comments, and string literals are preserved as-is.
 

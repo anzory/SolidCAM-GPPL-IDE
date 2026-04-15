@@ -1,5 +1,30 @@
 # Changelog
 
+## [0.6.6] — 2026-04-15
+
+### Added
+- **Mandatory space inside code-generation braces.** Formatter now requires a
+  space after `{` and before `}` in `{ ... }` blocks. Empty blocks are written
+  as `{ }`.
+  ```gppl
+  { nl, ';TOOL: ' + tool_name }    ; was: {nl, ';TOOL: ' + tool_name}
+  ```
+
+### Changed
+- **Formatter no longer bails out on parse errors.** Previously a single
+  syntax error anywhere in the file silently disabled the formatter. Now
+  the formatter runs on the best-effort parse tree and, for each line,
+  keeps the formatted version when the lexer preserved all of the line's
+  tokens; lines where tokens were lost or reordered by ANTLR error-recovery
+  are preserved verbatim. Net effect: valid procedures around a broken one
+  are still reformatted.
+
+### Fixed
+- **Line-structure preservation in error-recovered trees.** The formatter
+  now syncs its output with source token line numbers, so collapsed
+  statements (e.g. `if a==` merged with the next line during recovery)
+  no longer shift subsequent lines in the formatted output.
+
 ## [0.6.5] — 2026-04-14
 
 ### Added
