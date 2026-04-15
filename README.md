@@ -56,6 +56,21 @@ Parse errors with clear, context-aware messages. Semantic checks: undeclared var
 - Rename a variable that conflicts with a system name
 - Remove a duplicate variable declaration
 
+### Snippets
+
+Type a prefix and press **Tab** to expand common constructs with tab-stops at the places you care about:
+
+| Prefix                   | Expands to                       |
+| ------------------------ | -------------------------------- |
+| `procedure` / `proc`     | `@name ... endp`                 |
+| `global` / `local`       | `global integer name` (type choice via tab) |
+| `if` / `ife`             | `if cond then ... endif`         |
+| `ifelse` / `ifel`        | `if ... then ... else ... endif` |
+| `while` / `wh`           | `while cond ... endw`            |
+| `call`                   | `call @procedure_name`           |
+| `region` / `#region`     | `;#region ... ;#endregion`       |
+| `cg` / `codegen`         | `{ nl, 'text' }`                 |
+
 ### Document Formatting
 
 **Shift+Alt+F** — automatic indentation and operator spacing based on the parse tree.
