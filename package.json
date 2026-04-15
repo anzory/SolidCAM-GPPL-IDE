@@ -2,7 +2,7 @@
   "name": "vscode-gppl-ide",
   "displayName": "%displayName%",
   "description": "%description%",
-  "version": "0.7.2",
+  "version": "0.7.3",
   "publisher": "anzory",
   "author": {
     "name": "Andrey Zorin"

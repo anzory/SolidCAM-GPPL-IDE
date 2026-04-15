@@ -1,5 +1,28 @@
 # Changelog
 
+## [0.7.3] — 2026-04-16
+
+### Added
+- **Snippet completion for built-in functions.** Picking a built-in
+  function from the completion list now inserts a parameterised call
+  skeleton with Tab-stops — e.g. `substr` expands to
+  `substr(${1:string}, ${2:from}, ${3:len})`, `atan2` to
+  `atan2(${1:y}, ${2:x})`, `abs` to `abs(${1:number})`. Parameter names
+  are sourced from the GPPL specification. Optional parameters (e.g. the
+  `[val]` of `instr`, `[, k]` of `replace`, `:format` of `tostr`) are
+  intentionally omitted from the snippet — experienced users can add
+  them by hand, and beginners aren't forced to delete a placeholder they
+  don't need.
+- **Logical functions in completion.** `active`, `change`, `even`, and
+  `odd` were missing from the completion list entirely. They are now
+  offered (also with snippet skeletons) alongside numeric and string
+  functions.
+
+### Fixed
+- **Parenless built-ins.** `date` and `time` are parameterless and, per
+  the GPPL grammar, are called **without** parentheses (`date`, not
+  `date()`). The completion now inserts just the name in that case.
+
 ## [0.7.2] — 2026-04-16
 
 ### Fixed
