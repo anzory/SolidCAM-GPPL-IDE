@@ -1,5 +1,29 @@
 # Changelog
 
+## [0.6.7] — 2026-04-15
+
+### Fixed
+- **Russian and German hover descriptions for system variables.** The RU/DE
+  JSON catalogs were physically present on disk but silently excluded from
+  the compiled server assembly — MSBuild was interpreting the `.ru.` / `.de.`
+  filename segments as culture designators and routing those files into
+  satellite-assembly generation instead of embedding them. As a result,
+  `FindVariable(...).Summary` always returned the English text regardless of
+  the requested locale, even though UI strings, parser messages, and
+  procedure descriptions were translated correctly.
+  - Resources are now embedded explicitly with `<WithCulture>false</WithCulture>`,
+    guaranteeing all three locales end up in the main DLL.
+  - Catalog loader rewritten to an overlay model: the English file is the
+    single source of truth for the full variable list and types; locale
+    files only override the `Summary` field. This matches the on-disk
+    schema (EN is a list of `{name, type, summary}`, RU/DE are `name → text`
+    dictionaries) and prevents the type information from being lost when a
+    locale is applied.
+- **7 regression tests** (`GpplSystemCatalogLocaleTests`) covering: EN baseline,
+  RU overlay (Cyrillic present), DE overlay (umlauts/German stopwords), type
+  preservation after overlay, RU procedure descriptions, unknown-locale
+  fallback, and total variable count sanity check.
+
 ## [0.6.6] — 2026-04-15
 
 ### Added
