@@ -1,5 +1,33 @@
 # Changelog
 
+## [0.7.2] — 2026-04-16
+
+### Fixed
+- **Procedure completion regressions introduced by v0.7.1.** Two connected
+  bugs on procedure auto-complete after the v0.7.1 `wordPattern` change:
+  - Typing `call @a`, then accepting `@arc`, produced `call @@arc` (double
+    `@`) — because VSCode's new word-at-cursor is just `a`, but `insertText`
+    was the full `@arc`.
+  - Typing `call @` (just the trigger character, no letters) showed an
+    empty "No suggestions" popup.
+  The fix: every procedure completion item now ships an explicit `TextEdit`
+  whose range covers only the letters after `@` (the `@` itself stays in
+  the buffer). `NewText` is set to the name **without** `@` when `@` is
+  already in the buffer, or **with** `@` for the Ctrl+Space case on a bare
+  `call ` line. This gives `call @arc` in every scenario —
+  `call @a|` + accept, `call @|` + accept, and `call |` + Ctrl+Space +
+  accept. The empty-list bug was caused by the earlier attempt to include
+  `@` inside the `TextEdit` range: VSCode derives its filter-query from
+  `document[range.start..cursor]`, so including `@` made the query `@a`,
+  which no longer matched the stripped `filterText` (just `arc`).
+- **Server crash on `call @` with no identifier.** The symbol-table builder
+  dereferenced `ProcedureName()` without a null-check when the user was
+  mid-typing `call @|`. ANTLR error-recovery produces a
+  `procedureNameDeclaration` node whose `ProcedureName()` returns `null` in
+  that state, and the resulting `NullReferenceException` propagated out of
+  the document-update path — causing the completion response to come back
+  empty. Added the missing null guard.
+
 ## [0.7.1] — 2026-04-16
 
 ### Fixed
