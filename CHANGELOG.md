@@ -6,13 +6,13 @@
 - **GPPL2004 — Local shadows global.** Warning when a local variable hides
   a global variable with the same name (case-insensitive). Quick Fix:
   rename to `name_local`.
-- **GPPL2005 — Missing `@init` procedure.** Warning when the file contains
-  procedures but none of them is `@init`. Quick Fix: generate an `@init`
+- **GPPL2005 — Missing `@init_post` procedure.** Warning when the file contains
+  procedures but none of them is `@init_post`. Quick Fix: generate an `@init_post`
   stub before the first procedure.
-- **GPPL2006 — Global declared outside `@init`.** Info-level hint when a
-  `global` declaration appears in a procedure other than `@init` (fires
-  only when `@init` exists — otherwise GPPL2005 covers it). Quick Fix:
-  move the declaration line into `@init` (single-variable declarations
+- **GPPL2006 — Global declared outside `@init_post`.** Info-level hint when a
+  `global` declaration appears in a procedure other than `@init_post` (fires
+  only when `@init_post` exists — otherwise GPPL2005 covers it). Quick Fix:
+  move the declaration line into `@init_post` (single-variable declarations
   only).
 - **Localized diagnostic messages** for all three new codes (EN/RU/DE).
 

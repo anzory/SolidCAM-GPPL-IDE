@@ -42,7 +42,7 @@ Context-aware suggestions for keywords, built-in functions, your own variables a
 
 ### Diagnostics
 
-Parse errors with clear, context-aware messages. Semantic checks: undeclared variables, redeclarations, system variable conflicts, **local-shadows-global** warnings, **missing `@init`** detection, and **globals-outside-`@init`** hints. File encoding check (`GPPL3001`) warns about characters not representable in the target ANSI encoding. Every diagnostic carries a stable code (`GPPL1xxx` syntax, `GPPL2xxx` semantic, `GPPL3xxx` encoding).
+Parse errors with clear, context-aware messages. Semantic checks: undeclared variables, redeclarations, system variable conflicts, **local-shadows-global** warnings, **missing `@init_post`** detection, and **globals-outside-`@init_post`** hints. File encoding check (`GPPL3001`) warns about characters not representable in the target ANSI encoding. Every diagnostic carries a stable code (`GPPL1xxx` syntax, `GPPL2xxx` semantic, `GPPL3xxx` encoding).
 
 ![Diagnostics](https://github.com/anzory/SolidCAM-GPPL-IDE/raw/master/images/diagnostics.png)
 
@@ -56,8 +56,8 @@ Parse errors with clear, context-aware messages. Semantic checks: undeclared var
 - Rename a variable that conflicts with a system name
 - Remove a duplicate variable declaration
 - Rename a local variable that shadows a global (`x` → `x_local`)
-- Generate a missing `@init` procedure stub
-- Move a global declaration into `@init`
+- Generate a missing `@init_post` procedure stub
+- Move a global declaration into `@init_post`
 
 ### Snippets
 
