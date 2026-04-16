@@ -1,5 +1,40 @@
 # Changelog
 
+## [0.8.0] — 2026-04-16
+
+### Added
+- **Built-in function catalog.** All **48 built-in functions** (28 numeric,
+  16 string, 4 logical) are now described in a structured JSON catalog with
+  base type information, parameter signatures, and per-locale text overlays
+  (English, Russian, German). The catalog is the single source of truth for
+  completion, hover, and signature help — replacing the hardcoded arrays that
+  existed since v0.7.3.
+- **Hover for built-in functions.** Hovering over `abs`, `atan2`, `substr`,
+  `date` and any other built-in now shows a rich tooltip with the full
+  signature (`name(type param, ...) -> returns`), category label, localized
+  description, remarks, and usage examples in a fenced `gppl` block.
+  Parenless functions like `date` render as `date -> string` (no parentheses).
+  Optional colon parameters render as `[:type name]`.
+- **Signature Help for built-in functions.** Typing `abs(`, `atan2(5,` etc.
+  now shows parameter hints with the active parameter highlighted — the same
+  experience that was previously available only for user-defined `@`-procedures.
+  Parenless functions (`date`, `time`) correctly return no signature.
+- **Localized completion documentation.** Built-in function completion items
+  now include a localized summary in the documentation popup (previously only
+  the category label was shown).
+
+### Changed
+- **Completion handler migrated to catalog.** The six hardcoded collections
+  (`NumericFunctions`, `StringFunctions`, `LogicalFunctions`,
+  `BuiltinSignatures`, `ParenlessBuiltins` and the two helper methods) are
+  replaced by a single loop over `GpplBuiltinFunctionCatalog.Functions`.
+  Adding a new built-in function now requires only a JSON entry — no C# code
+  changes.
+- **SignatureHelp handler refactored.** `FindCallContext` no longer requires
+  an `@`-prefix. The handler branches: names starting with `@` look up
+  user-defined procedures in the symbol table; plain names look up the
+  built-in catalog.
+
 ## [0.7.3] — 2026-04-16
 
 ### Added

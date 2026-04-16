@@ -19,11 +19,11 @@ Language support for SolidCAM GPPL postprocessor files (`.gpp`) in Visual Studio
 
 All syntax highlighting is provided by the language server — variables, procedures, parameters, types, keywords, operators, built-in functions and system variables are color-coded by meaning, not just pattern matching.
 
-Hover over any symbol to see its kind, type, scope, and reference count. System variables show a description from the SolidCAM reference.
+Hover over any symbol to see its kind, type, scope, and reference count. System variables show a description from the SolidCAM reference. **48 built-in functions** (`abs`, `substr`, `atan2`, `date`, …) show their full signature, return type, localized description, and usage examples.
 
 ### Auto-Completion
 
-Context-aware suggestions for keywords, built-in functions, your own variables and procedures, plus **950+ SolidCAM system variables** and **94 system procedures** with descriptions. Descriptions follow VS Code's display language — English, Russian, and German are shipped.
+Context-aware suggestions for keywords, built-in functions, your own variables and procedures, plus **950+ SolidCAM system variables** and **94 system procedures** with descriptions. Built-in functions expand as snippets with tab-stops over parameter names and show localized documentation in the completion popup. Descriptions follow VS Code's display language — English, Russian, and German are shipped.
 
 ![Completion](https://github.com/anzory/SolidCAM-GPPL-IDE/raw/master/images/completion.gif)
 
@@ -79,7 +79,7 @@ Type a prefix and press **Tab** to expand common constructs with tab-stops at th
 
 ### Signature Help
 
-Parameter hints when calling procedures — see expected argument types.
+Parameter hints when calling procedures and built-in functions — see expected argument types, optional parameters, and localized descriptions. Supports all **48 built-in functions** and user-defined `@`-procedures.
 
 ![Signature Help](https://github.com/anzory/SolidCAM-GPPL-IDE/raw/master/images/signature-help.png)
 
