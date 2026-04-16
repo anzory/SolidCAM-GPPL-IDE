@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.9.0] — 2026-04-16
+
+### Added
+- **GPPL2004 — Local shadows global.** Warning when a local variable hides
+  a global variable with the same name (case-insensitive). Quick Fix:
+  rename to `name_local`.
+- **GPPL2005 — Missing `@init` procedure.** Warning when the file contains
+  procedures but none of them is `@init`. Quick Fix: generate an `@init`
+  stub before the first procedure.
+- **GPPL2006 — Global declared outside `@init`.** Info-level hint when a
+  `global` declaration appears in a procedure other than `@init` (fires
+  only when `@init` exists — otherwise GPPL2005 covers it). Quick Fix:
+  move the declaration line into `@init` (single-variable declarations
+  only).
+- **Localized diagnostic messages** for all three new codes (EN/RU/DE).
+
 ## [0.8.0] — 2026-04-16
 
 ### Added
