@@ -1,5 +1,37 @@
 # Changelog
 
+## [1.0.0] — 2026-04-16
+
+### Added
+- **VMID variable support.** Variables from the machine-specific `.vmid` file
+  (resolved by convention: `foo.gpp` → `foo.vmid` in the same directory) are
+  now recognized by the language server. VMID variables appear in completion
+  and hover with their GUI name and description from the XML, and participate
+  in type checking. Registration is lazy — a VMID variable is added to the
+  symbol table on first occurrence in code.
+- **GPPL2007 — Undeclared identifier.** Warning when a variable or procedure
+  name is used without being declared. If the file contains `inc` directives,
+  severity is downgraded to Hint and the message notes the identifier may be
+  defined in an included file.
+- **GPPL2008 — Type mismatch on assignment.** Warning when the right-hand side
+  of an assignment is incompatible with the declared type of the left-hand side.
+  String is isolated from the numeric hierarchy; `integer`, `numeric`, and
+  `logical` are all mutually compatible.
+- **Expression type resolver.** New ANTLR4 Visitor (`GpplExpressionTypeResolver`)
+  infers the type of the right-hand side of assignments — distinguishing
+  `integer` vs `numeric` for arithmetic, recognizing string concatenation,
+  logical expressions, built-in function return types, and variable types from
+  the symbol table.
+- **VMID completion & hover.** Unused VMID variables appear in the completion
+  list with their type and GUI name. Hover shows "VMID variable" label with
+  description from the `.vmid` file.
+- **Localized messages** for all new diagnostics (EN/RU/DE).
+
+### Changed
+- Removed "Early Preview" label from README — the extension is now stable.
+- VMID cache no longer stores null results, so a `.vmid` file added after
+  the `.gpp` file is opened is picked up on the next edit.
+
 ## [0.9.0] — 2026-04-16
 
 ### Added

@@ -5,9 +5,7 @@
 [![Downloads](https://img.shields.io/visual-studio-marketplace/d/anzory.vscode-gppl-ide)](https://marketplace.visualstudio.com/items?itemName=anzory.vscode-gppl-ide)
 [![Rating](https://img.shields.io/visual-studio-marketplace/r/anzory.vscode-gppl-ide)](https://marketplace.visualstudio.com/items?itemName=anzory.vscode-gppl-ide&ssr=false#review-details)
 
-Language support for SolidCAM GPPL postprocessor files (`.gpp`) in Visual Studio Code.
-
-> **Early Preview** — the extension is in active development. Some features may be incomplete. Your [feedback and bug reports](https://github.com/anzory/SolidCAM-GPPL-IDE/issues) are very welcome!
+Full support for the GPPL language (`.gpp`) in Visual Studio Code: semantic highlighting, formatting, diagnostics, smart code snippets, and much more.
 
 ![Hero](https://github.com/anzory/SolidCAM-GPPL-IDE/raw/master/images/hero.png)
 
@@ -42,7 +40,7 @@ Context-aware suggestions for keywords, built-in functions, your own variables a
 
 ### Diagnostics
 
-Parse errors with clear, context-aware messages. Semantic checks: undeclared variables, redeclarations, system variable conflicts, **local-shadows-global** warnings, **missing `@init_post`** detection, and **globals-outside-`@init_post`** hints. File encoding check (`GPPL3001`) warns about characters not representable in the target ANSI encoding. Every diagnostic carries a stable code (`GPPL1xxx` syntax, `GPPL2xxx` semantic, `GPPL3xxx` encoding).
+Parse errors with clear, context-aware messages. Semantic checks: **undeclared identifiers** (`GPPL2007`), **type mismatch** on assignment (`GPPL2008`), redeclarations, system variable conflicts, **local-shadows-global** warnings, **missing `@init_post`** detection, and **globals-outside-`@init_post`** hints. VMID variables from the machine-specific `.vmid` file are recognized automatically. File encoding check (`GPPL3001`) warns about characters not representable in the target ANSI encoding. Every diagnostic carries a stable code (`GPPL1xxx` syntax, `GPPL2xxx` semantic, `GPPL3xxx` encoding).
 
 ![Diagnostics](https://github.com/anzory/SolidCAM-GPPL-IDE/raw/master/images/diagnostics.png)
 
@@ -63,16 +61,16 @@ Parse errors with clear, context-aware messages. Semantic checks: undeclared var
 
 Type a prefix and press **Tab** to expand common constructs with tab-stops at the places you care about:
 
-| Prefix                   | Expands to                       |
-| ------------------------ | -------------------------------- |
-| `procedure` / `proc`     | `@name ... endp`                 |
-| `global` / `local`       | `global integer name` (type choice via tab) |
-| `if` / `ife`             | `if cond then ... endif`         |
-| `ifelse` / `ifel`        | `if ... then ... else ... endif` |
-| `while` / `wh`           | `while cond ... endw`            |
-| `call`                   | `call @procedure_name`           |
-| `region` / `#region`     | `;#region ... ;#endregion`       |
-| `cg` / `codegen`         | `{ nl, 'text' }`                 |
+| Prefix               | Expands to                                  |
+| -------------------- | ------------------------------------------- |
+| `procedure` / `proc` | `@name ... endp`                            |
+| `global` / `local`   | `global integer name` (type choice via tab) |
+| `if` / `ife`         | `if cond then ... endif`                    |
+| `ifelse` / `ifel`    | `if ... then ... else ... endif`            |
+| `while` / `wh`       | `while cond ... endw`                       |
+| `call`               | `call @procedure_name`                      |
+| `region` / `#region` | `;#region ... ;#endregion`                  |
+| `cg` / `codegen`     | `{ nl, 'text' }`                            |
 
 ### Document Formatting
 
@@ -96,7 +94,8 @@ Parameter hints when calling procedures and built-in functions — see expected 
 - **Breadcrumbs** — navigate by procedure name
 - **Folding** — collapse `proc/endp`, `if/endif`, `while/endw`, comment blocks, and custom `;#region NAME` / `;#endregion` markers (C#-style; works across or inside procedures, no semantic meaning)
 - **Smart call completion** — after `call `, completion of your procedures expands into a snippet with tab-stops over the declared parameter names
-- **System Catalog** — built-in reference for SolidCAM 2022 system variables and procedures
+- **VMID support** — variables from the machine-specific `.vmid` file (same name as your `.gpp`) are recognized, shown in completion and hover, and used for type checking
+- **System Catalog** — built-in reference for SolidCAM system variables and procedures
 
 ---
 
