@@ -1,5 +1,54 @@
 # Changelog
 
+> ⚠️ **v1.0.0 and v1.0.1 have been withdrawn** due to two security
+> vulnerabilities in the VMID parser (XXE + billion-laughs) and the
+> `inc` directive (path traversal with NTLM-leak potential). Please
+> upgrade to v1.0.2 or later. See [SECURITY.md](./SECURITY.md) for
+> the disclosure timeline and mitigation details.
+
+## [1.1.0] — 2026-04-21
+
+### Added
+- **Auto-trigger completion after `call `.** After you accept the `call`
+  keyword, a space is inserted and the completion popup for procedures
+  opens automatically — no second `Ctrl+Space` needed. Procedures are
+  filtered by the `@`-prefix cleanly.
+- **Wrap selection into a built-in function call.** Select a variable
+  (e.g. `x_pos`) in the editor, press `Ctrl+Space`, pick a built-in
+  function (e.g. `active`, `abs`, `even`), and the selection is placed
+  as the first argument automatically: `active(x_pos)`. Works for all
+  48 built-in functions via VS Code's standard `$TM_SELECTED_TEXT`
+  snippet variable — no extra configuration required. Without a
+  selection, the completion behaves exactly as before (placeholder
+  tab-stops).
+
+### Changed
+- **Faster completion on large files.** Symbol lookup at a cursor
+  position is now O(K) in the number of symbols on the target line
+  rather than O(N) over the whole file, via a line-bucketed index
+  inside `GpplSymbolTable`. Handlers that split the document into
+  lines (completion, definition, formatting, diagnostics) now share
+  a single cached `string[]` on the document snapshot. Prefix
+  filtering on the server side — combined with `isIncomplete = true`
+  — reduces the JSON-RPC payload by an order of magnitude once the
+  user has typed two or more characters.
+- **Go-to-Definition no longer jumps to line 0 for system / VMID
+  symbols.** System variables from the SolidCAM catalog and VMID
+  variables have no textual definition in the user's file;
+  `F12` / `Ctrl+Click` on them now returns no definition instead of
+  dropping the cursor at the first line of the document.
+
+### Fixed
+- **Selection URI normalization.** A previously-experimental
+  "smart wrap" handler mismatched the request URI encoding
+  (`%3A` vs `:`) against the completion handler's decoded form.
+  The wrap feature has been reworked on top of the built-in
+  `$TM_SELECTED_TEXT` mechanism (see above) and the server-side
+  tracker is gone.
+
+### Tests
+- **237 tests, all green** (+5 vs v1.0.3).
+
 ## [1.0.3] — 2026-04-20
 
 ### Fixed
@@ -79,7 +128,11 @@
   letter, invalid chars, dot-only name rejection (`GpplDocumentLinkHandlerTests`).
   Total: **226 tests, all green**.
 
-## [1.0.1] — 2026-04-20
+## [1.0.1] — 2026-04-20 — ⚠️ WITHDRAWN
+
+> This version has been withdrawn from the Marketplace and GitHub
+> Releases. It contains the same XXE and path-traversal issues as
+> v1.0.0 (badge fix only). **Upgrade to v1.0.2 or later.**
 
 ### Fixed
 - **Marketplace badges in README.** The four badges at the top of the README
@@ -88,7 +141,13 @@
   (upstream Microsoft API changes). Switched to the community-maintained
   `vsmarketplacebadges.dev` service, which renders all four correctly.
 
-## [1.0.0] — 2026-04-16
+## [1.0.0] — 2026-04-16 — ⚠️ WITHDRAWN
+
+> This version has been withdrawn from the Marketplace and GitHub
+> Releases due to two security vulnerabilities — XXE / billion-laughs
+> in the VMID parser and path traversal in the `inc` directive.
+> Both are fixed in [v1.0.2](#102--2026-04-20). **Upgrade immediately.**
+
 
 ### Added
 - **VMID variable support.** Variables from the machine-specific `.vmid` file

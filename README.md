@@ -93,8 +93,9 @@ Parameter hints when calling procedures and built-in functions — see expected 
 - **Document Outline** — see the structure of your postprocessor (Ctrl+Shift+O)
 - **Breadcrumbs** — navigate by procedure name
 - **Folding** — collapse `proc/endp`, `if/endif`, `while/endw`, comment blocks, and custom `;#region NAME` / `;#endregion` markers (C#-style; works across or inside procedures, no semantic meaning)
-- **Smart call completion** — after `call `, completion of your procedures expands into a snippet with tab-stops over the declared parameter names
-- **VMID support** — variables from the machine-specific `.vmid` file (same name as your `.gpp`) are recognized, shown in completion and hover, and used for type checking
+- **Smart call completion** — after `call `, completion of your procedures expands into a snippet with tab-stops over the declared parameter names. The list of procedures opens automatically after you type `call ` — no Ctrl+Space needed.
+- **Wrap selection with a built-in** — select a variable (for example `x_pos`), press Ctrl+Space on a built-in function like `active` or `abs`, and the selection is wrapped into the first argument automatically (`active(x_pos)`). Built-in function snippets use `$TM_SELECTED_TEXT` — a standard VS Code mechanism, no special setup required.
+- **VMID support** — variables from the machine-specific `.vmid` file (same name as your `.gpp`) are recognized, shown in completion and hover, and used for type checking. VMID files are parsed with XXE and billion-laughs hardening.
 - **System Catalog** — built-in reference for SolidCAM system variables and procedures
 
 ---
