@@ -25,6 +25,20 @@ Context-aware suggestions for keywords, built-in functions, your own variables a
 
 ![Completion](https://github.com/anzory/SolidCAM-GPPL-IDE/raw/master/images/completion.gif)
 
+### Smart Call Completion
+
+After you type `call ` (with the trailing space), the list of procedures opens **automatically** — no `Ctrl+Space` needed. Pick one and the call expands into a full snippet with tab-stops over the declared parameter names — for example, selecting `@linear_move` for a procedure declared as `@linear_move(numeric tx, numeric ty, numeric tz)` inserts `@linear_move(${1:tx}, ${2:ty}, ${3:tz})`. Procedures without parameters insert just the name. Works both at the start of a line and inline after `if x == 1 then call ` or `else call `.
+
+![Smart Call Completion](https://github.com/anzory/SolidCAM-GPPL-IDE/raw/master/images/smart-call-completion.gif)
+
+### Wrap Selection with Built-ins
+
+Select any variable, press `Ctrl+Space`, pick a built-in function from the list — your selection becomes the first argument automatically. For example, select `x_pos` and pick `active` → you get `active(x_pos)`. Works for all **48 built-in functions** — `abs`, `sin`, `sqrt`, `upper`, `strlen`, `atan2`, `substr`, and the rest. Powered by VS Code's standard `$TM_SELECTED_TEXT` snippet variable — no configuration required.
+
+Without a selection, the same completion behaves as before: the first parameter is a placeholder tab-stop (`abs(number)`), so nothing changes when you just type `abs` at the cursor.
+
+![Wrap Selection](https://github.com/anzory/SolidCAM-GPPL-IDE/raw/master/images/wrap-selection.gif)
+
 ### Go to Definition & Find All References
 
 **F12** / **Ctrl+Click** — jump to where a variable or procedure is defined.
@@ -93,8 +107,6 @@ Parameter hints when calling procedures and built-in functions — see expected 
 - **Document Outline** — see the structure of your postprocessor (Ctrl+Shift+O)
 - **Breadcrumbs** — navigate by procedure name
 - **Folding** — collapse `proc/endp`, `if/endif`, `while/endw`, comment blocks, and custom `;#region NAME` / `;#endregion` markers (C#-style; works across or inside procedures, no semantic meaning)
-- **Smart call completion** — after `call `, completion of your procedures expands into a snippet with tab-stops over the declared parameter names. The list of procedures opens automatically after you type `call ` — no Ctrl+Space needed.
-- **Wrap selection with a built-in** — select a variable (for example `x_pos`), press Ctrl+Space on a built-in function like `active` or `abs`, and the selection is wrapped into the first argument automatically (`active(x_pos)`). Built-in function snippets use `$TM_SELECTED_TEXT` — a standard VS Code mechanism, no special setup required.
 - **VMID support** — variables from the machine-specific `.vmid` file (same name as your `.gpp`) are recognized, shown in completion and hover, and used for type checking. VMID files are parsed with XXE and billion-laughs hardening.
 - **System Catalog** — built-in reference for SolidCAM system variables and procedures
 

@@ -6,6 +6,19 @@
 > upgrade to v1.0.2 or later. See [SECURITY.md](./SECURITY.md) for
 > the disclosure timeline and mitigation details.
 
+## [1.1.1] — 2026-04-21
+
+### Documentation
+- **Two new feature sections in README** with demonstration GIFs:
+  *Smart Call Completion* (auto-trigger after `call ` — no Ctrl+Space
+  needed) and *Wrap Selection with Built-ins* (select a variable +
+  Ctrl+Space + pick a function → selection is wrapped automatically).
+  Both features shipped in v1.1.0 but were only briefly mentioned
+  under *And More* — they now have proper visibility on the Marketplace
+  page.
+- No code changes in this release. Extension behavior is identical
+  to v1.1.0.
+
 ## [1.1.0] — 2026-04-21
 
 ### Added
