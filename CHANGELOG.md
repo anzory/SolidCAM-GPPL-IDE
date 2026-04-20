@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.1] — 2026-04-20
+
+### Fixed
+- **Marketplace badges in README.** The four badges at the top of the README
+  (Version, Installs, Downloads, Rating) showed a "retired badge" placeholder
+  because shields.io discontinued its `visual-studio-marketplace/*` endpoints
+  (upstream Microsoft API changes). Switched to the community-maintained
+  `vsmarketplacebadges.dev` service, which renders all four correctly.
+
 ## [1.0.0] — 2026-04-16
 
 ### Added

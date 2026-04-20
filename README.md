@@ -1,9 +1,9 @@
 # SolidCAM Postprocessor IDE
 
-[![Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/anzory.vscode-gppl-ide?label=marketplace)](https://marketplace.visualstudio.com/items?itemName=anzory.vscode-gppl-ide)
-[![Installs](https://img.shields.io/visual-studio-marketplace/i/anzory.vscode-gppl-ide)](https://marketplace.visualstudio.com/items?itemName=anzory.vscode-gppl-ide)
-[![Downloads](https://img.shields.io/visual-studio-marketplace/d/anzory.vscode-gppl-ide)](https://marketplace.visualstudio.com/items?itemName=anzory.vscode-gppl-ide)
-[![Rating](https://img.shields.io/visual-studio-marketplace/r/anzory.vscode-gppl-ide)](https://marketplace.visualstudio.com/items?itemName=anzory.vscode-gppl-ide&ssr=false#review-details)
+[![Marketplace Version](https://vsmarketplacebadges.dev/version/anzory.vscode-gppl-ide.svg)](https://marketplace.visualstudio.com/items?itemName=anzory.vscode-gppl-ide)
+[![Installs](https://vsmarketplacebadges.dev/installs-short/anzory.vscode-gppl-ide.svg)](https://marketplace.visualstudio.com/items?itemName=anzory.vscode-gppl-ide)
+[![Downloads](https://vsmarketplacebadges.dev/downloads-short/anzory.vscode-gppl-ide.svg)](https://marketplace.visualstudio.com/items?itemName=anzory.vscode-gppl-ide)
+[![Rating](https://vsmarketplacebadges.dev/rating-short/anzory.vscode-gppl-ide.svg)](https://marketplace.visualstudio.com/items?itemName=anzory.vscode-gppl-ide&ssr=false#review-details)
 
 Full support for the GPPL language (`.gpp`) in Visual Studio Code: semantic highlighting, formatting, diagnostics, smart code snippets, and much more.
 
