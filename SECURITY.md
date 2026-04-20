@@ -65,13 +65,13 @@ Please include:
 
 ## Disclosed Vulnerabilities
 
-| Issue                                                                   | Affected     | Fixed in |
-| ----------------------------------------------------------------------- | ------------ | -------- |
-| XML External Entity (XXE) + billion-laughs DoS in `.vmid` parser        | 1.0.0, 1.0.1 | 1.0.2    |
-| Path traversal in `inc` directive (file probing, NTLM-leak over UNC)    | 0.7.0–1.0.1  | 1.0.2    |
+| Advisory                                                                                   | Issue                                                                | Severity | Affected     | Fixed in |
+| ------------------------------------------------------------------------------------------ | -------------------------------------------------------------------- | -------- | ------------ | -------- |
+| [GHSA-92vg-f4fq-fxm9](https://github.com/anzory/SolidCAM-GPPL-IDE/security/advisories/GHSA-92vg-f4fq-fxm9) | XML External Entity (XXE) + billion-laughs DoS in `.vmid` parser     | High     | 1.0.0, 1.0.1 | 1.0.2    |
+| [GHSA-xvpx-9p39-g62m](https://github.com/anzory/SolidCAM-GPPL-IDE/security/advisories/GHSA-xvpx-9p39-g62m) | Path traversal in `inc` directive (file probing, NTLM-leak over UNC) | High     | 0.7.0–1.0.1  | 1.0.2    |
 
-Formal advisories will be published on the
-[GitHub Security Advisories](https://github.com/anzory/SolidCAM-GPPL-IDE/security/advisories)
-page once CVE IDs are assigned. In the meantime, see
-[CHANGELOG § v1.0.2](./CHANGELOG.md#102--2026-04-20) for the technical
-description of each vulnerability and the tests that guard the fixes.
+See also [CHANGELOG § v1.0.2](./CHANGELOG.md#102--2026-04-20) for the
+technical description of each vulnerability and the tests that guard
+the fixes. CVE IDs will be added to the advisories above once the
+GitHub CNA assigns them (typically 1–3 business days after the
+initial `CVE request`).

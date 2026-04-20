@@ -6,6 +6,27 @@
 > upgrade to v1.0.2 or later. See [SECURITY.md](./SECURITY.md) for
 > the disclosure timeline and mitigation details.
 
+## [1.1.2] — 2026-04-21
+
+### Documentation
+- **SECURITY.md now lists real GitHub Security Advisory IDs.** The
+  table at the bottom of `SECURITY.md` previously contained a
+  "Formal advisories will be published once CVE IDs are assigned"
+  placeholder. Two advisories are now published on GitHub with full
+  disclosure details:
+  - [**GHSA-92vg-f4fq-fxm9**](https://github.com/anzory/SolidCAM-GPPL-IDE/security/advisories/GHSA-92vg-f4fq-fxm9) —
+    XML External Entity (XXE) + billion-laughs DoS in `.vmid` parser
+    (High; affected 1.0.0, 1.0.1; fixed in 1.0.2).
+  - [**GHSA-xvpx-9p39-g62m**](https://github.com/anzory/SolidCAM-GPPL-IDE/security/advisories/GHSA-xvpx-9p39-g62m) —
+    Path traversal in `inc` directive enables file probing and NTLM
+    hash leak over UNC (High; affected 0.7.0–1.0.1; fixed in 1.0.2).
+
+  CVE IDs for both advisories have been requested via the GitHub
+  CNA and will be attached to the advisories once assigned
+  (typically 1–3 business days).
+- No code changes in this release. Extension behavior is identical
+  to v1.1.0/v1.1.1.
+
 ## [1.1.1] — 2026-04-21
 
 ### Documentation
