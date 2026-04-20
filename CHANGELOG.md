@@ -1,5 +1,46 @@
 # Changelog
 
+## [1.0.2] — 2026-04-20
+
+### Security
+- **XXE / XML bomb hardening in VMID parser.** `GpplVmidParser.TryParse`
+  previously used `XDocument.Load(path)` without explicit `XmlReaderSettings`,
+  relying on the framework's default DTD policy. Malicious `.vmid` files
+  (which are shipped with third-party postprocessors and therefore untrusted)
+  could theoretically:
+  - Read local files via external entities (`<!ENTITY x SYSTEM "file:///…">`)
+  - Exhaust memory via billion-laughs recursive entity expansion
+  - Cause DoS via oversized or deeply nested XML
+  `XmlReader` is now configured with `DtdProcessing = Prohibit`,
+  `XmlResolver = null`, `MaxCharactersFromEntities = 0`, and a 10 MB document
+  size cap. A pre-read `FileInfo.Length` check rejects oversized files before
+  opening the stream.
+- **Path traversal hardening in `inc` document links.** The `inc "filename"`
+  directive previously accepted arbitrary paths — absolute, relative with
+  parent-directory segments (`..\..\..`), UNC (`\\server\share`), and
+  subfolders — and rendered each existing file as a clickable link. This
+  enabled two attack surfaces:
+  - **Information disclosure via File.Exists probing** — a malicious `.gpp`
+    with many `inc` directives pointing at system files could expose which
+    files exist on the victim's machine through visible/invisible links.
+  - **NTLM hash leak via UNC File.Exists** — clicking (or even parsing) a
+    UNC path triggers an SMB authentication exchange that may leak the user's
+    NTLM hash to an attacker-controlled server.
+  Per the GPPL specification, `inc "abc"` accepts only a basename in the
+  same directory as the host file. The v0.7.0 extension to subfolders and
+  absolute paths was incorrect and has been removed. Rejected patterns:
+  path separators (`/`, `\`), parent-directory segments (`..`), drive
+  letters (`c:foo`), UNC prefixes (`//`, `\\`), dot-only names, and any
+  character in `Path.GetInvalidFileNameChars()`. A canonical post-resolution
+  check ensures the final path remains inside the host's directory.
+
+### Tests
+- **9 new security tests**: XXE external-entity rejection, billion-laughs
+  DoS with 2-second timeout budget, 11 MB oversized file rejection, normal
+  file still parses (`GpplVmidParserTests`); path traversal, UNC, drive
+  letter, invalid chars, dot-only name rejection (`GpplDocumentLinkHandlerTests`).
+  Total: **226 tests, all green**.
+
 ## [1.0.1] — 2026-04-20
 
 ### Fixed
