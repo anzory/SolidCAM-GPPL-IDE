@@ -1,5 +1,43 @@
 # Changelog
 
+## [1.0.3] — 2026-04-20
+
+### Fixed
+- **Completion after `then call` / `else call` (H10).** Typing inside
+  `if x == 1 then call @|` or `else call @|` no longer drops into generic
+  completion — the procedure-call context is now correctly detected by
+  scanning the line right-to-left for the last `call` word boundary, rather
+  than requiring `call` at the start of the trimmed line.
+- **Debounced-diagnostics race condition (H5).** A tight-typing scenario
+  (>10 keypress/sec) could produce an uncaught `ObjectDisposedException`
+  from `Task.Delay` on a just-disposed `CancellationTokenSource`. Ownership
+  of the CTS now lies solely with the background task; double-dispose is
+  prevented and `ObjectDisposedException` is caught where it can still leak.
+- **VMID cache memory leak on long sessions (H11).** `GpplParseTreeCache`
+  kept parsed `.vmid` data indefinitely, even for documents the user had
+  closed. `RemoveDocument` now evicts the VMID entry alongside the parse
+  tree. If another open document shares the same `.vmid`, it is re-read on
+  the next update (~5 ms, imperceptible).
+
+### Changed
+- **Expression type resolver reuses a single instance (H9).**
+  `GpplExpressionTypeResolver` used to be allocated per assignment together
+  with a capturing closure. A file with 500 assignments triggered 500 object
+  allocations. The resolver now takes the procedure context as a method
+  parameter (`Resolve(ctx, procedure)`) and is constructed once per
+  `SymbolTableBuilder.Build` call.
+- **Removed redundant `ToLowerInvariant()` on `OrdinalIgnoreCase` dictionaries (H8).**
+  Eight lookups across `GpplSymbolTable`, `GpplSymbolTableBuilder`, and
+  `GpplSystemCatalog` were case-folding input strings before indexing into
+  dictionaries that already compare case-insensitively. The extra string
+  allocations are now gone — micro-savings on the symbol-table hot path.
+
+### Tests
+- **6 new tests**: `then call` / `else call` completion activation, anti-regression
+  for `callback_handler` identifier; VMID cache cleared on document close,
+  safe on documents without VMID, re-populates on re-open.
+- Total: **232 tests, all green**.
+
 ## [1.0.2] — 2026-04-20
 
 ### Security
