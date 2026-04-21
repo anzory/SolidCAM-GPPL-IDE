@@ -6,6 +6,32 @@
 > upgrade to v1.0.2 or later. See [SECURITY.md](./SECURITY.md) for
 > the disclosure timeline and mitigation details.
 
+## [1.1.4] — 2026-04-22
+
+### Fixed
+- **Word-form operators `eq`, `ne`, `le`, `ge`, `lt`, `gt` now highlight
+  as keywords**, same as `and` / `or` / `not` (consistency with how
+  Python, Ruby, SQL render word-form operators). Previously they were
+  classified as operators and rendered as unstyled identifiers.
+- **26 SolidCAM tool type constants no longer trigger GPPL2007
+  "undeclared identifier"** warning. These are bare identifiers used
+  in code like `if tool_type eq drill` or `elseif tool_type eq
+  end_mill`. Added as integer constants to the catalog:
+  `drill`, `bullnose`, `end_mill`, `iscar_plh`, `drill_shaped`,
+  `rough_mill_shaped`, `end_mill_shaped`, `slot_mill`,
+  `lollipop_mill`, `taper_mill`, `chamfer_drill`, `dove_mill`,
+  `tap_mill`, `thread_mill`, `thread_taper_mill`, `ball_nose`,
+  `reamer_mill`, `bore`, `center_drill`, `engraving_mill`,
+  `face_mill`, `spot_drill`, `tool_probe`, `broaching`, `saw`,
+  `taper_ball_nose`.
+
+### Changed
+- System variable catalog grew from **994 → 1020 entries**.
+- **Build hygiene:** debug symbols (.pdb files) stripped from Release
+  builds. Reduces VSIX size slightly and makes reverse engineering
+  of future PRO-tier code (planned for v2.0.0) slightly harder. No
+  functional change for users.
+
 ## [1.1.3] — 2026-04-22
 
 ### Added
