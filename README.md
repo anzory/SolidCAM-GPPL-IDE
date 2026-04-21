@@ -168,7 +168,7 @@ The active language follows VS Code's display language (`vscode.env.language`) �
 
 What gets translated:
 
-- **System catalog** — all **948 system variable** descriptions and **94 system procedure** descriptions (hover tooltips and completion item details).
+- **System catalog** — all **1057 system variable** descriptions and **94 system procedure** descriptions (hover tooltips and completion item details).
 - **Diagnostics** — parser error messages, semantic diagnostics, encoding warnings.
 - **UI strings** — extension settings, command titles, hover labels, completion details.
 

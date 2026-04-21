@@ -1,1 +1,12 @@
 *.vsix
+
+# Debug symbols (появляются после F5 = Debug-publish сервера).
+# Не коммитить в prod-repo — упрощают реверс-инжиниринг exe
+# через ILSpy/dnSpy (имена методов/переменных + номера строк).
+# В Release-сборке (make-vsix) .pdb не генерируются —
+# см. DebugType=none + CopyDebugSymbolsToPublishDirectory=false
+# в server/*.csproj под Condition='Release'.
+*.pdb
+
+# Source maps на client/extension.js — дев-артефакт, не нужен в prod
+extension.js.map

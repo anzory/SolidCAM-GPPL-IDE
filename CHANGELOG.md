@@ -6,6 +6,54 @@
 > upgrade to v1.0.2 or later. See [SECURITY.md](./SECURITY.md) for
 > the disclosure timeline and mitigation details.
 
+## [1.1.5] — 2026-04-22
+
+### Added
+- **37 new SolidCAM system variables / enum constants** extracted from
+  the official *GPPTool 2024 – GPPTool commands* PDF and field-observed
+  postprocessors. These were silently flagged as GPPL2007 "undeclared
+  identifier" in real-world postprocessors.
+
+#### 6 turning enum constants (integer, bare identifiers)
+Values of `process_type` and `turning_mode` — used in code like
+`if process_type == long and turning_mode == external`:
+- `long`, `face` — values of `process_type` (longitudinal vs facing)
+- `external`, `internal` — values of `turning_mode` when process is
+  LONG (OD turning vs boring)
+- `front`, `back` — values of `turning_mode` when process is FACE
+  (main-spindle front vs sub-spindle back)
+
+#### 31 PDF-extracted variables
+  - **15 `*_start_tool_level` variables** (all numeric — next-move
+    start tool levels across 5 coordinate systems):
+    - HPOS (Part Coordinate System): `xhnext_start_tool_level`,
+      `yhnext_start_tool_level`, `zhnext_start_tool_level`
+    - MPOS (Machine Absolute Zero for tool tip):
+      `xmnext_start_tool_level`, `ymnext_start_tool_level`,
+      `zmnext_start_tool_level`
+    - OPOS (Machine Coord with Current Reference Point for tool tip):
+      `xonext_start_tool_level`, `yonext_start_tool_level`,
+      `zonext_start_tool_level`
+    - LPOS (Shifted Working Plane): `xlnext_start_tool_level`,
+      `ylnext_start_tool_level`, `zlnext_start_tool_level`
+    - POS (Working Plane): `xnext_start_tool_level`,
+      `ynext_start_tool_level`, `znext_start_tool_level`
+  - **6 feed-related variables** (all numeric — also enum values of
+    `feed_type`): `ramp_down_feed`, `ramp_up_feed`, `feed_rapid`,
+    `z_feed_safety`, `feed_link`, `feed_link_teeth`
+  - **10 misc variables**: `thread_index_job` (logical),
+    `next_transfer` (integer), `ref_point_init` (logical — from
+    `@change_ref_point`), `mco_new_line` (logical — from
+    `@spindles_sync`/`@turn_change_tool`), `tmatrix_inside_job`
+    (numeric), `check_z_minus` (numeric), `job_plane` (integer —
+    from `@proc`), `cut_tolerance` (numeric), `drive_surface_offset`
+    (numeric — used in HSM/5-axis operations), `stock_to_leave`
+    (numeric — machining allowance).
+- All 31 entries translated to **EN / RU / DE**.
+
+### Changed
+- System variable catalog grew from **1020 → 1057 entries**.
+
 ## [1.1.4] — 2026-04-22
 
 ### Fixed
