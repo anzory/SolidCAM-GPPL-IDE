@@ -6,6 +6,44 @@
 > upgrade to v1.0.2 or later. See [SECURITY.md](./SECURITY.md) for
 > the disclosure timeline and mitigation details.
 
+## [1.1.3] — 2026-04-22
+
+### Added
+- **46 new SolidCAM system variables and constants** in the catalog
+  (completion, hover, diagnostics). Includes:
+  - **Runtime variables** (17): `delay_period`, `dwell_time`,
+    `ValSpindleOrientation`, `original_feed`, `ActionName`,
+    `MCO_Working_Mode`, `name_axis_x/y/z/a/b` (axis names from VMID),
+    `xwpos/ywpos/zwpos` (tool tip position in active Work Coordinate
+    System), `xh_move/yh_move/zh_move` (movement deltas in Home
+    coordinate system).
+  - **Compensation constants** (3): `COMP_LEFT`, `COMP_RIGHT`,
+    `COMP_OFF` — tool radius compensation side values used in
+    `@compensation`.
+  - **Rotation direction** (2): `CW`, `CCW` — clockwise /
+    counter-clockwise constants.
+  - **4th-axis coordinate modes** (5): `axis4_cartesian`,
+    `axis4_polar`, `axis4_radial`, `axis4_face`, `axis4_none` —
+    values of `rot_axis_coord`.
+  - **Feed unit constants** (2): `MM_MIN`, `MM_REV` — values of
+    `feed_unit` and `feed_status`.
+  - **Machine type constant** (1): `turning` — value of
+    `job_machine_type`.
+  - **Turning job type constants** (16): `TURN_DRILLING`, `EXT_ROUGH`,
+    `EXT_THREAD`, `EXT_GROOVE`, `EXT_CONTOUR`, `INT_ROUGH`,
+    `INT_CONTOUR`, `INT_THREAD`, `INT_GROOVE`, `INT_FACE_BACK`,
+    `TURN_GENERAL_EXT`, `TURN_GENERAL_INT`, `TURN_GROOVING_EXT`,
+    `TURN_GROOVING_INT`, `TURN_THREADING_EXT`, `TURN_THREADING_INT`.
+- Descriptions in English, Russian, and German (auto-translated
+  German strings scheduled for native-speaker review in a future
+  patch).
+
+### Changed
+- System variable catalog grew from 948 to **994 entries**.
+- `GPPL2007` (undeclared identifier) warning no longer fires for any
+  of the 46 new constants and variables when used in postprocessor
+  code as documented by SolidCAM.
+
 ## [1.1.2] — 2026-04-21
 
 ### Documentation
