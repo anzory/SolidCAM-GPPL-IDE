@@ -6,6 +6,33 @@
 > upgrade to v1.0.2 or later. See [SECURITY.md](./SECURITY.md) for
 > the disclosure timeline and mitigation details.
 
+## [1.1.6] — 2026-04-23
+
+### Added
+- **`THIRD_PARTY_NOTICES.md`** bundled with the extension — comprehensive
+  attribution file for all third-party open-source components
+  redistributed in the VSIX. Covers:
+  - **ANTLR 4 Runtime** (BSD-3-Clause) — parser/lexer runtime for GPPL grammar
+  - **OmniSharp Language Server Protocol** (MIT) — LSP 3.17 framework
+  - **Serilog** + sinks (Apache-2.0) — structured logging in the server
+  - **.NET 8 Runtime** + **Microsoft.Extensions.\*** (MIT) — self-contained
+    publish bundles these
+  - **MediatR** (Apache-2.0), **Newtonsoft.Json** (MIT), **Nerdbank.Streams**
+    (MIT), **DryIoc** (MIT), **System.Reactive** (MIT) — transitive deps
+    via OmniSharp
+  - **vscode-languageclient** (MIT) — VSCode LSP client library
+  - Full texts of MIT, BSD-3-Clause and Apache-2.0 licenses included
+    inside the document.
+- New **Acknowledgements** section in README linking to `THIRD_PARTY_NOTICES.md`.
+- Reference to `THIRD_PARTY_NOTICES.md` at the top of `LICENSE`.
+
+### Compliance
+- Addresses attribution obligations of BSD-3-Clause, MIT, and Apache-2.0
+  licenses for all dependencies bundled into the distributed `.vsix`.
+  Previously, only the proprietary server and MIT client licenses were
+  declared, with no attribution for third-party components — technically
+  a compliance gap.
+
 ## [1.1.5] — 2026-04-22
 
 ### Added

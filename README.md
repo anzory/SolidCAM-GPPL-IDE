@@ -220,3 +220,15 @@ This extension is built for postprocessor developers. If you work with GPPL, you
 
 The VSCode extension client is licensed under MIT.
 The language server binary is proprietary. See [LICENSE](https://github.com/anzory/SolidCAM-GPPL-IDE/blob/master/LICENSE) for details.
+
+## Acknowledgements
+
+This extension builds on the shoulders of excellent open-source projects.
+The language server in particular is powered by:
+
+- **[ANTLR 4](https://github.com/antlr/antlr4)** (BSD-3-Clause) — parser generator used for GPPL grammar
+- **[OmniSharp Language Server Protocol](https://github.com/OmniSharp/csharp-language-server-protocol)** (MIT) — LSP 3.17 framework for .NET
+- **[Serilog](https://serilog.net/)** (Apache-2.0) — structured logging
+- **[.NET Runtime](https://dotnet.microsoft.com/)** (MIT) — © .NET Foundation and Contributors
+
+For the complete list of third-party components, their versions, licenses, and copyright notices, see [THIRD_PARTY_NOTICES.md](https://github.com/anzory/SolidCAM-GPPL-IDE/blob/master/THIRD_PARTY_NOTICES.md) — included in every release.

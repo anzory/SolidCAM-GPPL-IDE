@@ -1,3 +1,10 @@
+This extension distributes SolidCAM GPPL IDE along with a number of
+third-party open-source components. For the full list of included
+third-party software, their licenses, and copyright notices, see
+`THIRD_PARTY_NOTICES.md` alongside this file.
+
+================================================================================
+
 This project contains components under different licenses:
 
 ================================================================================
