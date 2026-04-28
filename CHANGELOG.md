@@ -6,6 +6,32 @@
 > upgrade to v1.0.2 or later. See [SECURITY.md](./SECURITY.md) for
 > the disclosure timeline and mitigation details.
 
+## [1.1.7] — 2026-04-26
+
+### Changed
+- **Display name** changed from "SolidCAM Postprocessor IDE" to
+  "Postprocessor IDE for SolidCAM". The new form is the industry-standard
+  pattern (cf. *"Ruby Extension for VS Code"*, *"Salesforce Extensions
+  for VS Code"*) and avoids implying ownership or endorsement by
+  SolidCAM Ltd. The Marketplace extension ID (`anzory.vscode-gppl-ide`)
+  is unchanged — existing installations auto-update normally.
+
+### Added
+- **Disclaimer** in the README clarifying that this is an unofficial,
+  community-developed extension and that "SolidCAM" and "GPPL" are
+  trademarks of SolidCAM Ltd. The extension is not affiliated with,
+  endorsed by, sponsored by, or supported by SolidCAM Ltd.
+- **Trademark Notice** section added to `THIRD_PARTY_NOTICES.md`
+  formalizing the disclaimer for enterprise auditors who read the
+  notices file rather than the README.
+
+### Compliance
+- This release contains **no functional code changes**. It is a
+  legal-hygiene patch ahead of the v2.0.0 PRO commercial launch — at
+  paid-tier stakes the trademark posture matters more than at the
+  free-tier level. Releasing the change now (months before v2.0.0)
+  also gives users time to acclimate to the new display name.
+
 ## [1.1.6] — 2026-04-23
 
 ### Added

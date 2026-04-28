@@ -1,5 +1,5 @@
 {
-  "displayName": "SolidCAM Postprocessor IDE",
+  "displayName": "Postprocessor IDE for SolidCAM",
   "description": "Language support for GPPL (General Post Processor Language) — syntax highlighting, diagnostics, IntelliSense, and more.",
   "configuration.title": "GPPL",
   "configuration.trace.description": "Traces the communication between VS Code and the GPPL language server.",

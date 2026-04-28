@@ -371,7 +371,7 @@ Applies to: `Serilog`, `Serilog.Extensions.Logging`, `Serilog.Sinks.File`,
 
 ## Notes
 
-- This document was prepared on **2026-04-23** for version **1.1.6**.
+- This document was prepared on **2026-04-26** for version **1.1.7**.
 - License data was extracted from NuGet package metadata (`.nuspec`) in
   the local NuGet cache and official upstream repositories.
 - If you believe an attribution is missing or incorrect, please report it
@@ -380,3 +380,18 @@ Applies to: `Serilog`, `Serilog.Extensions.Logging`, `Serilog.Sinks.File`,
 - This file covers software redistributed **as binary form** inside the
   `.vsix` package. Build-time–only tools are listed for transparency but
   are not subject to attribution obligations under their respective licenses.
+
+---
+
+## Trademark Notice
+
+- **"SolidCAM"** is a registered trademark of SolidCAM Ltd.
+- **"GPPL"** refers to the General Post-Processor Language, a proprietary
+  language specification used by SolidCAM products.
+- This extension is an **unofficial, community-developed** project. It is
+  **not produced by, endorsed by, sponsored by, or otherwise affiliated
+  with SolidCAM Ltd**. References to "SolidCAM" and "GPPL" in this
+  extension's name, description, and content are descriptive use to
+  indicate compatibility — they do not imply any business or technical
+  relationship with SolidCAM Ltd.
+- All trademarks are the property of their respective owners.
