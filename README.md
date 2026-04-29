@@ -5,7 +5,7 @@
 [![Downloads](https://vsmarketplacebadges.dev/downloads-short/anzory.vscode-gppl-ide.svg)](https://marketplace.visualstudio.com/items?itemName=anzory.vscode-gppl-ide)
 [![Rating](https://vsmarketplacebadges.dev/rating-short/anzory.vscode-gppl-ide.svg)](https://marketplace.visualstudio.com/items?itemName=anzory.vscode-gppl-ide&ssr=false#review-details)
 
-> **Disclaimer.** This is an **unofficial, community-developed** extension. "SolidCAM" is a registered trademark of SolidCAM Ltd. "GPPL" (General Post-Processor Language) refers to the proprietary postprocessor language used by SolidCAM products. This extension is **not affiliated with, endorsed by, sponsored by, or supported by SolidCAM Ltd**. All trademarks are the property of their respective owners.
+> **Disclaimer.** This is an **unofficial, independently developed** extension. "SolidCAM" is a registered trademark of SolidCAM Ltd. "GPPL" (General Post-Processor Language) refers to the proprietary postprocessor language used by SolidCAM products. This extension is **not affiliated with, endorsed by, sponsored by, or supported by SolidCAM Ltd**. All trademarks are the property of their respective owners.
 
 Full support for the GPPL language (`.gpp`) in Visual Studio Code: semantic highlighting, formatting, diagnostics, smart code snippets, and much more.
 

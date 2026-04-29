@@ -6,6 +6,27 @@
 > upgrade to v1.0.2 or later. See [SECURITY.md](./SECURITY.md) for
 > the disclosure timeline and mitigation details.
 
+## [1.1.8] — 2026-04-29
+
+### Security
+- **H1 — Block UNC paths in VMID resolution.** The server no longer
+  attempts to read `.vmid` files from network (UNC/SMB) paths.
+  Previously, a malicious workspace or symlink pointing to an
+  attacker-controlled SMB share could trigger an NTLM authentication
+  handshake, leaking the user's Windows credential hash.
+- **M2 — Eliminate TOCTOU race in VMID parser.** Replaced the
+  non-atomic sequence (`File.Exists` → `FileInfo.Length` →
+  `File.OpenRead`) with a single `FileStream` open. The file-size
+  check now runs atomically against the open file handle, closing
+  a window where a symlink could be swapped between the check and
+  the read.
+
+### Fixed
+- **M1 — Thread-safety in encoding cache.** The encoding-validation
+  cache (`_encodingCache`) now uses `ConcurrentDictionary` instead of
+  the non-thread-safe `Dictionary`, preventing rare race-condition
+  crashes when diagnostics are republished while typing quickly.
+
 ## [1.1.7] — 2026-04-26
 
 ### Changed

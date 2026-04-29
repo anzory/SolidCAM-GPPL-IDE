@@ -2,7 +2,7 @@
   "name": "vscode-gppl-ide",
   "displayName": "%displayName%",
   "description": "%description%",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "publisher": "anzory",
   "author": {
     "name": "Andrey Zorin"
@@ -93,7 +93,6 @@
       }
     },
     "configurationDefaults": {
-      "editor.semanticHighlighting.enabled": true,
       "[gppl]": {
         "editor.semanticHighlighting.enabled": true,
         "files.encoding": "windows1252",
