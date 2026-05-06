@@ -6,6 +6,15 @@
 > upgrade to v1.0.2 or later. See [SECURITY.md](./SECURITY.md) for
 > the disclosure timeline and mitigation details.
 
+## [1.1.9] — 2026-05-03
+
+### Added
+- **7 new SolidCAM system variables**: `xc`, `xy`, `yc`, `yz`, `zc`, `zx` (machine plane constants, all `integer`) plus corrected `air_through_coolant` entry. All appear in hover tooltips, completion, and semantic highlighting.
+
+### Changed
+- **Full rework of German translations.** All ~1000 system variable descriptions and procedure summaries have been re-translated for consistency and technical accuracy.
+- System variable catalog grew from **1057 → 1070 entries**.
+
 ## [1.1.8] — 2026-04-29
 
 ### Security
