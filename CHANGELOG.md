@@ -6,6 +6,16 @@
 > upgrade to v1.0.2 or later. See [SECURITY.md](./SECURITY.md) for
 > the disclosure timeline and mitigation details.
 
+## [1.2.2] — 2026-05-06
+
+### Added
+- **20 new SolidCAM system variables**:
+  - Stock dimensions: `stock_x_minus`, `stock_y_plus`, `stock_y_minus`, `stock_z_plus`, `stock_z_minus` (all `numeric`) — relative to MAC axes in positive/negative directions. Complements existing `stock_x_plus`.
+  - Submachine identifiers: `submachine_name`, `submachine_gpp_name`, `next_submachine_name`, `next_submachine_gpp_name` (all `string`) — names of current/next submachines in multi-turret mill-turn setups.
+  - Tool and machine data: `imachining_material_name` (`string`), `measure_orientation` (`numeric`), `string_tool_type` (`string`), `turret_number` (`integer`) — iMachining material, tool measurement orientation, tool type string, and turret index.
+  - Tool path info: `tool_path_type` (`string`), `approach_type` (`string`) — segment type and approach strategy in @tool_path_info.
+  - iMachining-specific: `i_CA` (`numeric`), `i_radius_curvature` (`numeric`), `i_radius_curvature_dir` (`string`), `i_temp_conventional` (`integer`), `i_feed_no_curv` (`numeric`) — curvature data and feed rates output in @arc and @line during iMachining operations.
+
 ## [1.2.1] — 2026-05-06
 
 ### Added
