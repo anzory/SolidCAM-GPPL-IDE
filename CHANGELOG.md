@@ -6,6 +6,11 @@
 > upgrade to v1.0.2 or later. See [SECURITY.md](./SECURITY.md) for
 > the disclosure timeline and mitigation details.
 
+## [1.2.1] — 2026-05-06
+
+### Added
+- **3 new SolidCAM system variables**: `drill_clearance_zl`, `drill_lower_zl`, `drill_upper_zl` (all `numeric`) — drill clearance/level values in the Shifted Working Plane (LPOS coordinate system), used in multi-turret mill-turn posts.
+
 ## [1.2.0] — 2026-05-11
 
 ### Added
