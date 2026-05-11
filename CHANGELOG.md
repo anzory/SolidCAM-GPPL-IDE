@@ -6,6 +6,19 @@
 > upgrade to v1.0.2 or later. See [SECURITY.md](./SECURITY.md) for
 > the disclosure timeline and mitigation details.
 
+## [1.2.3] — 2026-05-06
+
+### Added
+- **19 new SolidCAM system variables**:
+  - iMachining cutting angles: `i_MIN_CA` (`numeric`), `i_MAX_CA` (`numeric`) — minimum and maximum cutting angles in degrees.
+  - iMachining feed: `i_inpocket_feed` (`numeric`) — feed rate for in-pocket machining.
+  - Operation data: `finish_down_step` (`numeric`) — finish down-step value.
+  - Feed rates: `feed_rapid_teeth` (`numeric`) — rapid feed per tooth.
+  - Tool sequencing: `next_job_tool_tag` (`integer`) — tool tag of the next job.
+  - Next position coordinates: `xunext`, `yunext`, `zunext`, `xlunext`, `ylunext`, `zlunext` (all `numeric`) — next untransformed and local untransformed X/Y/Z coordinates in the operation sequence (appears in 4-axis profile jobs).
+  - Current position coordinates: `xupos`, `yupos`, `zupos`, `xlupos`, `ylupos`, `zlupos` (all `numeric`) — current untransformed and local untransformed X/Y/Z coordinates of the tool position.
+  - Tool level: `zlnext_tool_z_level` (`numeric`) — next local tool Z-level for the next position in the operation sequence.
+
 ## [1.2.2] — 2026-05-06
 
 ### Added
