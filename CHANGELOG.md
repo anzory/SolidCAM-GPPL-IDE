@@ -6,6 +6,14 @@
 > upgrade to v1.0.2 or later. See [SECURITY.md](./SECURITY.md) for
 > the disclosure timeline and mitigation details.
 
+## [1.2.0] — 2026-05-11
+
+### Added
+- **Quick Fix for GPPL3001 encoding diagnostics.** When a file contains characters that cannot be saved in the current target encoding (e.g. Cyrillic comments with `windows1252` active), the editor now offers a one-click fix: **"Switch gppl.encoding to Windows-1251"** (or vice-versa for Western-European characters). The fix updates the global `gppl.encoding` setting and automatically re-validates the document.
+
+### Fixed
+- **No more `.vscode/settings.json` pollution.** The extension now writes the `[gppl]` language-level `files.encoding` override to your **user settings** instead of the workspace folder. Previously, opening a GPPL file in a new workspace would create an unwanted `.vscode/settings.json` file on disk.
+
 ## [1.1.9] — 2026-05-03
 
 ### Added
