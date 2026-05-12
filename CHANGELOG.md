@@ -6,6 +6,23 @@
 > upgrade to v1.0.2 or later. See [SECURITY.md](./SECURITY.md) for
 > the disclosure timeline and mitigation details.
 
+## [1.2.4] — 2026-05-13
+
+### Added
+- **1 new SolidCAM system variable**: `dbpos` (`numeric`) — calculated relative angles of rotation around machine axes vectors (B-axis delta, companion to existing `dapos`).
+- **1 new operation variable**: `radial_direction` (`numeric`) — radial direction indicator passed to `@start_of_job`.
+- **7 new enum constants**:
+  - Machine type: `milling`, `turning` (description updated), `wire_cut` — values for `job_machine_type`, `next_job_machine_type`, `next_job_machine_type_on_turret`, `mco_prev_job_machine_type`, `next_tool_machine_type`.
+  - Feed status: `st_mm_min`, `st_mm_rev` — values for `feed_status` (feed per minute / per revolution).
+  - Spin unit: `rpm`, `css` — values for `spin_unit` (revolutions per minute / constant surface speed).
+
+### Removed
+- **7 malformed duplicate entries** with trailing underscore: `stock_x_`, `stock_y_`, `stock_z_`, `spin_`, `shift_`, `used_in_transform_`, `opposite_euler_angle_dev_` — artifacts from data migration that duplicated `stock_x_plus`, `stock_y_plus`, `stock_z_plus`, `spin_teeth`, `used_in_transform_coordsys`, `opposite_euler_angle_dev_z`, and an incomplete `shift` entry.
+- **1 erroneous entry**: `bbpos` — typo from `Move5x.htm` documentation; correct variable is `dbpos` (already present as `dapos` companion).
+
+### Fixed
+- **DE translation audit.** Fixed 4 enum-value leaks (`job_machine_type`, `mco_prev_job_machine_type`, `next_job_machine_type_on_turret`, `prev_job_mac_type` showed translated German enum names instead of English identifiers) and 1 Denglish artifact (`radial_direction` used "Job" instead of "Auftrag"). All 1105 German descriptions now validated against `translate-to-german-cam` skill and HSMTEC CAD/CAM Glossar.
+
 ## [1.2.3] — 2026-05-06
 
 ### Added
