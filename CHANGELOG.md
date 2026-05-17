@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.5] — 2026-05-17
+
+### Fixed
+- **Semantic diagnostics now recognize `@init_inc` as a valid init procedure.** Previously, the server warned about a missing `@init_post` (GPPL2005) even when `@init_inc` was present — this is now fixed. Files containing either `@init_post` or `@init_inc` are considered valid.
+- **Global variables inside `@init_inc` are no longer flagged** (GPPL2006). Globals are allowed inside both `@init_post` and `@init_inc`; only globals declared in other procedures trigger the hint.
+- **Quick Fix for GPPL2006 now targets `@init_inc`** when `@init_post` is absent. The "Move to init procedure" action prefers `@init_post` if it exists, otherwise falls back to `@init_inc`.
+
 > ⚠️ **v1.0.0 and v1.0.1 have been withdrawn** due to two security
 > vulnerabilities in the VMID parser (XXE + billion-laughs) and the
 > `inc` directive (path traversal with NTLM-leak potential). Please

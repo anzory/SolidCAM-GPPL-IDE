@@ -56,7 +56,7 @@ Without a selection, the same completion behaves as before: the first parameter 
 
 ### Diagnostics
 
-Parse errors with clear, context-aware messages. Semantic checks: **undeclared identifiers** (`GPPL2007`), **type mismatch** on assignment (`GPPL2008`), redeclarations, system variable conflicts, **local-shadows-global** warnings, **missing `@init_post`** detection, and **globals-outside-`@init_post`** hints. VMID variables from the machine-specific `.vmid` file are recognized automatically. File encoding check (`GPPL3001`) warns about characters not representable in the target ANSI encoding. Every diagnostic carries a stable code (`GPPL1xxx` syntax, `GPPL2xxx` semantic, `GPPL3xxx` encoding).
+Parse errors with clear, context-aware messages. Semantic checks: **undeclared identifiers** (`GPPL2007`), **type mismatch** on assignment (`GPPL2008`), redeclarations, system variable conflicts, **local-shadows-global** warnings, **missing `@init_post` / `@init_inc`** detection, and **globals-outside-init-procedure** hints. VMID variables from the machine-specific `.vmid` file are recognized automatically. File encoding check (`GPPL3001`) warns about characters not representable in the target ANSI encoding. Every diagnostic carries a stable code (`GPPL1xxx` syntax, `GPPL2xxx` semantic, `GPPL3xxx` encoding).
 
 ![Diagnostics](https://github.com/anzory/SolidCAM-GPPL-IDE/raw/master/images/diagnostics.png)
 
@@ -71,7 +71,7 @@ Parse errors with clear, context-aware messages. Semantic checks: **undeclared i
 - Remove a duplicate variable declaration
 - Rename a local variable that shadows a global (`x` → `x_local`)
 - Generate a missing `@init_post` procedure stub
-- Move a global declaration into `@init_post`
+- Move a global declaration into `@init_post` or `@init_inc`
 
 ### Snippets
 
