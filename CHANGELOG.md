@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.2.6] — 2026-06-20
+
+### Added
+- **3 new SolidCAM system variables**:
+  - `ah_move` (`numeric`) — first rotary axis angle for MCO move in WCS (Workpiece Coordinate System).
+  - `bh_move` (`numeric`) — second rotary axis angle for MCO move in WCS.
+  - `tool_taper_angle` (`numeric`) — taper angle of the tool for taper mill tools.
+
+### Changed
+- **Marketplace description refreshed** in English, Russian, and German to better reflect the full feature set (highlighting, formatting, autocomplete, code lens, snippets).
+
 ## [1.2.5] — 2026-05-17
 
 ### Fixed

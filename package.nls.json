@@ -1,6 +1,6 @@
 {
   "displayName": "Postprocessor IDE for SolidCAM",
-  "description": "Language support for GPPL (General Post Processor Language) — syntax highlighting, diagnostics, IntelliSense, and more.",
+  "description": "Full SolidCAM GPPL language support for VSCode: highlighting, formatting, autocomplete, code lens, code snippets and more. Write your postprocessor for SolidCAM like a pro.",
   "configuration.title": "GPPL",
   "configuration.trace.description": "Traces the communication between VS Code and the GPPL language server.",
   "configuration.encoding.description": "Target ANSI encoding for GPPL files. Characters not representable in this encoding will be flagged.",
