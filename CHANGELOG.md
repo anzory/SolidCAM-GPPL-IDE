@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.7] — 2026-06-20
+
+### Fixed
+- **Parser now accepts unary `+`/`-` before parenthesized expressions**, e.g. `arr<<i>> = -(a<<j>> * a<<k>> - a<<l>> * a<<m>>) / det`. Previously this valid GPPL idiom produced a cascade of syntax errors (GPPL1099/GPPL1010) on matrix assignments.
+- **Simplified `rightPartOfAssignment` grammar** by removing redundant `identifier` and parenthesized alternatives; `specialFunctionCall` now requires parentheses. This reduces SLL ambiguity while keeping existing valid syntax intact.
+
 ## [1.2.6] — 2026-06-20
 
 ### Added

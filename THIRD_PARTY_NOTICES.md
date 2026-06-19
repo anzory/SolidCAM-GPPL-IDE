@@ -60,6 +60,7 @@ The individual license texts are provided at the end of this document.
   - `Microsoft.Extensions.Logging` 8.0.0
   - `Microsoft.Extensions.Logging.Abstractions` 8.0.0
   - `Microsoft.Extensions.Logging.Console` 8.0.0
+  - `System.Text.Encoding.CodePages` 8.0.0
   - System.\* libraries (indirect dependencies of the above)
 
 ### MediatR (Apache-2.0)
