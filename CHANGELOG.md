@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.3.0] — 2026-06-20
+
+### Added
+- **Stricter type checking for `logical` assignments.** Assigning `numeric`, `string`, or arbitrary `integer` expressions to a `logical` variable now produces a semantic diagnostic. Only `logical` expressions and the integer literals `0`/`1` are accepted.
+- **Quick Fix for unclosed string literals now handles both quote types.** The "Close string" action detects whether the literal started with `'` or `"` and inserts the matching closing quote.
+
+### Changed
+- **PRO scaffolding separated from community VSIX.** `MockProLicenseService` and `NoopProFeatureProvider` are no longer bundled into the community build; PRO features will ship from a separate branch. This keeps the public extension free of license stubs.
+
+### Fixed
+- **Encoding command validation.** The `solidcam-gppl.setEncoding` command now rejects invalid or empty encoding values, preventing accidental corruption of the `gppl.encoding` setting.
+
 ## [1.2.7] — 2026-06-20
 
 ### Fixed
