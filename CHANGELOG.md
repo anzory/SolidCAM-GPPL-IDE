@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.3.1] — 2026-07-19
+
+### Security
+- **Language features are disabled for extremely large or deeply nested files** (over ~10 MB or more than 128 levels of `(`/`{` nesting). This prevents the language server from consuming excessive memory or hanging on pathological input. Diagnostics GPPL3002 / GPPL3003 explain why analysis stopped.
+- **Paths in server log messages are masked** so local file paths are not written in full when errors are logged.
+
+### Fixed
+- **Parser and language features no longer crash on heavily broken GPPL** (incomplete declarations, recovery trees from the ANTLR parser). Opening or editing a malformed file is much safer.
+- **Quick Fixes for unused identifiers ignore stale diagnostic ranges** that no longer match the current line, avoiding “fix” edits that could corrupt source.
+- **Rename no longer inserts duplicate edits** when a definition and a reference occupy the same span.
+- **Format Document and Quick Fixes preserve the file’s own line endings** (CRLF vs LF), so Windows post-processors are not rewritten with Unix endings by accident.
+- **“Open Server Logs” finds today’s log file by local date**, matching how the server rolls log files. Previously the command could report “not found” around midnight depending on timezone.
+- **Opening server logs no longer fails silently** if the file disappears between the existence check and open.
+- **Changing `gppl.encoding` no longer rewrites VS Code settings on every activation** when the value is already correct, which reduces settings churn and configuration storms.
+- **Extension commands stay available even if the language server fails to start**, and a failed activation cleans up the server process instead of leaving an orphan.
+- **Negative numeric literals are no longer accepted as valid `logical` assignments** (GPPL2008), closing a gap in the stricter logical type checks from v1.3.0.
+- **Document links and related caches no longer grow without bound** during long editing sessions.
+
 ## [1.3.0] — 2026-06-20
 
 ### Added

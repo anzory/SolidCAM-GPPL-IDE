@@ -208,6 +208,13 @@ code --install-extension vscode-gppl-ide-x.y.z.vsix
 
 ---
 
+## Release notes
+
+Full history of user-facing changes: [CHANGELOG.md](./CHANGELOG.md).  
+Latest builds and notes: [GitHub Releases](https://github.com/anzory/SolidCAM-GPPL-IDE/releases).
+
+---
+
 ## Feedback
 
 This extension is built for postprocessor developers. If you work with GPPL, your input is invaluable:

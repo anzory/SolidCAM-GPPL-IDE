@@ -1,4 +1,5 @@
 {
   "SolidCAM GPPL: language server not found at {0}. Please build the server.": "SolidCAM GPPL: языковой сервер не найден по пути {0}. Выполните сборку сервера.",
-  "Log file not found: {0}": "Файл логов не найден: {0}"
+  "Log file not found: {0}": "Файл логов не найден: {0}",
+  "Failed to open log file: {0}": "Не удалось открыть файл логов: {0}"
 }
