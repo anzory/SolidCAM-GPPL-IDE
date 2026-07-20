@@ -19,7 +19,7 @@ Full support for the GPPL language (`.gpp`) in Visual Studio Code: semantic high
 
 All syntax highlighting is provided by the language server — variables, procedures, parameters, types, keywords, operators, built-in functions and system variables are color-coded by meaning, not just pattern matching.
 
-Hover over any symbol to see its kind, type, scope, and reference count. System variables show a description from the SolidCAM reference. **48 built-in functions** (`abs`, `substr`, `atan2`, `date`, …) show their full signature, return type, localized description, and usage examples.
+Hover over any symbol to see its kind, type, scope, and reference count. System variables show a description from the SolidCAM reference. **93 built-in functions** (`abs`, `substr`, `atan2`, `date`, `get_axis_name`, …) show their full signature, return type, localized description, and usage examples.
 
 ### Auto-Completion
 
@@ -35,7 +35,7 @@ After you type `call ` (with the trailing space), the list of procedures opens *
 
 ### Wrap Selection with Built-ins
 
-Select any variable, press `Ctrl+Space`, pick a built-in function from the list — your selection becomes the first argument automatically. For example, select `x_pos` and pick `active` → you get `active(x_pos)`. Works for all **48 built-in functions** — `abs`, `sin`, `sqrt`, `upper`, `strlen`, `atan2`, `substr`, and the rest. Powered by VS Code's standard `$TM_SELECTED_TEXT` snippet variable — no configuration required.
+Select any variable, press `Ctrl+Space`, pick a built-in function from the list — your selection becomes the first argument automatically. For example, select `x_pos` and pick `active` → you get `active(x_pos)`. Works for all **93 built-in functions** — `abs`, `sin`, `sqrt`, `upper`, `strlen`, `atan2`, `substr`, and the rest. Powered by VS Code's standard `$TM_SELECTED_TEXT` snippet variable — no configuration required.
 
 Without a selection, the same completion behaves as before: the first parameter is a placeholder tab-stop (`abs(number)`), so nothing changes when you just type `abs` at the cursor.
 
@@ -56,7 +56,7 @@ Without a selection, the same completion behaves as before: the first parameter 
 
 ### Diagnostics
 
-Parse errors with clear, context-aware messages. Semantic checks: **undeclared identifiers** (`GPPL2007`), **type mismatch** on assignment (`GPPL2008`), redeclarations, system variable conflicts, **local-shadows-global** warnings, **missing `@init_post` / `@init_inc`** detection, and **globals-outside-init-procedure** hints. VMID variables from the machine-specific `.vmid` file are recognized automatically. File encoding check (`GPPL3001`) warns about characters not representable in the target ANSI encoding. Every diagnostic carries a stable code (`GPPL1xxx` syntax, `GPPL2xxx` semantic, `GPPL3xxx` encoding).
+Parse errors with clear, context-aware messages. Semantic checks: **undeclared identifiers** (`GPPL2007`), **type mismatch** on assignment (`GPPL2008`), **region crosses procedure boundary** (`GPPL2009`), redeclarations, system variable conflicts, **local-shadows-global** warnings, **missing `@init_post` / `@init_inc`** detection, and **globals-outside-init-procedure** hints. VMID variables from the machine-specific `.vmid` file are recognized automatically. File encoding check (`GPPL3001`) warns about characters not representable in the target ANSI encoding. Every diagnostic carries a stable code (`GPPL1xxx` syntax, `GPPL2xxx` semantic, `GPPL3xxx` encoding).
 
 ![Diagnostics](https://github.com/anzory/SolidCAM-GPPL-IDE/raw/master/images/diagnostics.png)
 
@@ -96,7 +96,7 @@ Type a prefix and press **Tab** to expand common constructs with tab-stops at th
 
 ### Signature Help
 
-Parameter hints when calling procedures and built-in functions — see expected argument types, optional parameters, and localized descriptions. Supports all **48 built-in functions** and user-defined `@`-procedures.
+Parameter hints when calling procedures and built-in functions — see expected argument types, optional parameters, and localized descriptions. Supports all **93 built-in functions** and user-defined `@`-procedures.
 
 ![Signature Help](https://github.com/anzory/SolidCAM-GPPL-IDE/raw/master/images/signature-help.png)
 
@@ -106,9 +106,9 @@ Parameter hints when calling procedures and built-in functions — see expected 
 
 ### And More
 
-- **Document Outline** — see the structure of your postprocessor (Ctrl+Shift+O)
-- **Breadcrumbs** — navigate by procedure name
-- **Folding** — collapse `proc/endp`, `if/endif`, `while/endw`, comment blocks, and custom `;#region NAME` / `;#endregion` markers (C#-style; works across or inside procedures, no semantic meaning)
+- **Document Outline** — see procedures, variables, and `;#region` blocks (Ctrl+Shift+O)
+- **Breadcrumbs** — navigate by procedure and region name
+- **Folding** — collapse `proc/endp`, `if/endif`, `while/endw`, comment blocks, and custom `;#region NAME` / `;#endregion` markers (C#-style). Region names may contain any characters. A region that crosses a procedure boundary produces warning **GPPL2009** in Problems (folding still works)
 - **VMID support** — variables from the machine-specific `.vmid` file (same name as your `.gpp`) are recognized, shown in completion and hover, and used for type checking. VMID files are parsed with XXE and billion-laughs hardening.
 - **System Catalog** — built-in reference for SolidCAM system variables and procedures
 

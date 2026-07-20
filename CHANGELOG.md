@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.4.0] — 2026-07-20
+
+### Added
+- **`;#region` / `;#endregion` blocks appear in Document Outline and Breadcrumbs** (restored from the legacy vscode-gppl-support extension). Nested regions and regions wrapping procedures are supported. Region names may contain any characters (e.g. `;#region --- SETUP / G54 ---`).
+- **Warning GPPL2009** when a region crosses a procedure boundary (starts inside a procedure and ends outside it, or the reverse). Folding still works; the warning helps keep Outline structure clean.
+- **Hover, completion, and signature help for 45 SolidCAM get functions** (`get_axis_name`, `get_turret_num`, `get_machine_precision`, `get_stock_data_in_position`, `get_work_offset`, `get_tcp_type`, `is_joint_name_exist`, …) from the "Get Function commands" section of the GPPL reference, including the additions from the SolidCAM 2025/2026 help — full signatures, return types, usage examples, and descriptions in English, Russian, and German. Functions that appeared in SolidCAM 2025 or 2026 are marked as such in the hover. The built-in function catalog now covers 93 functions. Closes anzory/SolidCAM-GPPL-IDE#2.
+
+### Fixed
+- **Calls to built-in get functions no longer report "undeclared identifier" (GPPL2007).** Known built-in names such as `get_axis_name(...)` or `get_solidcam_version` are recognized instead of being flagged as unknown variables.
+- **`get_machine_precision` documentation now lists all six categories** from the 2026 reference: `"rotary"`, `"movement"`, `"movement5x"`, `"feed"`, `"spin"`, and `"time"`.
+
 ## [1.3.1] — 2026-07-19
 
 ### Security
