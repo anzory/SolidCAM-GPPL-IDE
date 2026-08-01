@@ -1,11 +1,34 @@
 # Changelog
 
+## [1.4.1] — 2026-07-22
+
+### Fixed
+
+- **The parser no longer reports false errors on four GPPL constructs used by real production postprocessors** (findings from the gppl-mcp corpus of 116 posts):
+  - `nb` / `nl` in any position of a code-generation block `{ ... }` — including juxtaposition concatenation without commas (previously they were accepted only as the very first member);
+  - `Input "prompt", variable` with a comma after the prompt string;
+  - function calls in comparison operands (e.g. `if x gt 0 and get_axis_name (submachine_ID, 4) ne ''`);
+  - a missing comma between `call` arguments — the SolidCAM interpreter tolerates it, so the IDE no longer flags it.
+
 ## [1.4.0] — 2026-07-20
 
 ### Added
+- **Configurable PRO license request token.** New setting `solidcam-gppl.proRequestToken` lets vendors supply the `X-GPPL-Request-Token` header sent to the PRO license request backend.
+- **PRO license requests are now sent as HTTP POST with a JSON body** instead of a GET request with query parameters.
+- **Backend optionally sends an email notification via Yandex Postbox** when `POSTBOX_SENDER`, `POSTBOX_RECIPIENT`, `POSTBOX_ENDPOINT`, `POSTBOX_REGION`, `AWS_ACCESS_KEY_ID`, and `AWS_SECRET_ACCESS_KEY` are configured.
+- **Status bar now shows `GPPL IDE: Community` or `GPPL IDE: Pro`** instead of `PRO: Inactive/Active`.
+- **Click behavior adapts to license state:** Community mode offers activation or trial request; Pro mode offers license refresh or renewal/extension.
+- **Trial request protection:** once a PRO license has been activated, the client remembers it and switches the request action to renewal/extend.
+- **License request form now pre-fills previously entered data** from extension global state, so users don't have to re-enter name, email, and company.
+- **PRO license request form now lets users choose a subscription term** (1, 2, or 3 years) and shows the discounted total price before submission. Pricing: $50/year, 20% off for 2 years, 30% off for 3 years; trial requests remain free.
+- **Renewal requests include the current Guardant license ID** so the vendor can locate the existing license in Guardant Station.
+- **Backend email notifications now include request type, subscription term, price, and license ID.**
 - **`;#region` / `;#endregion` blocks appear in Document Outline and Breadcrumbs** (restored from the legacy vscode-gppl-support extension). Nested regions and regions wrapping procedures are supported. Region names may contain any characters (e.g. `;#region --- SETUP / G54 ---`).
 - **Warning GPPL2009** when a region crosses a procedure boundary (starts inside a procedure and ends outside it, or the reverse). Folding still works; the warning helps keep Outline structure clean.
 - **Hover, completion, and signature help for 45 SolidCAM get functions** (`get_axis_name`, `get_turret_num`, `get_machine_precision`, `get_stock_data_in_position`, `get_work_offset`, `get_tcp_type`, `is_joint_name_exist`, …) from the "Get Function commands" section of the GPPL reference, including the additions from the SolidCAM 2025/2026 help — full signatures, return types, usage examples, and descriptions in English, Russian, and German. Functions that appeared in SolidCAM 2025 or 2026 are marked as such in the hover. The built-in function catalog now covers 93 functions. Closes anzory/SolidCAM-GPPL-IDE#2.
+
+### Changed
+- **PRO license request backend validates the request token via the `GPPL_REQUEST_TOKEN` environment variable.** If the variable is unset, token validation is disabled for testing.
 
 ### Fixed
 - **Calls to built-in get functions no longer report "undeclared identifier" (GPPL2007).** Known built-in names such as `get_axis_name(...)` or `get_solidcam_version` are recognized instead of being flagged as unknown variables.

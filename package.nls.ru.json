@@ -6,5 +6,16 @@
   "configuration.encoding.description": "Целевая ANSI-кодировка для файлов GPPL. Символы, непредставимые в этой кодировке, будут отмечены предупреждением.",
   "configuration.encoding.windows1252": "Западноевропейская (по умолчанию для большинства установок SolidCAM)",
   "configuration.encoding.windows1251": "Кириллица (для установок в России и СНГ)",
-  "command.openLogs.title": "Открыть логи сервера"
+  "configuration.workspace.maxFiles.description": "Максимальное число .gpp файлов, индексируемых сканером workspace (PRO multi-file). Файлы сверх лимита пропускаются.",
+  "configuration.workspace.excludeGlobs.description": "Glob-паттерны, исключаемые из сканирования файлов workspace (PRO multi-file). Полностью заменяют набор по умолчанию.",
+  "configuration.proRequestEmail.description": "Адрес email для заявки на PRO-лицензию через mailto:. Игнорируется, если задан proRequestUrl.",
+  "configuration.proRequestUrl.description": "URL веб-формы (Yandex/Google Forms и т.п.), открываемой при заявке на PRO-лицензию. Если задан, proRequestEmail игнорируется.",
+  "configuration.proRequestToken.description": "Опциональный токен запроса, отправляемый backend'у заявок на PRO-лицензию. Должен совпадать с переменной окружения GPPL_REQUEST_TOKEN на backend'е.",
+  "command.openLogs.title": "Открыть логи сервера",
+  "command.activatePro.title": "Активировать PRO-лицензию",
+  "command.refreshProLicense.title": "Обновить PRO-лицензию",
+  "command.createProjectFile.title": "Создать gppl.project.json",
+  "command.refreshProjectExplorer.title": "Обновить обозреватель проекта",
+  "view.projectExplorer.title": "Проект GPPL",
+  "capabilities.untrustedWorkspaces.description": "Запросы лицензии отключены в недоверенных рабочих областях. Все языковые функции доступны."
 }

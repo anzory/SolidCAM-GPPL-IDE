@@ -6,5 +6,16 @@
   "configuration.encoding.description": "Ziel-ANSI-Codierung für GPPL-Dateien. Zeichen, die in dieser Codierung nicht darstellbar sind, werden markiert.",
   "configuration.encoding.windows1252": "Westeuropäisch (Standard für die meisten SolidCAM-Installationen)",
   "configuration.encoding.windows1251": "Kyrillisch (für russische/GUS-Installationen)",
-  "command.openLogs.title": "Server-Logs öffnen"
+  "configuration.workspace.maxFiles.description": "Maximale Anzahl von .gpp-Dateien, die der Workspace-Scanner indiziert (PRO Multi-Datei). Dateien über diesem Limit werden übersprungen.",
+  "configuration.workspace.excludeGlobs.description": "Glob-Muster, die vom Workspace-Dateiscan ausgeschlossen werden (PRO Multi-Datei). Ersetzt den Standard-Satz vollständig.",
+  "configuration.proRequestEmail.description": "E-Mail-Adresse für PRO-Lizenzanfragen per mailto:. Wird ignoriert, wenn proRequestUrl gesetzt ist.",
+  "configuration.proRequestUrl.description": "URL eines Webformulars (Yandex/Google Forms etc.), das bei einer PRO-Lizenzanfrage geöffnet wird. Wenn gesetzt, wird proRequestEmail ignoriert.",
+  "configuration.proRequestToken.description": "Optionaler Anfrage-Token, der an das Backend für PRO-Lizenzanfragen gesendet wird. Muss mit der Umgebungsvariable GPPL_REQUEST_TOKEN im Backend übereinstimmen.",
+  "command.openLogs.title": "Server-Logs öffnen",
+  "command.activatePro.title": "PRO-Lizenz aktivieren",
+  "command.refreshProLicense.title": "PRO-Lizenz aktualisieren",
+  "command.createProjectFile.title": "gppl.project.json erstellen",
+  "command.refreshProjectExplorer.title": "Projekt-Explorer aktualisieren",
+  "view.projectExplorer.title": "GPPL-Projekt",
+  "capabilities.untrustedWorkspaces.description": "Lizenzanfragen sind in nicht vertrauenswürdigen Arbeitsbereichen deaktiviert. Alle Sprachfunktionen bleiben verfügbar."
 }

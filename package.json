@@ -2,7 +2,7 @@
   "name": "vscode-gppl-ide",
   "displayName": "%displayName%",
   "description": "%description%",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "publisher": "anzory",
   "author": {
     "name": "Andrey Zorin"
@@ -30,7 +30,16 @@
     "gpp"
   ],
   "main": "./extension.js",
-  "activationEvents": [],
+  "activationEvents": [
+    "onLanguage:gppl",
+    "onCommand:solidcam-gppl.activatePro"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": "partial",
+      "description": "%capabilities.untrustedWorkspaces.description%"
+    }
+  },
   "contributes": {
     "languages": [
       {
@@ -89,6 +98,53 @@
           ],
           "default": "windows1252",
           "description": "%configuration.encoding.description%"
+        },
+        "solidcam-gppl.proRequestEmail": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null,
+          "scope": "application",
+          "description": "%configuration.proRequestEmail.description%"
+        },
+        "solidcam-gppl.proRequestUrl": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": "https://functions.yandexcloud.net/d4eeskqsgg3jkh0a2cpc",
+          "scope": "application",
+          "description": "%configuration.proRequestUrl.description%"
+        },
+        "solidcam-gppl.proRequestToken": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": "47c96004-f717-4186-bfa6-8648b8ad5981",
+          "scope": "application",
+          "description": "%configuration.proRequestToken.description%"
+        },
+        "solidcam-gppl.workspace.maxFiles": {
+          "type": "integer",
+          "default": 5000,
+          "description": "%configuration.workspace.maxFiles.description%"
+        },
+        "solidcam-gppl.workspace.excludeGlobs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "**/node_modules/**",
+            "**/.git/**",
+            "**/bin/**",
+            "**/obj/**",
+            "**/dist/**",
+            "**/out/**"
+          ],
+          "description": "%configuration.workspace.excludeGlobs.description%"
         }
       }
     },
@@ -151,12 +207,62 @@
         "command": "solidcam-gppl.openLogs",
         "title": "%command.openLogs.title%",
         "category": "SolidCAM GPPL"
+      },
+      {
+        "command": "solidcam-gppl.activatePro",
+        "title": "%command.activatePro.title%",
+        "category": "SolidCAM GPPL"
+      },
+      {
+        "command": "solidcam-gppl.refreshProLicense",
+        "title": "%command.refreshProLicense.title%",
+        "category": "SolidCAM GPPL"
+      },
+      {
+        "command": "solidcam-gppl.createProjectFile",
+        "title": "%command.createProjectFile.title%",
+        "category": "SolidCAM GPPL"
+      },
+      {
+        "command": "solidcam-gppl.refreshProjectExplorer",
+        "title": "%command.refreshProjectExplorer.title%",
+        "category": "SolidCAM GPPL"
       }
     ],
+    "views": {
+      "explorer": [
+        {
+          "id": "solidcam-gppl.projectExplorer",
+          "name": "%view.projectExplorer.title%",
+          "when": "solidcam-gppl.proActive"
+        }
+      ]
+    },
     "menus": {
       "commandPalette": [
         {
           "command": "solidcam-gppl.openLogs"
+        },
+        {
+          "command": "solidcam-gppl.activatePro"
+        },
+        {
+          "command": "solidcam-gppl.refreshProLicense"
+        },
+        {
+          "command": "solidcam-gppl.createProjectFile",
+          "when": "solidcam-gppl.proActive"
+        },
+        {
+          "command": "solidcam-gppl.refreshProjectExplorer",
+          "when": "solidcam-gppl.proActive"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "solidcam-gppl.refreshProjectExplorer",
+          "when": "view == solidcam-gppl.projectExplorer",
+          "group": "navigation"
         }
       ]
     }

@@ -101,6 +101,18 @@ The individual license texts are provided at the end of this document.
 - **Home:** <https://github.com/dotnet/reactive>
 - **Note:** Indirect dependency via OmniSharp.
 
+### Guardant Software Licensing Kit (Proprietary)
+
+- **Copyright** © AО «Актив-софт» / Guardant
+- **License:** Guardant License Agreement (redistributable runtime)
+- **Home:** <https://guardant.ru/>
+- **Components used (v4.5.3):**
+  - `grdlic.dotnet.core.dll` — managed .NET wrapper
+  - `grdlic.dll` — native x64 runtime
+- **Note:** Used only in the PRO edition for license enforcement. Both DLLs
+  are redistributed with the VSIX under the terms of the Guardant License
+  Agreement. See the full license text below.
+
 ---
 
 ## Build-only tools (NOT redistributed)
@@ -181,6 +193,36 @@ POSSIBILITY OF SUCH DAMAGE.
 ```
 
 Applies to: `Antlr4.Runtime.Standard`.
+
+---
+
+## Guardant License Agreement
+
+```
+Утверждено
+Приказом генерального директора
+АО «Актив-софт»
+№ 04-ЛС от 21.08.2018 г.
+
+Лицензионное соглашение
+на использование программных продуктов
+и/или онлайн-сервисов Гардант (Guardant)
+Редакция №2 от 21 августа 2018 г.
+Настоящий документ представляет собой предложение Закрытого акционерного общества «Актив-софт» (далее - «Правообладатель») заключить соглашение на изложенных ниже условиях.
+
+Прежде чем открыть пакет с программным продуктом и/или использовать его содержимое, и/или прежде чем загружать или устанавливать программный продукт и/или онлайн-сервис Гардант (Guardant), пожалуйста, внимательно прочитайте данное лицензионное соглашение.
+
+Все указания по использованию программных продуктов и/или онлайн-сервисов Гардант (Guardant), предоставляемые АО «Актив-софт» подчиняются и будут подчиняться условиям, содержащимся в настоящем лицензионном соглашении.
+
+Полный текст Лицензионного соглашения доступен на сайте Правообладателя:
+https://guardant.ru
+
+Runtime-библиотеки Guardant (`grdlic.dll`, `grdlic.dotnet.core.dll`)
+распространяются в составе продукта в соответствии с условиями
+Лицензионного соглашения АО «Актив-софт» (Guardant).
+```
+
+Applies to: Guardant Software Licensing Kit runtime DLLs (`grdlic.dll`, `grdlic.dotnet.core.dll`).
 
 ---
 

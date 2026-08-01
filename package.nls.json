@@ -6,5 +6,16 @@
   "configuration.encoding.description": "Target ANSI encoding for GPPL files. Characters not representable in this encoding will be flagged.",
   "configuration.encoding.windows1252": "Western European (default for most SolidCAM installations)",
   "configuration.encoding.windows1251": "Cyrillic (for Russian/CIS installations)",
-  "command.openLogs.title": "Open Server Logs"
+  "configuration.workspace.maxFiles.description": "Maximum number of .gpp files indexed by the workspace scanner (PRO multi-file). Files beyond this cap are skipped.",
+  "configuration.workspace.excludeGlobs.description": "Glob patterns excluded from workspace file scanning (PRO multi-file). Replaces the default set.",
+  "configuration.proRequestEmail.description": "Email address used when the user requests a PRO license via mailto:. Ignored if proRequestUrl is set.",
+  "configuration.proRequestUrl.description": "URL of a web form (Yandex/Google Forms, etc.) opened when the user requests a PRO license. If set, proRequestEmail is ignored.",
+  "configuration.proRequestToken.description": "Optional request token sent to the PRO license request backend. Must match the GPPL_REQUEST_TOKEN environment variable on the backend.",
+  "command.openLogs.title": "Open Server Logs",
+  "command.activatePro.title": "Activate PRO License",
+  "command.refreshProLicense.title": "Refresh PRO License",
+  "command.createProjectFile.title": "Create gppl.project.json",
+  "command.refreshProjectExplorer.title": "Refresh Project Explorer",
+  "view.projectExplorer.title": "GPPL Project",
+  "capabilities.untrustedWorkspaces.description": "License requests are disabled in untrusted workspaces. All language features remain available."
 }
