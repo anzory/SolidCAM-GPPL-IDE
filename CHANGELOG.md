@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.5.0] — 2026-08-05
+
+### Added
+
+- **16 new SolidCAM system procedures** with hover/completion descriptions in English, Russian, and German: `@init_post`, `@end_of_job`, `@drill_point`, `@end_drill`, the MCO / Full Trace set (`@mco_cycle`, `@end_mach_ctrl`, `@end_obj_act`, `@working_mode`, `@spin`, `@open_close_obj`), and commands from recent SolidCAM versions (`@change_submachine` and `@spiral` — 2023, `@turn_thread_line`, `@wc_info`, `@wc_t`, `@call_prms_info` — 2025).
+- **44 new SolidCAM system variables** (EN/RU/DE): MCO and Full Trace variables (`MCO_CycleName`, `sMCO_Comments`, `DeviceType`, `open_close`, …), synchronization parameters (`superimposition_mode`, `number_jobs_in_label`, …), tool variables (`next_tool_position`, `part_tool_tag_on_turret`, `xhupos`/`yhupos`/`zhupos`, …), Thread Whirling / Shaped Thread variables (`thread_start_angle`, `spiral_size`, …), wire EDM combined-movement variables (`acx`…`aduv`), `vmc_language`, `stock_in`, `gpp_debugging`, and the `axis4_no` / `axis4_yes` constants for `rot_axis_coord`.
+- **2 new SolidCAM 2026 system procedures** (EN/RU/DE): `@controlled_coolant` (per-level coolant control in multi-depth drill operations) and `@unload_tool` (Unload Tool action in MCO jobs).
+- **7 new coolant system variables** (EN/RU/DE): `coolant_control` (SolidCAM 2026), `mp_flood_coolant` (2025), and the machine shower-coolant group `mach_shower_coolant`, `mach_hp_shower_coolant`, `mach_lp_shower_coolant`, `mach_shower_ival_coolant`, `mach_shower_coolant_val` (2025).
+
+### Changed
+
+- The system catalog grew from **94 → 112 procedures** and **1108 → 1159 variables**.
+- **`user_account` documentation now warns** that since SolidCAM 2022 the variable is unreliable for environment detection — use `gpp_debugging` instead.
+
+### Fixed
+
+- **No more false `GPPL2007` (undeclared identifier) on built-in function calls inside comparisons.** Since v1.4.1 the parser accepts calls like `if get_plane_rotation_order(submachine_id) ne 'KINEMATIC' then`, but the semantic analyzer still flagged the function name as an undeclared variable — hover showed the function documentation and an error at the same time.
+
 ## [1.4.1] — 2026-07-22
 
 ### Fixed
