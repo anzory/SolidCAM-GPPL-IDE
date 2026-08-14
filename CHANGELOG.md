@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.5.1] — 2026-08-14
+
+### Added
+
+- **7 new SolidCAM system procedures** (EN/RU/DE) from the GPPTool 2024 help: `@absolute_mode`, `@change_ref_point`, `@delay`, `@drill4x_polar`, `@end_loop`, `@init_inc` (include-file initializer), and `@wc_angle_status` (WireEDM).
+- **10 new SolidCAM system variables** (EN/RU/DE) from the GPPTool 2024 help: coordinate-set completions `xnext/ynext/znext_tool_z_level`, `xlnext/ylnext_tool_z_level`, `xwnext/ywnext/zwnext` (`@start_of_job` / `@rotate_to_plane`), `next_back_spindle`, `absolute` (`@change_ref_point`), and `angle_status` (`@wc_angle_status`).
+- **10 new SolidCAM 2026 system variables** (EN/RU/DE): MCO reference-point variables `home_reference_id` / `home_reference_name` (`@move_object`), transformation flags `rotate_last` / `translate_last` / `mirror_last` (`@transform_info`), `workpiece_id` / `workpiece_name`, local-plane Turn Drill variables `drill_depth_l` / `down_step_l`, and `conic_radius` for WireEDM conic arc interpolation (`@wc_arc`).
+- **5 new SolidCAM 2025 system variables** (EN/RU/DE): `ReferencePoint_shift_x` / `ReferencePoint_shift_y` / `ReferencePoint_shift_z` (`@start_obj_act` 'Table Device' action, SC2025 SP2), `program_plane_SMCS` (`@wire_info`, WireEDM, SC2025 SP2), and `tcp_mode` (`@start_obj_act`, SC2025 SP3).
+- **2 new built-in functions** (EN/RU/DE): `get_tool_mfc_data(tool_tag, i_CompNum, i_Format)` — tool manufacturer name / catalog number, and `get_angle_precision("angle")` — WireEDM angle precision.
+
+### Changed
+
+- The system catalog grew from **1159 → 1185 variables** and **112 → 119 procedures**.
+- `get_machine_precision` documentation now covers the `"vector"` category.
+- `start_line` / `end_line` descriptions now note their removal in SolidCAM 2025 SP3 — the variables remain in the catalog because they are still valid in earlier SolidCAM versions.
+
 ## [1.5.0] — 2026-08-05
 
 ### Added
