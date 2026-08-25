@@ -24,7 +24,7 @@ Hover over any symbol to see its kind, type, scope, and reference count. System 
 
 ### Auto-Completion
 
-Context-aware suggestions for keywords, built-in functions, your own variables and procedures, plus **1185 SolidCAM system variables** and **119 system procedures** with descriptions. Built-in functions expand as snippets with tab-stops over parameter names and show localized documentation in the completion popup. Descriptions follow VS Code's display language — English, Russian, and German are shipped.
+Context-aware suggestions for keywords, built-in functions, your own variables and procedures, plus **1190 SolidCAM system variables** and **119 system procedures** with descriptions. Built-in functions expand as snippets with tab-stops over parameter names and show localized documentation in the completion popup. Descriptions follow VS Code's display language — English, Russian, and German are shipped.
 
 ![Completion](https://github.com/anzory/SolidCAM-GPPL-IDE/raw/master/images/completion.gif)
 
@@ -171,7 +171,7 @@ The active language follows VS Code's display language (`vscode.env.language`) �
 
 What gets translated:
 
-- **System catalog** — all **1185 system variable** descriptions and **119 system procedure** descriptions (hover tooltips and completion item details).
+- **System catalog** — all **1190 system variable** descriptions and **119 system procedure** descriptions (hover tooltips and completion item details).
 - **Diagnostics** — parser error messages, semantic diagnostics, encoding warnings.
 - **UI strings** — extension settings, command titles, hover labels, completion details.
 

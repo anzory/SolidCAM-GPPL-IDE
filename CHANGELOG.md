@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.5.2] — 2026-08-25
+
+### Added
+
+- **5 new SolidCAM system variables** (EN/RU/DE) for Turning threading cycles: `turn_thread_cycle` (infeed pattern selected on the Cycles tab of the Threading operation) and its constants `cycle1` (radial infeed), `cycle2`/`cycle3` (flank infeed left/right), `cycle4` (alternating flank infeed).
+
+### Changed
+
+- The system catalog grew from **1185 → 1190 variables**.
+
+### Fixed
+
+- **Fixed a rare race during concurrent parsing** that could make encoding validation (GPPL3001) fail intermittently when several documents were analyzed at the same time.
+
 ## [1.5.1] — 2026-08-14
 
 ### Added
