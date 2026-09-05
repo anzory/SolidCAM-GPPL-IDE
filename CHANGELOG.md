@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.5.3] — 2026-09-05
+
+### Added
+
+- **9 new SolidCAM system variables** (EN/RU/DE) — `work_type` constants: turning `ROUGH` (rough turning), `COPY` (copy turning), `PROFILE` (profile finish turning); grooving `groove_rough`, `groove_prof`, `cut` (cutoff), `ang_groove` (angled groove); threading `ONCE` (single pass) and `MULTIPLE` (multi-pass cycle).
+- **2 new SolidCAM system procedures** (EN/RU/DE) for MCO Full Trace mode: `@act` — handles the Advance/Retract action of an auxiliary device (parts catcher, feeder, tailstock, steady rest), and `@working_time_obj` — handles the Working Time action.
+- **2 new SolidCAM system variables** (EN/RU/DE): `move_act` — actuation state passed to `@act` (1 = advanced, 2 = retract), and `working_time` — user-assigned action time in seconds passed to `@working_time_obj`.
+
+### Changed
+
+- The system catalog grew from **1190 → 1201 variables** and **119 → 121 procedures**.
+- Extended the `DeviceType` catalog values (4 = feeder, 5 = parts catcher) and fixed the `DeviceCatalogNum` catalog type (integer → string — VMID catalogue numbers are alphanumeric, e.g. `000000-2`).
+
 ## [1.5.2] — 2026-08-25
 
 ### Added
