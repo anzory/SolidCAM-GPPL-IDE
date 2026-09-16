@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.5.4] — 2026-09-16
+
+### Fixed
+
+- Prevent language-server crashes on excessively nested control flow, arrays, and complex expressions.
+- Parse function calls on both sides of compound `and` / `or` conditions correctly.
+- Reject renames to reserved names or conflicting declarations.
+- Release unused machine-variable cache entries when documents close.
+- Clean up Project Explorer refresh timers and events when the extension shuts down.
+
+
 ## [1.5.3] — 2026-09-05
 
 ### Added
