@@ -14,6 +14,31 @@ The individual license texts are provided at the end of this document.
 - **Home:** <https://github.com/microsoft/vscode-languageserver-node>
 - **Version used:** 9.0.1
 
+### Language protocol libraries (MIT)
+
+- **Copyright** (c) Microsoft Corporation. All rights reserved.
+- **License:** MIT
+- **Home:** <https://github.com/microsoft/vscode-languageserver-node>
+- **Packages:** `vscode-languageserver-protocol` 3.17.5, `vscode-languageserver-types` 3.17.5, `vscode-jsonrpc` 8.2.0
+- **Note:** Bundled transitive dependencies of `vscode-languageclient`.
+
+### brace-expansion and balanced-match (MIT)
+
+- **Copyright** (c) 2013 Julian Gruber <julian@juliangruber.com>
+- **License:** MIT
+- **Home:** <https://github.com/juliangruber/brace-expansion>, <https://github.com/juliangruber/balanced-match>
+- **Packages:** `brace-expansion` 2.1.7, `balanced-match` 1.0.2
+- **Note:** Bundled through `vscode-languageclient` and `minimatch`.
+
+### minimatch and semver (ISC)
+
+- **Copyright (minimatch):** (c) 2011-2023 Isaac Z. Schlueter and Contributors
+- **Copyright (semver):** (c) Isaac Z. Schlueter and Contributors
+- **License:** ISC
+- **Home:** <https://github.com/isaacs/minimatch>, <https://github.com/npm/node-semver>
+- **Packages:** `minimatch` 5.1.9, `semver` 7.7.4
+- **Note:** Bundled transitive dependencies of `vscode-languageclient`.
+
 ---
 
 ## Language Server (bundled into `server/SolidCAM.GPPL.Server.exe`)
@@ -156,7 +181,31 @@ SOFTWARE.
 
 Applies to: `vscode-languageclient`, `OmniSharp.Extensions.*`,
 `Microsoft.Extensions.*`, .NET Runtime, `Newtonsoft.Json`, `Nerdbank.Streams`,
-`DryIoc`, `System.Reactive`, `Antlr4BuildTasks`, `@vscode/vsce`, `esbuild`.
+`DryIoc`, `System.Reactive`, `Antlr4BuildTasks`, `@vscode/vsce`, `esbuild`,
+`vscode-languageserver-protocol`, `vscode-languageserver-types`, `vscode-jsonrpc`,
+`brace-expansion`, `balanced-match`.
+
+---
+
+## ISC License
+
+Copyright notices for each package are listed above.
+
+```
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
+IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+```
+
+Applies to: `minimatch`, `semver`.
 
 ---
 
@@ -414,7 +463,7 @@ Applies to: `Serilog`, `Serilog.Extensions.Logging`, `Serilog.Sinks.File`,
 
 ## Notes
 
-- This document was prepared on **2026-04-26** for version **1.1.7**.
+- This document was updated on **2026-09-17** for **Community 1.5.5 and PRO 2.0.0-beta.6**.
 - License data was extracted from NuGet package metadata (`.nuspec`) in
   the local NuGet cache and official upstream repositories.
 - If you believe an attribution is missing or incorrect, please report it

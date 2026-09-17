@@ -103,7 +103,7 @@ Parameter hints when calling procedures and built-in functions — see expected 
 
 ### Clickable `inc`
 
-**Ctrl+Click** on the filename in `inc "other.gpp"` opens the referenced file. Paths are resolved relative to the directory of the current `.gpp` file (absolute paths are honoured as-is). Both quote styles and forward-slash subdirectories work.
+**Ctrl+Click** on the filename in `inc "other"` opens `other.gpp` in the same directory. Both quote styles are supported. Absolute paths and subdirectories are rejected. Opening an include is available in Community; finding definitions and references across files requires PRO.
 
 ### And More
 
@@ -211,7 +211,7 @@ code --install-extension vscode-gppl-ide-x.y.z.vsix
 
 ## Release notes
 
-Full history of user-facing changes: [CHANGELOG.md](./CHANGELOG.md).  
+Full history of user-facing changes: [CHANGELOG.md](https://github.com/anzory/SolidCAM-GPPL-IDE/blob/HEAD/CHANGELOG.md).  
 Latest builds and notes: [GitHub Releases](https://github.com/anzory/SolidCAM-GPPL-IDE/releases).
 
 ---

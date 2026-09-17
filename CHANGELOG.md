@@ -1,5 +1,23 @@
 # Changelog
 
+## [Unreleased]
+
+
+## [1.5.5] — 2026-09-17
+
+### Fixed
+
+- Open the corresponding `.gpp` file when an `inc` link omits the extension, without changing the directive text.
+- Prevent pending diagnostics from restoring outdated errors after a document closes, reopens, or changes.
+- Preserve parsing and document symbols when malformed Unicode appears in a lexer error; display invalid characters safely in diagnostic messages.
+- Reduce analysis memory allocations for files containing non-ASCII comments and strings, preserving text and diagnostic positions.
+- Stop forwarding unused workspace file events in Community.
+
+### Security
+
+- Update a bundled pattern-expansion dependency and complete third-party license notices.
+
+
 ## [1.5.4] — 2026-09-16
 
 ### Fixed
@@ -11,32 +29,7 @@
 - Clean up Project Explorer refresh timers and events when the extension shuts down.
 
 
-## [1.5.3] — 2026-09-05
 
-### Added
-
-- **9 new SolidCAM system variables** (EN/RU/DE) — `work_type` constants: turning `ROUGH` (rough turning), `COPY` (copy turning), `PROFILE` (profile finish turning); grooving `groove_rough`, `groove_prof`, `cut` (cutoff), `ang_groove` (angled groove); threading `ONCE` (single pass) and `MULTIPLE` (multi-pass cycle).
-- **2 new SolidCAM system procedures** (EN/RU/DE) for MCO Full Trace mode: `@act` — handles the Advance/Retract action of an auxiliary device (parts catcher, feeder, tailstock, steady rest), and `@working_time_obj` — handles the Working Time action.
-- **2 new SolidCAM system variables** (EN/RU/DE): `move_act` — actuation state passed to `@act` (1 = advanced, 2 = retract), and `working_time` — user-assigned action time in seconds passed to `@working_time_obj`.
-
-### Changed
-
-- The system catalog grew from **1190 → 1201 variables** and **119 → 121 procedures**.
-- Extended the `DeviceType` catalog values (4 = feeder, 5 = parts catcher) and fixed the `DeviceCatalogNum` catalog type (integer → string — VMID catalogue numbers are alphanumeric, e.g. `000000-2`).
-
-## [1.5.2] — 2026-08-25
-
-### Added
-
-- **5 new SolidCAM system variables** (EN/RU/DE) for Turning threading cycles: `turn_thread_cycle` (infeed pattern selected on the Cycles tab of the Threading operation) and its constants `cycle1` (radial infeed), `cycle2`/`cycle3` (flank infeed left/right), `cycle4` (alternating flank infeed).
-
-### Changed
-
-- The system catalog grew from **1185 → 1190 variables**.
-
-### Fixed
-
-- **Fixed a rare race during concurrent parsing** that could make encoding validation (GPPL3001) fail intermittently when several documents were analyzed at the same time.
 
 ## [1.5.1] — 2026-08-14
 
@@ -97,7 +90,7 @@
 - **Backend email notifications now include request type, subscription term, price, and license ID.**
 - **`;#region` / `;#endregion` blocks appear in Document Outline and Breadcrumbs** (restored from the legacy vscode-gppl-support extension). Nested regions and regions wrapping procedures are supported. Region names may contain any characters (e.g. `;#region --- SETUP / G54 ---`).
 - **Warning GPPL2009** when a region crosses a procedure boundary (starts inside a procedure and ends outside it, or the reverse). Folding still works; the warning helps keep Outline structure clean.
-- **Hover, completion, and signature help for 45 SolidCAM get functions** (`get_axis_name`, `get_turret_num`, `get_machine_precision`, `get_stock_data_in_position`, `get_work_offset`, `get_tcp_type`, `is_joint_name_exist`, …) from the "Get Function commands" section of the GPPL reference, including the additions from the SolidCAM 2025/2026 help — full signatures, return types, usage examples, and descriptions in English, Russian, and German. Functions that appeared in SolidCAM 2025 or 2026 are marked as such in the hover. The built-in function catalog now covers 93 functions. Closes anzory/SolidCAM-GPPL-IDE#2.
+- **Hover, completion, and signature help for 45 SolidCAM get functions** (`get_axis_name`, `get_turret_num`, `get_machine_precision`, `get_stock_data_in_position`, `get_work_offset`, `get_tcp_type`, `is_joint_name_exist`, …) from the "Get Function commands" section of the GPPL reference, including the additions from the SolidCAM 2025/2026 help — full signatures, return types, usage examples, and descriptions in English, Russian, and German. Functions that appeared in SolidCAM 2025 or 2026 are marked as such in the hover. The built-in function catalog now covers 93 functions. Closes [anzory/SolidCAM-GPPL-IDE#2](https://github.com/anzory/SolidCAM-GPPL-IDE/issues/2).
 
 ### Changed
 - **PRO license request backend validates the request token via the `GPPL_REQUEST_TOKEN` environment variable.** If the variable is unset, token validation is disabled for testing.
@@ -163,7 +156,7 @@
 > ⚠️ **v1.0.0 and v1.0.1 have been withdrawn** due to two security
 > vulnerabilities in the VMID parser (XXE + billion-laughs) and the
 > `inc` directive (path traversal with NTLM-leak potential). Please
-> upgrade to v1.0.2 or later. See [SECURITY.md](./SECURITY.md) for
+> upgrade to v1.0.2 or later. See [SECURITY.md](https://github.com/anzory/SolidCAM-GPPL-IDE/blob/HEAD/SECURITY.md) for
 > the disclosure timeline and mitigation details.
 
 ## [1.2.4] — 2026-05-13
