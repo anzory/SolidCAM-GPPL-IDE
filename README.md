@@ -211,7 +211,7 @@ code --install-extension vscode-gppl-ide-x.y.z.vsix
 
 ## Release notes
 
-Full history of user-facing changes: [CHANGELOG.md](https://github.com/anzory/SolidCAM-GPPL-IDE/blob/HEAD/CHANGELOG.md).  
+Full history of user-facing changes: [CHANGELOG.md](./CHANGELOG.md).  
 Latest builds and notes: [GitHub Releases](https://github.com/anzory/SolidCAM-GPPL-IDE/releases).
 
 ---
