@@ -1,6 +1,26 @@
 # Changelog
 
-## [Unreleased]
+## [1.5.7] — 2026-09-25
+
+### Added
+
+- **1 new SolidCAM system variable** (EN/RU/DE): `mp_through_coolant` (integer) — medium-pressure through-spindle coolant control, completing the `hp_/lp_/mp_` through-coolant family.
+- **2 new SolidCAM system variables** (EN/RU/DE): `machine_stop` (integer), `optional_stop` (integer) — MCO stop controls (M00/M01) with `{no_action (0), on (1), off (2)}` semantics.
+- **4 new SolidCAM system variables** (EN/RU/DE): `mirror_off`, `mirror_x`, `mirror_xy`, `mirror_y` (integer constants) — `mirror_type` enum values for mirror transformations.
+- **1 new SolidCAM system variable** (EN/RU/DE): `none` (integer constant) — generic "not applicable" value, e.g., `mirror_type` in `@transform_info` when the transformation is not Mirror.
+- **1 new SolidCAM system variable** (EN/RU/DE): `userdef_extl3` (integer) — user-defined value flag for the third nonparallel axis, completing the `userdef_extl1..3` / `userdef_extr1..3` family.
+- **1 new SolidCAM system variable** (EN/RU/DE): `open_lid` (integer) — part catcher lid control in MCO operations with `{no_action (0), open (1), close (2)}` semantics.
+- **1 new SolidCAM system variable** (EN/RU/DE): `axis4_split` (integer constant) — 4th-axis coordinate mode "Split" (face machining with a real C axis), completing the `rot_axis_coord` value list.
+- **1 new SolidCAM system variable** (EN/RU/DE): `on_stock` (logical) — chuck-on-stock flag of `@open_close_obj` in MCO operations (e.g., CLOSE ON STOCK).
+
+### Fixed
+
+- Correct the system variable name `lp_trough_coolant` → `lp_through_coolant` in the system catalog (EN/RU/DE). The SolidCAM trace assigns `LP_through_coolant`; the "trough" spelling in the official help is a typo, so hover/completion suggested a name that does not exist in SolidCAM.
+- Correct the `mirror_type` value list to `{mirror_off, mirror_x, mirror_y, mirror_xy}` (EN/RU/DE): a SolidCAM trace of real mirror transformations returns `mirror_x` / `mirror_y` / `mirror_xy`, and the documented `mirror_z` is never emitted. The same fix applies to the `@transform_info` parameter list.
+
+### Changed
+
+- The system catalog grew from **1201 → 1213 variables**.
 
 ## [1.5.6] — 2026-09-20
 
