@@ -1,5 +1,18 @@
 # Changelog
 
+## [Unreleased]
+
+## [1.5.8] — 2026-09-27
+
+### Fixed
+
+- Accept the documented negative dimension in `alen(array, -1)` without a syntax error.
+- Fixed false syntax errors on valid postprocessors that pass a whole array by name to the built-in functions `asize` / `adims` / `alen` (e.g. `Asize(sA_Comment)`), as SolidCAM itself accepts.
+- Fixed false syntax errors when `!` or `not` negates a parenthesized expression (e.g. `!(b_x and b_y)`, `not(b_flag)`).
+- Empty variable declarations (e.g. a `local logical` line naming no variables) are now accepted, matching SolidCAM's tolerance.
+- Fixed false "type mismatch" warnings (GPPL2008) when a string variable is assigned a concatenation of string variables (e.g. `s_a = s_a + s_b`, or `s_a + sA_arr<<i>>` with a string array element): such identifier-only concatenations were mistyped as numeric.
+- Corrected the system variable `msg` type: it is a string (the job comment text), not numeric — hovering and assignment checks were wrong about it.
+
 ## [1.5.7] — 2026-09-25
 
 ### Added
