@@ -1,6 +1,25 @@
 # Changelog
 
-## [Unreleased]
+## [1.6.0] — 2026-10-11
+
+### Added
+
+- **Hover on user-declared system callback procedures (`@arc`, `@change_tool`, …) now shows the official description** from the SolidCAM system-procedure catalog, alongside any author docstring. Previously the description appeared only on `call @arc` sites; the declaration itself — the common case in posts — showed none. Descriptions follow the VS Code display language (EN/RU/DE).
+- **New color theme "GPPL UltraEdit"** (Preferences → Color Theme): a dark Monokai-style scheme with distinct colors for GPPL categories — keywords, types, `@procedures`, built-in functions, system variables, and format strings. Single-quoted literals (by GPPL convention, display formats like `'5.3(p)'`) are now a separate highlighting category from double-quoted text; they only get a distinct color in this theme — other themes and your custom colors are unaffected.
+- **`abort` / `exit` / `return` / `break` are highlighted boldly** in the new theme (the `interrupt` token modifier existed before; now a theme finally colors it).
+- **Structured `;;;` documentation comments** support XML-style `summary`, `param`, and `remarks` tags before procedure and variable declarations. Existing trailing comments remain supported, and parameter descriptions appear in Signature Help.
+- **Typing `;;;` on a new GPPL comment line inserts a `summary` template** and `param` tags for the procedure immediately below it. Tab moves between descriptions; indentation, line endings, and Undo are preserved. Available in Community and PRO.
+- **Procedure hover shows the full signature on its first line.** Catalog descriptions, trailing comments, and structured documentation appear in separate sections, with parameter descriptions kept alongside the structured documentation. Parameter names and types use the same source signature as Signature Help, including declarations resolved through PRO includes.
+- **Recognize 405 additional system variables and 78 system procedures**, removing undeclared-identifier warnings for these names. Descriptions and unconfirmed GPPL types are left unspecified. The catalog now recognizes 1618 variables and 199 procedures.
+- **Empty `local` and `global` variable declarations now show warning `GPPL2016`** for all four types (`logical`, `integer`, `numeric`, and `string`). Add a variable name or remove the unused declaration. These declarations remain accepted by the parser, matching SolidCAM's behavior.
+
+### Fixed
+
+- **Double-clicking a procedure name now selects it together with the leading `@`** (e.g. the whole `@change_tool` instead of just `change_tool`).
+
+### Changed
+
+- Shortened the README with a real Community screenshot and links to the website guides; clarified the PRO closed beta status, corrected the minimum VS Code version to 1.85, and updated the built-in function count to 95.
 
 ## [1.5.8] — 2026-09-27
 

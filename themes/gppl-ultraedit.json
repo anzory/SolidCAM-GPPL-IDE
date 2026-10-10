@@ -1,0 +1,61 @@
+{
+  "$schema": "vscode://schemas/color-theme",
+  "name": "GPPL UltraEdit",
+  "type": "dark",
+  "colors": {
+    "editor.background": "#000000",
+    "editor.foreground": "#C0C0C0",
+    "editorLineNumber.foreground": "#5A5A5A",
+    "editorLineNumber.activeForeground": "#C0C0C0",
+    "editorCursor.foreground": "#FFFFFF",
+    "editor.selectionBackground": "#264F78",
+    "editor.lineHighlightBackground": "#101010"
+  },
+  "semanticTokenColors": {
+    "keyword": "#F92672",
+    "keyword.interrupt": { "foreground": "#FF0000", "fontStyle": "bold italic" },
+    "namespace": "#F92672",
+    "operator": "#C0C0C0",
+    "class": "#FF8000",
+    "function": "#F5CB49",
+    "function.defaultLibrary": { "foreground": "#00CACA", "fontStyle": "" },
+    "string": "#FFFFFF",
+    "string.format": "#FF8000",
+    "number": "#C0C0C0",
+    "variable": "#C0C0C0",
+    "variable.readonly.defaultLibrary": { "foreground": "#C0C0C0", "fontStyle": "" },
+    "variable.readonly.defaultLibrary.boolean": { "foreground": "#FFC042", "fontStyle": "" },
+    "parameter": { "foreground": "#C0C0C0", "fontStyle": "" },
+    "comment": "#75715E"
+  },
+  "tokenColors": [
+    {
+      "scope": ["comment"],
+      "settings": { "foreground": "#75715E" }
+    },
+    {
+      "scope": ["keyword", "storage"],
+      "settings": { "foreground": "#F92672" }
+    },
+    {
+      "scope": ["string.quoted.double.gppl"],
+      "settings": { "foreground": "#FFFFFF" }
+    },
+    {
+      "scope": ["string.quoted.single.gppl"],
+      "settings": { "foreground": "#FF8000" }
+    },
+    {
+      "scope": ["constant.numeric", "constant.language"],
+      "settings": { "foreground": "#FFC042" }
+    },
+    {
+      "scope": ["entity.name.function"],
+      "settings": { "foreground": "#F5CB49" }
+    },
+    {
+      "scope": ["entity.name.type.class", "entity.name.namespace"],
+      "settings": { "foreground": "#FF8000" }
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   "name": "vscode-gppl-ide",
   "displayName": "%displayName%",
   "description": "%description%",
-  "version": "1.5.8",
+  "version": "1.6.0",
   "publisher": "anzory",
   "author": {
     "name": "Andrey Zorin"
@@ -71,6 +71,13 @@
         "language": "gppl",
         "scopeName": "source.gppl",
         "path": "./syntaxes/gppl.tmLanguage.json"
+      }
+    ],
+    "themes": [
+      {
+        "label": "GPPL UltraEdit",
+        "uiTheme": "vs-dark",
+        "path": "./themes/gppl-ultraedit.json"
       }
     ],
     "snippets": [
@@ -158,6 +165,7 @@
     "configurationDefaults": {
       "[gppl]": {
         "editor.semanticHighlighting.enabled": true,
+        "editor.wordSeparators": "`~!#$%^&*()-=+[{]}\\|;:'\",.<>/?",
         "files.encoding": "windows1252",
         "files.autoGuessEncoding": false
       },
@@ -205,6 +213,9 @@
           ],
           "class": [
             "entity.name.type.class.gppl"
+          ],
+          "string.format": [
+            "string.quoted.single.gppl"
           ]
         }
       }
