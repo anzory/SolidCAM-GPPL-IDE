@@ -1,5 +1,17 @@
 # Changelog
 
+## [Unreleased]
+
+## [1.6.1] — 2026-10-11
+
+### Added
+
+- **Enter continues `;;;` documentation comments automatically**, including XML summaries, parameter descriptions, and remarks. The new line starts with `;;; ` and keeps the line's indentation. Standard Undo/Redo and documentation-template Tab stops remain available; remove the prefix to leave the comment block.
+
+### Fixed
+
+- **Author documentation in hover now renders Markdown**, including emphasis, links, headings, tables, lists, and code blocks inside XML documentation tags. Nested indentation and Markdown line breaks are preserved; short parameter descriptions use `name - description`, while block content keeps its own paragraph. Applies to local and PRO cross-file hover.
+
 ## [1.6.0] — 2026-10-11
 
 ### Added

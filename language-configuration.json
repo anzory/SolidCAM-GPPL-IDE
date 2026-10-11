@@ -23,6 +23,12 @@
     ["\"", "\""]
   ],
   "wordPattern": "@?[a-zA-Z][a-zA-Z0-9_]*",
+  "onEnterRules": [
+    {
+      "beforeText": "^[\\t ]*;;;(?!;).*$",
+      "action": { "indent": "none", "appendText": ";;; " }
+    }
+  ],
   "indentationRules": {
     "increaseIndentPattern": "^\\s*(if|while|else|elseif)\\b.*$",
     "decreaseIndentPattern": "^\\s*(endif|endw|else|elseif|endp)\\b.*$"
