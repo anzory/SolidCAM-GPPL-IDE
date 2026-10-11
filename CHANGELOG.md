@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [1.6.2] — 2026-10-11
+
+### Added
+
+- **Hover over a string with `\xNN` escapes to preview its decoded text.** For example, `"T=\x22DORAZ\x22"` shows `T="DORAZ"`. Hex bytes use Windows-1252 in both single- and double-quoted strings. Control characters remain visible as escape notation; malformed escapes and the unsupported `\x00` are preserved. Available in Community and PRO.
+
 ## [1.6.1] — 2026-10-11
 
 ### Added
