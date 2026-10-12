@@ -2,6 +2,24 @@
 
 ## [Unreleased]
 
+## [1.6.3] — 2026-10-12
+
+### Added
+
+- **Recognize the integer variable `ejector` associated with `@ejector`**, with English, Russian, and German descriptions of the reported implementation values: 1 = subspindle ejector advanced; 2 = retracted. The catalog now contains **1633 entries**.
+- **Recognize `positive` and `negative` as named integer system values**, removing undeclared-identifier warnings and adding English, Russian, and German descriptions.
+- **Recognize the numeric constant `pi`**, removing undeclared-identifier warnings in calculations and adding English, Russian, and German descriptions.
+- **Recognize `ST_MM_TEETH` as an integer constant for `feed_status`**, removing undeclared-identifier warnings for this name.
+- **Recognize `MM` and `PITCH_INCH` as integer constants for `lead_unit`**, removing false undeclared-identifier warnings.
+- **Recognize eight drill-type constants for `d_drill_type`**: `D_Drilling`, `D_F_Drill`, `D_Peck`, `D_Tapping`, `D_Boring`, `D_R_Boring`, `D_F_Boring`, and `D_Peck_Step`. These names no longer produce undeclared-identifier warnings and have English, Russian, and German descriptions.
+
+### Fixed
+
+- **Assigning to `pi` now reports error `GPPL2017`**, including writes through `input`. Reading the constant in calculations remains valid. Messages are available in English, Russian, and German.
+- **The `feed_status` description now explains feed per minute and feed per revolution**, and includes `ST_MM_TEETH` as an additional recognized value in English, Russian, and German.
+- **The `lead_unit` description now explains how to interpret `lead`**: pitch in millimeters or threads per inch (TPI), including the `25.4 / lead` conversion to millimeters. Descriptions are available in English, Russian, and German.
+- **VMID parameters from MCO options and saved MCO cycles are now recognized**, removing false undeclared-identifier warnings and making these parameters available in hover and completion. Available in Community and PRO. Parameters without type information in the VMID remain untyped.
+
 ## [1.6.2] — 2026-10-11
 
 ### Added

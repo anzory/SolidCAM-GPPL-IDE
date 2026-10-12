@@ -12,7 +12,7 @@ Write and maintain GPPL postprocessors for **SolidCAM and InventorCAM** in Visua
 
 ## What you can do
 
-- **Write with context.** Semantic highlighting, hover descriptions, signature help, and completion for your symbols, **1618 system variables**, **199 system procedures**, and **95 built-in functions**. [Editor guide](https://gppl-ide.ru/docs/editor/). Newly recognized catalog names may have no description or confirmed type yet.
+- **Write with context.** Semantic highlighting, hover descriptions, signature help, and completion for your symbols, **1633 system variables**, **199 system procedures**, and **95 built-in functions**. [Editor guide](https://gppl-ide.ru/docs/editor/). Newly recognized catalog names may have no description or confirmed type yet.
 - **Complete calls faster.** Procedure and built-in function completion inserts argument placeholders; a selected expression can become the first argument.
 - **Find and fix problems.** Syntax, semantic, and encoding diagnostics with Quick Fixes for supported issues, including duplicate declarations and missing block endings. [Diagnostics guide](https://gppl-ide.ru/docs/diagnostics/).
 - **Navigate your code.** Go to Definition, Find All References, and scope-aware Rename within a file, plus Outline, folding, snippets, and formatting.
