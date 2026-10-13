@@ -52,5 +52,16 @@
   "Entry Points": "Точки входа",
   "Project Files": "Файлы проекта",
   "No gppl.project.json — workspace folder mode": "Нет gppl.project.json — режим папки workspace",
-  "Open a workspace folder first.": "Сначала откройте папку workspace."
+  "Open a workspace folder first.": "Сначала откройте папку workspace.",
+  "Open a GPPL file and place the cursor in a procedure or its documentation.": "Откройте файл GPPL и установите курсор в процедуре или её документации.",
+  "Documentation was not changed because the editor or document changed. Run the command again.": "Документация не изменена: документ или активный редактор изменился. Выполните команду ещё раз.",
+  "Place the cursor in a procedure or its documentation to synchronize it.": "Для синхронизации установите курсор в процедуре или её документации.",
+  "This procedure has no XML documentation block. Add a ;;; XML block above its declaration first.": "У этой процедуры нет блока XML-документации. Сначала добавьте XML-блок ;;; над её объявлением.",
+  "Documentation was not changed. Fix malformed XML or duplicate parameter tags, place each <param> element on separate ;;; lines, and run the command again.": "Документация не изменена. Исправьте некорректный XML или повторяющиеся теги параметров, разместите каждый элемент <param> на отдельных строках ;;; и выполните команду ещё раз.",
+  "Documentation was not changed. Fix the procedure signature and run the command again.": "Документация не изменена. Исправьте сигнатуру процедуры и выполните команду ещё раз.",
+  "Documentation could not be updated. Check that the document is editable and run the command again.": "Не удалось обновить документацию. Убедитесь, что документ доступен для редактирования, и выполните команду ещё раз.",
+  "Documentation checked. Parameter descriptions absent from the signature were kept for manual review: {0}.": "Документация проверена. Описания параметров, отсутствующих в сигнатуре, сохранены для ручной проверки: {0}.",
+  "Procedure documentation is already up to date.": "Документация процедуры уже актуальна.",
+  "Procedure documentation synchronized. Added parameter tags: {0}.": "Документация процедуры синхронизирована. Добавлено тегов параметров: {0}.",
+  "Could not synchronize documentation. Check that the GPPL language server is running and try again.": "Не удалось синхронизировать документацию. Убедитесь, что языковой сервер GPPL запущен, и повторите попытку."
 }

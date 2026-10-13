@@ -12,6 +12,7 @@
   "configuration.proRequestUrl.description": "URL eines Webformulars (Yandex/Google Forms etc.), das bei einer PRO-Lizenzanfrage geöffnet wird. Wenn gesetzt, wird proRequestEmail ignoriert.",
   "configuration.proRequestToken.description": "Optionaler Anfrage-Token, der an das Backend für PRO-Lizenzanfragen gesendet wird. Muss mit der Umgebungsvariable GPPL_REQUEST_TOKEN im Backend übereinstimmen.",
   "command.openLogs.title": "Server-Logs öffnen",
+  "command.synchronizeDocumentation.title": "Prozedurdokumentation synchronisieren",
   "command.activatePro.title": "PRO-Lizenz aktivieren",
   "command.refreshProLicense.title": "PRO-Lizenz aktualisieren",
   "command.createProjectFile.title": "gppl.project.json erstellen",

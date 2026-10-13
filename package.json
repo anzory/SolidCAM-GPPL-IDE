@@ -2,7 +2,7 @@
   "name": "vscode-gppl-ide",
   "displayName": "%displayName%",
   "description": "%description%",
-  "version": "1.6.3",
+  "version": "1.7.0",
   "publisher": "anzory",
   "author": {
     "name": "Andrey Zorin"
@@ -75,7 +75,8 @@
     ],
     "themes": [
       {
-        "label": "GPPL UltraEdit",
+        "id": "GPPL UltraEdit",
+        "label": "GPPL Classic Dark",
         "uiTheme": "vs-dark",
         "path": "./themes/gppl-ultraedit.json"
       }
@@ -216,11 +217,112 @@
           ],
           "string.format": [
             "string.quoted.single.gppl"
+          ],
+          "operator.comparison": [
+            "keyword.operator.comparison.word.gppl"
+          ],
+          "operator.logical": [
+            "keyword.operator.logical.gppl"
+          ],
+          "operator.generation": [
+            "punctuation.section.generation.gppl"
+          ],
+          "operator.separator": [
+            "keyword.operator.separator.gppl"
+          ],
+          "keyword.line": [
+            "keyword.control.line.gppl"
+          ],
+          "function.defaultLibrary": [
+            "support.function.builtin.gppl"
+          ],
+          "function.systemProcedure": [
+            "support.function.procedure.system.gppl"
+          ],
+          "function.userProcedure": [
+            "entity.name.function.procedure.user.gppl"
+          ],
+          "function.systemProcedure.declaration": [
+            "support.function.procedure.system.gppl"
+          ],
+          "function.userProcedure.declaration": [
+            "entity.name.function.procedure.user.gppl"
+          ]
+        }
+      },
+      {
+        "language": "gpp",
+        "scopes": {
+          "variable": [
+            "variable.other.gppl"
+          ],
+          "variable.declaration": [
+            "variable.other.declaration.gppl"
+          ],
+          "variable.readonly": [
+            "variable.other.constant.gppl"
+          ],
+          "function": [
+            "entity.name.function.gppl"
+          ],
+          "function.declaration": [
+            "entity.name.function.definition.gppl"
+          ],
+          "parameter": [
+            "variable.parameter.gppl"
+          ],
+          "parameter.declaration": [
+            "variable.parameter.declaration.gppl"
+          ],
+          "namespace": [
+            "entity.name.namespace.gppl"
+          ],
+          "class": [
+            "entity.name.type.class.gppl"
+          ],
+          "string.format": [
+            "string.quoted.single.gppl"
+          ],
+          "operator.comparison": [
+            "keyword.operator.comparison.word.gppl"
+          ],
+          "operator.logical": [
+            "keyword.operator.logical.gppl"
+          ],
+          "operator.generation": [
+            "punctuation.section.generation.gppl"
+          ],
+          "operator.separator": [
+            "keyword.operator.separator.gppl"
+          ],
+          "keyword.line": [
+            "keyword.control.line.gppl"
+          ],
+          "function.defaultLibrary": [
+            "support.function.builtin.gppl"
+          ],
+          "function.systemProcedure": [
+            "support.function.procedure.system.gppl"
+          ],
+          "function.userProcedure": [
+            "entity.name.function.procedure.user.gppl"
+          ],
+          "function.systemProcedure.declaration": [
+            "support.function.procedure.system.gppl"
+          ],
+          "function.userProcedure.declaration": [
+            "entity.name.function.procedure.user.gppl"
           ]
         }
       }
     ],
     "commands": [
+      {
+        "command": "solidcam-gppl.synchronizeDocumentation",
+        "title": "%command.synchronizeDocumentation.title%",
+        "category": "SolidCAM GPPL",
+        "enablement": "resourceScheme == file && (editorLangId == gppl || editorLangId == gpp)"
+      },
       {
         "command": "solidcam-gppl.openLogs",
         "title": "%command.openLogs.title%",
@@ -259,6 +361,10 @@
     "menus": {
       "commandPalette": [
         {
+          "command": "solidcam-gppl.synchronizeDocumentation",
+          "when": "resourceScheme == file && (editorLangId == gppl || editorLangId == gpp)"
+        },
+        {
           "command": "solidcam-gppl.openLogs"
         },
         {
@@ -276,6 +382,13 @@
           "when": "solidcam-gppl.proActive"
         }
       ],
+      "editor/context": [
+        {
+          "command": "solidcam-gppl.synchronizeDocumentation",
+          "when": "resourceScheme == file && (editorLangId == gppl || editorLangId == gpp)",
+          "group": "1_modification@20"
+        }
+      ],
       "view/title": [
         {
           "command": "solidcam-gppl.refreshProjectExplorer",
@@ -283,7 +396,49 @@
           "group": "navigation"
         }
       ]
-    }
+    },
+    "semanticTokenModifiers": [
+      {
+        "id": "boolean",
+        "description": "GPPL boolean constants."
+      },
+      {
+        "id": "interrupt",
+        "description": "GPPL control flow interruption statements."
+      },
+      {
+        "id": "format",
+        "description": "GPPL single-quoted format strings."
+      },
+      {
+        "id": "comparison",
+        "description": "GPPL word comparison operators (eq, ne, lt, gt, le, ge)."
+      },
+      {
+        "id": "logical",
+        "description": "GPPL logical operators (and, or, not, !)."
+      },
+      {
+        "id": "generation",
+        "description": "GPPL output generation braces."
+      },
+      {
+        "id": "line",
+        "description": "GPPL output block and line markers (nb, nl)."
+      },
+      {
+        "id": "systemProcedure",
+        "description": "SolidCAM system procedures."
+      },
+      {
+        "id": "userProcedure",
+        "description": "User-defined GPPL procedures."
+      },
+      {
+        "id": "separator",
+        "description": "GPPL format separator (:)."
+      }
+    ]
   },
   "dependencies": {
     "vscode-languageclient": "^9.0.1"

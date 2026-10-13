@@ -6,8 +6,54 @@
     "gpp"
   ],
   "patterns": [
-    { "include": "#comment" },
-    { "include": "#string" }
+    {
+      "include": "#comment"
+    },
+    {
+      "include": "#string"
+    },
+    {
+      "include": "#procedure"
+    },
+    {
+      "include": "#comparison"
+    },
+    {
+      "include": "#logical"
+    },
+    {
+      "include": "#generation"
+    },
+    {
+      "include": "#line"
+    },
+    {
+      "include": "#builtin"
+    },
+    {
+      "include": "#separator"
+    },
+    {
+      "include": "#interrupt"
+    },
+    {
+      "include": "#keyword"
+    },
+    {
+      "include": "#scope"
+    },
+    {
+      "include": "#type"
+    },
+    {
+      "include": "#boolean"
+    },
+    {
+      "include": "#operator"
+    },
+    {
+      "include": "#number"
+    }
   ],
   "repository": {
     "comment": {
@@ -21,7 +67,10 @@
           "begin": "'",
           "end": "'|$",
           "patterns": [
-            { "name": "constant.character.escape.gppl", "match": "\\\\[\"'\\\\rntxh]" }
+            {
+              "name": "constant.character.escape.gppl",
+              "match": "\\\\[\"'\\\\rntxh]"
+            }
           ]
         },
         {
@@ -29,10 +78,70 @@
           "begin": "\"",
           "end": "\"|$",
           "patterns": [
-            { "name": "constant.character.escape.gppl", "match": "\\\\[\"'\\\\rntxh]" }
+            {
+              "name": "constant.character.escape.gppl",
+              "match": "\\\\[\"'\\\\rntxh]"
+            }
           ]
         }
       ]
+    },
+    "procedure": {
+      "name": "entity.name.function.procedure.gppl",
+      "match": "(?i)@[a-z][a-z0-9_]*"
+    },
+    "comparison": {
+      "name": "keyword.operator.comparison.word.gppl",
+      "match": "(?i)(?<![a-z0-9_@])(?:eq|ne|lt|gt|le|ge)(?![a-z0-9_])"
+    },
+    "logical": {
+      "name": "keyword.operator.logical.gppl",
+      "match": "(?i)(?<![a-z0-9_@])(?:and|or|not)(?![a-z0-9_])|!(?!=)"
+    },
+    "generation": {
+      "name": "punctuation.section.generation.gppl",
+      "match": "[{}]"
+    },
+    "line": {
+      "name": "keyword.control.line.gppl",
+      "match": "(?i)(?<![a-z0-9_@])(?:nb|nl)(?![a-z0-9_])"
+    },
+    "builtin": {
+      "comment": "Names from server/SolidCAM.GPPL.Server.Core/Resources/builtin-functions.json; keep catalog parity tests passing.",
+      "name": "support.function.builtin.gppl",
+      "match": "(?i)(?<![a-z0-9_@])(?:abs|acos|adims|alen|ang|asin|asize|atan|atan2|cos|dist|exp|frac|int|log|log10|mod|norm360|pow|round|round2val|sign|sin|sqrt|square|tan|todeg|torad|date|time|dup|instr|left|lower|replace|rev|right|space|strlen|substr|tonum|tostr|trim|upper|active|change|even|odd|get_angle_precision|get_axes_names_list|get_axes_pattern_gpp_name|get_axes_pattern_name|get_axis_current_status|get_axis_home_ref|get_axis_limits|get_axis_name|get_axis_previous_status|get_axis_ref_point|get_axis_value_before_job|get_axis_value_in_lable|get_axis_vector|get_base_geometry_joint|get_base_geometry_position|get_drive_unit_name|get_final_gear_ratio|get_last_job_number|get_machine_precision|get_magazine_id|get_number_of_jobs_in_label|get_number_of_tool_components|get_number_of_touch_points|get_plane_rotation_order|get_solidcam_version|get_stock_data_in_position|get_submachine_turret_type|get_table_num|get_target_data_in_position|get_tcp_type|get_tool_catalog_number|get_tool_component_name|get_tool_data_id|get_tool_dir_in_station|get_tool_item_weight|get_tool_mfc_data|get_tool_tag_in_label|get_tool_vector_dir_in_station|get_total_number_of_jobs|get_touch_point_name|get_turret_num|get_vmid_info|get_vmid_procedure_data|get_work_offset|is_drive_unit_shared|is_joint_name_exist|is_last_job_using_drive_unit)(?![a-z0-9_])"
+    },
+    "separator": {
+      "name": "keyword.operator.separator.gppl",
+      "match": ":"
+    },
+    "interrupt": {
+      "name": "keyword.control.interrupt.gppl",
+      "match": "(?i)(?<![a-z0-9_@])(?:abort|exit|break|return)(?![a-z0-9_])"
+    },
+    "keyword": {
+      "name": "keyword.control.gppl",
+      "match": "(?i)(?<![a-z0-9_@])(?:endp|call|if|then|elseif|else|endif|while|endw|inc|trace|print|input|col|colrel)(?![a-z0-9_])"
+    },
+    "scope": {
+      "name": "entity.name.namespace.gppl",
+      "match": "(?i)(?<![a-z0-9_@])(?:global|local)(?![a-z0-9_])"
+    },
+    "type": {
+      "name": "entity.name.type.class.gppl",
+      "match": "(?i)(?<![a-z0-9_@])(?:integer|numeric|logical|string)(?![a-z0-9_])"
+    },
+    "boolean": {
+      "name": "constant.language.boolean.gppl",
+      "match": "(?i)(?<![a-z0-9_@])(?:true|false)(?![a-z0-9_])"
+    },
+    "operator": {
+      "name": "keyword.operator.gppl",
+      "match": "!=|<>|<=|>=|==|[+*/^=<>-]"
+    },
+    "number": {
+      "name": "constant.numeric.gppl",
+      "match": "(?i)(?<![a-z0-9_@])(?:[0-9]+\\.[0-9]*|\\.[0-9]+|[0-9]+)(?:e[+-]?[0-9]+)?(?![a-z0-9_])"
     }
   }
 }

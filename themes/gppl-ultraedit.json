@@ -1,6 +1,6 @@
 {
   "$schema": "vscode://schemas/color-theme",
-  "name": "GPPL UltraEdit",
+  "name": "GPPL Classic Dark",
   "type": "dark",
   "colors": {
     "editor.background": "#000000",
@@ -16,9 +16,16 @@
     "keyword.interrupt": { "foreground": "#FF0000", "fontStyle": "bold italic" },
     "namespace": "#F92672",
     "operator": "#C0C0C0",
+    "operator.comparison": "#F92672",
+    "operator.logical": "#F92672",
+    "operator.generation": "#F92672",
+    "operator.separator": "#C0C0C0",
+    "keyword.line": "#F92672",
     "class": "#FF8000",
     "function": "#F5CB49",
     "function.defaultLibrary": { "foreground": "#00CACA", "fontStyle": "" },
+    "function.systemProcedure": { "foreground": "#00CACA", "fontStyle": "" },
+    "function.userProcedure": { "foreground": "#F5CB49", "fontStyle": "" },
     "string": "#FFFFFF",
     "string.format": "#FF8000",
     "number": "#C0C0C0",
@@ -38,6 +45,26 @@
       "settings": { "foreground": "#F92672" }
     },
     {
+      "scope": ["keyword.operator.gppl"],
+      "settings": { "foreground": "#C0C0C0" }
+    },
+    {
+      "scope": ["keyword.operator.comparison.word.gppl", "keyword.operator.logical.gppl", "punctuation.section.generation.gppl", "keyword.control.line.gppl"],
+      "settings": { "foreground": "#F92672" }
+    },
+    {
+      "scope": ["keyword.operator.separator.gppl"],
+      "settings": { "foreground": "#C0C0C0" }
+    },
+    {
+      "scope": ["keyword.control.interrupt.gppl"],
+      "settings": { "foreground": "#FF0000", "fontStyle": "bold italic" }
+    },
+    {
+      "scope": ["support.function.builtin.gppl", "support.function.procedure.system.gppl"],
+      "settings": { "foreground": "#00CACA", "fontStyle": "" }
+    },
+    {
       "scope": ["string.quoted.double.gppl"],
       "settings": { "foreground": "#FFFFFF" }
     },
@@ -50,12 +77,20 @@
       "settings": { "foreground": "#FFC042" }
     },
     {
+      "scope": ["constant.numeric.gppl"],
+      "settings": { "foreground": "#C0C0C0" }
+    },
+    {
       "scope": ["entity.name.function"],
       "settings": { "foreground": "#F5CB49" }
     },
     {
-      "scope": ["entity.name.type.class", "entity.name.namespace"],
+      "scope": ["entity.name.type.class"],
       "settings": { "foreground": "#FF8000" }
+    },
+    {
+      "scope": ["entity.name.namespace.gppl"],
+      "settings": { "foreground": "#F92672" }
     }
   ]
 }

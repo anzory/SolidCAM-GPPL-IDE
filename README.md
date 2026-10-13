@@ -40,6 +40,37 @@ Open a `.gpp` file, press **Ctrl+Space** for completion, **F12** for a definitio
 
 For offline installation, download the Community VSIX from [GitHub Releases](https://github.com/anzory/SolidCAM-GPPL-IDE/releases) and choose **Extensions → … → Install from VSIX…**. Follow the [quick start](https://gppl-ide.ru/docs/) for setup and first steps.
 
+### Color theme
+
+Community 1.7.0 renames the bundled theme to **GPPL Classic Dark** (previously **GPPL UltraEdit**), with the same palette. Select it through **Preferences: Color Theme**. Its settings ID remains `GPPL UltraEdit`, so an existing `workbench.colorTheme` selection and `[GPPL UltraEdit]` color overrides continue to work. Keep that ID when editing settings JSON; no migration is needed.
+
+### Customize token colors
+
+Keep your theme and adjust GPPL colors in **Preferences: Open User Settings (JSON)**. For example, these rules distinguish the two quote styles in Community 1.7.0:
+
+```json
+{
+  "editor.semanticTokenColorCustomizations": {
+    "rules": {
+      "string:gppl": "#9CDCFE",
+      "string.format:gppl": "#FF8000"
+    }
+  }
+}
+```
+
+Merge the rules into your existing settings; semantic highlighting must be enabled. The [highlighting guide](https://gppl-ide.ru/docs/highlighting/) provides the full category reference, ready-to-copy settings, TextMate fallback, and troubleshooting. [Русская инструкция](https://gppl-ide.ru/ru/docs/highlighting/).
+
+Community 1.7.0 adds separate categories for word comparisons, logic, generation braces, `nb/nl`, `:`, built-in functions, and system/user procedures. These selectors are not available in 1.6.3. In GPP mode, use `:gpp`; with semantic highlighting off, that mode uses the SolidCAM extension's grammar.
+
+### Keep procedure documentation in sync
+
+**Since Community 1.7.0:** renaming a procedure parameter with **F2** also updates its `<param name="...">` attribute in the adjacent `;;;` XML documentation block. The declaration, references and documentation name change together, with one Undo/Redo operation. Description text and other procedures remain unchanged.
+
+After adding, removing or reordering parameters, place the caret in the procedure or its documentation and run **SolidCAM GPPL: Synchronize Procedure Documentation** from the Command Palette or editor context menu. The command adds missing `<param>` tags and orders them by the current signature. It preserves existing descriptions, `summary` and `remarks`; tags for removed parameters are retained after the current parameters and reported for review. It never infers a rename from parameter position. Use F2 when renaming, or review retained descriptions yourself after a manual rename.
+
+The command updates an existing adjacent `;;;` block. To create one, type `;;;` on a separate line immediately above the procedure. Put each `<param>` element on its own `;;;` line or group of lines; multiline descriptions are supported. Incomplete XML or duplicate parameter tags require correction before synchronization. The command edits the open buffer without saving or changing the file encoding; repeated synchronization is a no-op once the block matches the signature.
+
 ### Check your file encoding
 
 The default is **Windows-1252**. For Cyrillic postprocessors, configure **Windows-1251** for both `gppl.encoding` and VS Code's GPPL file encoding. If text opens incorrectly, use **Reopen with Encoding** before saving. See the [encoding guide](https://gppl-ide.ru/docs/encoding/) for settings and the difference between reopening and converting a file.

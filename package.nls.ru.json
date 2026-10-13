@@ -12,6 +12,7 @@
   "configuration.proRequestUrl.description": "URL веб-формы (Yandex/Google Forms и т.п.), открываемой при заявке на PRO-лицензию. Если задан, proRequestEmail игнорируется.",
   "configuration.proRequestToken.description": "Опциональный токен запроса, отправляемый backend'у заявок на PRO-лицензию. Должен совпадать с переменной окружения GPPL_REQUEST_TOKEN на backend'е.",
   "command.openLogs.title": "Открыть логи сервера",
+  "command.synchronizeDocumentation.title": "Синхронизировать документацию процедуры",
   "command.activatePro.title": "Активировать PRO-лицензию",
   "command.refreshProLicense.title": "Обновить PRO-лицензию",
   "command.createProjectFile.title": "Создать gppl.project.json",

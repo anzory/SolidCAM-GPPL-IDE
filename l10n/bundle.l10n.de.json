@@ -52,5 +52,16 @@
   "Entry Points": "Einstiegspunkte",
   "Project Files": "Projektdateien",
   "No gppl.project.json — workspace folder mode": "Keine gppl.project.json — Workspace-Ordner-Modus",
-  "Open a workspace folder first.": "Öffnen Sie zuerst einen Workspace-Ordner."
+  "Open a workspace folder first.": "Öffnen Sie zuerst einen Workspace-Ordner.",
+  "Open a GPPL file and place the cursor in a procedure or its documentation.": "Öffnen Sie eine GPPL-Datei und setzen Sie den Cursor in eine Prozedur oder deren Dokumentation.",
+  "Documentation was not changed because the editor or document changed. Run the command again.": "Die Dokumentation wurde nicht geändert, da sich das Dokument oder der aktive Editor geändert hat. Führen Sie den Befehl erneut aus.",
+  "Place the cursor in a procedure or its documentation to synchronize it.": "Setzen Sie den Cursor in eine Prozedur oder deren Dokumentation, um sie zu synchronisieren.",
+  "This procedure has no XML documentation block. Add a ;;; XML block above its declaration first.": "Diese Prozedur hat keinen XML-Dokumentationsblock. Fügen Sie zuerst einen ;;; XML-Block oberhalb ihrer Deklaration hinzu.",
+  "Documentation was not changed. Fix malformed XML or duplicate parameter tags, place each <param> element on separate ;;; lines, and run the command again.": "Die Dokumentation wurde nicht geändert. Korrigieren Sie fehlerhaftes XML oder doppelte Parametertags, setzen Sie jedes <param>-Element auf eigene ;;; Zeilen und führen Sie den Befehl erneut aus.",
+  "Documentation was not changed. Fix the procedure signature and run the command again.": "Die Dokumentation wurde nicht geändert. Korrigieren Sie die Prozedursignatur und führen Sie den Befehl erneut aus.",
+  "Documentation could not be updated. Check that the document is editable and run the command again.": "Die Dokumentation konnte nicht aktualisiert werden. Prüfen Sie, ob das Dokument bearbeitet werden kann, und führen Sie den Befehl erneut aus.",
+  "Documentation checked. Parameter descriptions absent from the signature were kept for manual review: {0}.": "Dokumentation geprüft. Beschreibungen von Parametern, die in der Signatur fehlen, wurden zur manuellen Prüfung beibehalten: {0}.",
+  "Procedure documentation is already up to date.": "Die Prozedurdokumentation ist bereits aktuell.",
+  "Procedure documentation synchronized. Added parameter tags: {0}.": "Prozedurdokumentation synchronisiert. Hinzugefügte Parametertags: {0}.",
+  "Could not synchronize documentation. Check that the GPPL language server is running and try again.": "Die Dokumentation konnte nicht synchronisiert werden. Prüfen Sie, ob der GPPL-Sprachserver läuft, und versuchen Sie es erneut."
 }

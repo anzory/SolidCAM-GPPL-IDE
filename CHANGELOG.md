@@ -2,6 +2,23 @@
 
 ## [Unreleased]
 
+## [1.7.0] — 2026-10-13
+
+### Added
+
+- **Synchronize procedure documentation after changing parameters.** Run **SolidCAM GPPL: Synchronize Procedure Documentation** from the Command Palette or editor context menu. Missing `<param>` tags are added and existing tags follow the signature order. Descriptions for removed parameters are retained for review, and ambiguous or malformed blocks are left unchanged. The operation supports a single Undo/Redo and rejects stale responses.
+
+### Changed
+
+- **Customize more token categories independently:** word comparisons (`eq/ne/lt/gt/le/ge`), logical operators (`and/or/not/!`), generation braces, `nb/nl`, and `:`. Built-in functions, system procedures, and user procedures have separate semantic selectors; `change` and `active` now use the built-in function category. GPPL TextMate fallback and color-setting examples are included; system/user procedure distinction requires semantic highlighting.
+- **The bundled theme is now called GPPL Classic Dark.** Its palette is unchanged. The settings ID remains `GPPL UltraEdit`, preserving the selected theme and existing `[GPPL UltraEdit]` color customizations without editing your settings.
+
+### Fixed
+
+- **Parameter Rename keeps XML documentation attached.** F2 updates the matching `<param name="...">` together with the parameter declaration and references, preserving descriptions and documentation belonging to other procedures.
+- **Parenthesized arguments in `get_axis_vector` and similar built-in functions no longer produce false syntax errors.** Calls such as `get_axis_vector(submachine_ID, (4), x, y, z)` now parse correctly (issue #5).
+- **Parameter hints remain available inside parenthesized arguments**, including nested groups and expressions with word operators.
+
 ## [1.6.3] — 2026-10-12
 
 ### Added
